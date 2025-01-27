@@ -22,5 +22,29 @@
         "wishlist": [],
         "cart": {},
         "orders": []
+    },
+    {
+        "name": "xdd",
+        "email": "xcxxxxz@gmail.com",
+        "id": "3d1685f5-0545-443c-8ca0-37d9a882ef3f",
+        "password": "$2b$12$V.JdhLJwtmbuHgD/14XlhuRs/bR2aPM.86UDGtYwQipgtBQi3gO0u",
+        "address": "cssa",
+        "phone": "3543532523",
+        "security_question": "xcsss",
+        "wishlist": [],
+        "cart": {},
+        "orders": []
+    },
+    {
+        "name": "nono",
+        "email": "nono@gmail.com",
+        "id": "5159960a-a219-460e-86d9-66df22507e67",
+        "password": "$2b$12$L/ILjJINiRUozOspu7IzxOpyr2aQBQGh4gWJKEPiSb0dO9H8FRK4m",
+        "address": "maadi",
+        "phone": "0192928387",
+        "security_question": "nono",
+        "wishlist": [],
+        "cart": {},
+        "orders": []
     }
 ]
