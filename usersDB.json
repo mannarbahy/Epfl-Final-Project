@@ -1,0 +1,26 @@
+[
+    {
+        "name": "manar",
+        "email": "fddfdfdv@yahoo.com",
+        "id": "50d0fa49-64e2-4939-99f3-9a6b458f2834",
+        "password": "$2b$12$t7X9OkbxddwB7Dj0BEqenuXbzU6olDEnTCH9oOglxmgB/L0v4glgK",
+        "address": "dsasfsa",
+        "phone": "43444444444",
+        "security_question": "aaaa",
+        "wishlist": [],
+        "cart": {},
+        "orders": []
+    },
+    {
+        "name": "jhkj",
+        "email": "manar.bahy@hhh.com",
+        "id": "5d29ec39-83d6-4cd1-a0b0-a4c52f20a0c4",
+        "password": "$2b$12$q4zFCbZ92.Gj1p530OjgnuM9XHI6/sD.sFQak6Qe.1ylgB6/jZK42",
+        "address": "maadi",
+        "phone": "01098630762",
+        "security_question": "menna",
+        "wishlist": [],
+        "cart": {},
+        "orders": []
+    }
+]

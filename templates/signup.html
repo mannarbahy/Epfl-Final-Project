@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BakeCraft | Sign Up</title>
+    <link rel="stylesheet" href="../static/css/auth.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="shortcut icon" href="../static/images/logobrand.png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+ 
+  </head>
+  <body>
+     
+    <div class="form">
+      <div class="sign-up-form">
+        <h3>Sign Up</h3>
+        <form id="signup-form" action="/signup" method="post" autocomplete="off">
+
+          <div class="input-box">
+          <input type="text" name="fullname" id="fullname" placeholder="Full Name" class="input-field" required />
+          <span id="fullname-error" class="error-message">Please enter a valid full name.</span>
+          <i class="fas fa-user"></i>
+          </div>
+
+          <div class="input-box">
+
+          <input type="email" name="email" id="email" placeholder="Example@gmail.com"  class="input-field" required />
+          <span id="email-error" class="error-message">Please enter a valid email address.</span>
+          <i class="fas fa-envelope"></i>
+
+          
+        </div>
+         
+
+          <div class="input-box">
+
+             <input type="password" name="password" id="password" placeholder="Password" class="input-field" required />
+             <span id="password-error" class="error-message">Password must be at least 6 characters.</span>
+             <i class="fas fa-lock"></i>
+          </div>
+         
+
+          <div class="input-box">
+
+             <input type="text" name="address" id="address" placeholder="Address" class="input-field" required />
+             <span id="address-error" class="error-message">Please enter your address.</span>
+             <i class="fa-solid fa-house"></i>
+          </div>
+         
+ 
+          <div class="input-box">
+
+            <input type="text" name="phone" id="phone" placeholder="Phone number" class="input-field" required />
+            <span id="phone-error" class="error-message">Please enter a valid phone number.</span>
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          
+
+          <div class="input-box">
+
+            <input type="text" name="security_question" id="security_question" placeholder="What is your nikname?" class="input-field" required />
+            <span id="security_question-error" class="error-message">Please answer the security question.</span>
+            <i class="fa-solid fa-user"></i>
+
+          </div>
+          
+          <input type="submit" value="Sign Up" disabled />
+        </form>
+        <p class="error-message">{{ error }}</p>
+        <div class="form-btns">
+          <a href="login" class="already-account">Already Have An Account?</a>
+        </div>
+      </div>
+    </div>
+    <script src="../static/js/signup.js"></script>
+  </body>
+</html>
