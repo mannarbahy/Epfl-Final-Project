@@ -63,17 +63,6 @@ ul {
   top: 60px; 
 }
 
-/* .navigation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 1200px;
-  width: 90%;
-  margin: auto;
-  padding: 20px 0px;
-  z-index: 101;
-  position: relative;
-} */
 .section{
   padding: 3rem 0 2rem;
 }
@@ -136,80 +125,8 @@ color: #fffefe;
   max-width: 560px;
   width: 100%;
 }
-/* 
-.main-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  width: 90%;
-  margin: auto;
-  margin-bottom: 0px;
-  padding-top: 20px;
-}
 
-.main-content-img {
-  width: 100%;
-  height: 75vh;
-}
 
-.main-content-img img {
-  width: 100%;
-  height: 100%;
-  object-position: right;
-  object-fit: contain;
-} */
-
-/* .main-content-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.main-content-text strong {
-  color: var(--main-dark);
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  font-weight: 600;
-}
-
-.main-content-text h1 {
-  font-size: 3rem;
-  color: #181818;
-  line-height: 3.7rem;
-  font-weight: 600;
-}
-
-.main-content-text p {
-  color: #5f5f5f;
-  margin: 20px 0px;
-  font-size: 0.9rem;
-} */
-
-/* .main-content-text a {
-  color: #ffffff;
-  background-color: var(--main-dark);
-  max-width: 150px;
-  width: 100%;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.9rem;
-  transition: all ease 0.3s;
-}
-
-.main-content-text a:hover {
-  background-color: #bb3f5c;
-} */
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
 #category {
   display: flex;
@@ -261,6 +178,7 @@ color: #fffefe;
 }
 
 .product{
+  
   margin: 150px;
 }
 .product h2{
@@ -293,18 +211,11 @@ color: #fffefe;
 
 
 .service{
-  margin: 20px;
-  
+  margin: 20px 115px;
  
 }
 .service .heading{
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-  text-align: center;
-  margin-bottom:20px ;
-  z-index: 1; */
+ 
   position: absolute;
   z-index: 1;
   top: 1000px;
@@ -374,7 +285,7 @@ color: #fffefe;
   font-size: 24px; 
   color: #f39c12;
   transition: color 0.3s; 
-  margin: 0px 70px 0 0 ;
+  margin: 0  110px 0 0 ;
 }
 
 .favorite-btn.favorited i {
@@ -552,6 +463,10 @@ color: #fffefe;
 .delivery-info {
   padding: 4rem 2rem;
   background-color: #543310; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 115px;
 }
 
 .delivery-container {
@@ -561,7 +476,7 @@ color: #fffefe;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .delivery-item {
@@ -616,7 +531,7 @@ color: #fffefe;
   color: #666;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 770px) {
   .delivery-container {
     flex-direction: column;
     gap: 1.5rem;
@@ -625,4 +540,118 @@ color: #fffefe;
   .delivery-item {
     min-width: 100%;
   }
+  .container{
+      width: 90%;
+  }
+  
+  .nav-button{
+      display: none;
+  }
+  .nav-menu.responsive{
+      display: flex;
+  }
+ 
+  .nav-menu-btn{
+      display: inline-block;
+      margin: 30px;
+      
+  }
+  .nav-menu-btn i{
+      font-size: 25px;
+      color: #fff;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: .3s;
+  }
+  .nav-menu-btn i:hover{
+      background: rgba(255, 255, 255, 0.15);
+  }
+  
+  .home-text h1{
+    font-size: 40px;
+    column-gap: 5px;
+    
+  }
+  .home-text p{
+      font-size: 15px;
+     margin: 20px 0 20px 0 ;
+    }
+  
+  
+    .shopstory p{
+      font-size: 15px;
+      font-weight:400;
+      color: #ffffff;
+      width: 100%;
+      line-height: 18px;
+   
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 20px  0;
+    width: 250px;
+    height: 95vh;
+  color: #fffefe;
+    background-color: #000000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.showmenu {
+    display: block;
+}
+
+.menu {
+    display: none;
+}
+.product .shopstory{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.shopstory img{
+  width: 100%;
+  height: 35vh;
+  border-radius: 20px;
+}
+.shopstory p{
+  font-size: 16px;
+  font-weight:400;
+  color: #ffffff;
+  line-height: 25px;
+}
+.shopstory img{
+ width: 300px;
+ height: 400px;
+
+}
+
+#category {
+  margin: 0 90px;
+}
+#blog{
+
+  margin: 40px 90px;
+}
+.delivery-info{
+  margin: 40px 90px;
+}
+
+}
+
+
+
+
+@media (min-width: 771px) {
+  .showmenu {
+      display: none;
+  }
+
+  
 }
