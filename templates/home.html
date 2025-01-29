@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BakeCraft</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}" />
+  <link rel="shortcut icon" href="../static/images/logobrand.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-color: #543310;">
+ 
+
+ <section id="main" class="container" style="background-color: #543310;">
+
+  <header class="header">
+    <nav class="navbar">
+      <a href="" class="logo">
+        <img src="../static/images/logobrand.png" alt="Logo"width="60px" height="70px" style="margin: 5 30; border-radius: 30px;" >
+        <div class="navbar">
+      </a>
+
+      <div class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+      <div class="nav-btns">
+        <a href="#" class="nav-search">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <title>121 heart</title>
+            <g id="_01_align_center" data-name="01 align center">
+              <path d="M17.5.917a6.4,6.4,0,0,0-5.5,3.3A6.4,6.4,0,0,0,6.5.917,6.8,6.8,0,0,0,0,7.967c0,6.775,10.956,14.6,11.422,14.932l.578.409.578-.409C13.044,22.569,24,14.742,24,7.967A6.8,6.8,0,0,0,17.5.917ZM12,20.846c-3.253-2.43-10-8.4-10-12.879a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,7.967h2a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,7.967C22,12.448,15.253,18.416,12,20.846Z" />
+            </g>
+          </svg>
+        </a>
+        <a href="#" class="nav-cart">
+          <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+            <title>109 shopping bag</title>
+            <g id="_01_align_center" data-name="01 align center">
+              <path d="M18,6A6,6,0,0,0,6,6H0V21a3,3,0,0,0,3,3H21a3,3,0,0,0,3-3V6ZM12,2a4,4,0,0,1,4,4H8A4,4,0,0,1,12,2ZM22,21a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V8H6v2H8V8h8v2h2V8h4Z" />
+            </g>
+          </svg>
+        </a>
+        <div class="nav-user-dropdown">
+          <a href="#" class="nav-user">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z" />
+            </svg>
+          </a>
+          <div class="dropdown-content">
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('signup') }}">Sign Up</a>
+            <a href="#">Profile</a>
+            <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+          </div>
+        </div>
+    </nav>
+  </header>
+
+  <div class="home" id="home">
+
+    <div class="home-text">
+        <h1>
+            Freshly Baked Happiness
+            Every Day!  
+        </h1>
+        <p> Indulge in our handcrafted pastries, bread, and cakes made with love and the finest ingredients. Taste the magic today! </p>
+        <a href="#" class="btn">
+            <span>Shop Now</span>
+            <i class="fa-solid fa-cookie" style="color: #ffffff;"></i>
+        </a>
+      
+    </div> 
+     <div class="home-image">
+            <img src="/static/images/dd.png" class="home-img" alt="Logo" />
+        </div>
+
+</div>
+</section>
+
+
+
+
+
+<!-- --------------------------------------------------------------------------- -->
+<section id="category">
+  <h2>Categories</h2>
+  <a href="#" class="category-box" data-category="Bread">
+    <div class="category-box-img">
+      <img src="/static/images/rb_38844.png" alt="Bread">
+    </div>
+    <strong>Bread</strong>
+  </a>
+  <a href="#" class="category-box" data-category="">
+    <div class="category-box-img">
+      <img src="/static/images/rb_32284.png" alt="Pastries">
+    </div>
+    <strong>Pastries</strong>
+  </a>
+  <a href="#" class="category-box" data-category="">
+    <div class="category-box-img">
+      <img src="/static/images/closeup-shot-delicious-cupcake-with-cream-powdered-sugar-cherry-top-book.png" alt="Cakes">
+    </div>
+    <strong>Cakes</strong>
+  </a>
+  <a href="#" class="category-box" data-category="">
+    <div class="category-box-img">
+      <img src="/static/images/cupcakes.png" alt="Cookies">
+    </div>
+    <strong>Cookies</strong>
+  </a>
+  <a href="#" class="category-box" data-category="">
+    <div class="category-box-img">
+      <img src="/static/images/tart.png" alt="Desserts">
+    </div>
+    <strong>Desserts</strong>
+  </a>
+  <a href="#" class="category-box" data-category="">
+    <div class="category-box-img">
+      <img src="/static/images/rb_18125.png" alt="Savory Items">
+    </div>
+    <strong>Savory Items</strong>
+  </a>
+</section>
+
+
+
+
+<section class="container">
+<div class="product" id="product">
+
+  <h2>About Us</h2>
+  <div class="shopstory" id="shop">
+      <img src="/static/images/bakerystaff.jpg" alt="staff image">
+      <p>At BakeCraft, we’re passionate about turning simple 
+      ingredients into moments of joy. Our small bakery
+       is your go-to spot for freshly baked bread, delightful 
+       pastries, and custom-made desserts that warm the heart and satisfy the soul.
+      Every treat we craft is a blend of quality, creativity, and a pinch of love,
+       ensuring that each bite is as special as the occasion it celebrates.
+       Come visit us and discover 
+      how BakeCraft makes every day a little sweeter!</p>
+  </div>
+</div>
+
+</section>
+<!-- ------------------------------ -->
+<div class="service container" id="service">
+  <!-- <div class="heading">
+      <h2>
+        Blending culture , coffe & top <br/>
+         Notch services  
+      </h2>
+   
+  </div> -->
+  <div class="heading2">
+      <h2> New Items   </h2>
+  </div>
+  <div class="service-content">
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button>
+          <img src="/images/food2.png" alt="items" width="150px" height="100px">
+          <p>Croissant</p>
+  
+          
+      </div>
+  
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button>
+          <img src="/images/layered-french-pastry-with-cream.png" alt="items" width="150px" height="100px">
+          <p>french pestry cream</p>
+      </div>
+  
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button>
+          <img src="/images/rb_25311.png" alt="items" width="150px" height="100px">
+          <p>Apple Turnover</p>
+      </div>
+  
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button>
+  
+          <img src="/images/rb_18125.png" alt="items" width="150px" height="100px">
+          <p>Cookies</p>
+      </div>
+  
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button>
+  
+          <img src="/images/composition-tasty-breakfast-pancakes.png" alt="items" width="150px" height="100px">
+          <p>Pancakes</p>
+      </div>
+  
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button> 
+  
+          <img src="/images/rb_32284.png" alt="items" width="150px" height="100px">
+          <p>Apple Tart</p>
+      </div>
+  
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button>
+  
+          <img src="/images/delicious-muffin.png" alt="items" width="150px" height="100px">
+          <p>Chocolate Chip Muffin</p>
+      </div>
+  
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button>
+  
+          <img src="/images/cupcakes.png" alt="items" width="150px" height="100px">
+          <p>cupcake</p>
+      </div>
+  
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button> 
+  
+          <img src="/images/food2.png" alt="items" width="150px" height="100px">
+          <p>Raspberry Sponge</p>
+      </div>
+  
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button>
+  
+          <img src="/images/cheese.png" alt="items" width="150px" height="100px">
+          <p>Scotch Pie</p>
+      </div>
+  
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button>
+          
+          <img src="/images/tart.png" alt="items" width="150px" height="100px">
+          <p>Macaroni Pie</p>
+      </div>
+  
+      <div class="ser-box">
+          <button class="favorite-btn" onclick="toggleFavorite(this)">
+              <i class="far fa-heart"></i> 
+          </button>
+          
+          <img src="/images/sandwitsh.png" alt="items" width="150px" height="100px">
+          <p>Softies </p>
+      </div>
+  
+    
+      
+  </div>
+  
+  </div>
+<!-- ------------------------------------------------------------------------ -->
+<section id="blog">
+  <div class="blog-header">
+      <h2 class="blog_title">Blog</h2>
+  </div>
+  
+  <div class="blog-container">
+      <article class="blog-card">
+          <div class="blog-image">
+              <img src="../static/images/bakerywebs.jpg" alt="Blog Post Title">
+              <div class="date-badge">
+                  <span class="month">jun</span>
+                  <span class="day">20</span>
+              </div>
+          </div>
+          <div class="blog-content">
+              <h3 class="blog-title">Why We Love Bakeries</h3>
+              <div class="blog-meta">
+                  <div class="author">
+                      <span>By Sarah Green</span>
+                  </div>
+                  <div class="date">jun 2, 2025</div>
+              </div>
+              <p class="blog-excerpt">
+                The aroma of fresh bread, the artistry of a 
+                decorated cake—bakeries remind us to slow down and enjoy life’s simple pleasures...
+              </p>
+              <a href="/blog" class="read-more">Read More →</a>
+          </div>
+      </article>
+      <article class="blog-card">
+        <div class="blog-image">
+            <img src="../static/images/bakerywebs.jpg" alt="Blog Post Title">
+            <div class="date-badge">
+                <span class="month">Oct</span>
+                <span class="day">10</span>
+            </div>
+        </div>
+        <div class="blog-content">
+            <h3 class="blog-title">The Future of Baking</h3>
+            <div class="blog-meta">
+                <div class="author">
+                    <span>By Michael Lee</span>
+                </div>
+                <div class="date">October 10, 2025</div>
+            </div>
+            <p class="blog-excerpt">
+              Modern bakeries are innovating with global flavors and sustainable
+              practices, ensuring they remain a beloved part of our lives...
+            </p>
+            <a href="/blog_2" class="read-more">Read More →</a>
+        </div>
+    </article>
+     <article class="blog-card">
+      <div class="blog-image">
+          <img src="../static/images/bakerywebs.jpg" alt="Blog Post Title">
+          <div class="date-badge">
+              <span class="month">jen</span>
+              <span class="day">26</span>
+          </div>
+      </div>
+      <div class="blog-content">
+          <h3 class="blog-title">Bakeries:the Community</h3>
+          <div class="blog-meta">
+              <div class="author">
+                  <span>By Emily Brown</span>
+              </div>
+              <div class="date">jen 26, 2025</div>
+          </div>
+          <p class="blog-excerpt">
+            Bakeries bring people together. Whether 
+            it’s a morning coffee or a custom cake for a celebration, they create moments worth savoring
+            <br>        
+        
+            <a href="/blog_3" class="read-more"> Read More → </a>
+      </div>
+  </article>
+  </div>
+</section>
+
+
+
+
+
+<section class="delivery-info" id="delivery">
+<div class="delivery-container">
+  <div class="delivery-item">
+    <div class="delivery-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 6v6l4 2"/>
+      </svg>
+    </div>
+    <h4>Fast & free delivery orders</h4>
+  </div>
+  
+  <div class="delivery-item">
+    <div class="delivery-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M7 15h0M2 9h20"/>
+      </svg>
+    </div>
+    <h4>Express delivery available</h4>
+  </div>
+  
+  <div class="delivery-item">
+    <div class="delivery-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    </div>
+    <h4>Chat with our concierge anytime</h4>
+    <p>info@BakeCraft.com</p>
+  </div>
+  
+  <div class="delivery-item">
+    <div class="delivery-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </div>
+    <h4>Freshness guarantee up to 10 days</h4>
+  </div>
+</div>
+</section>
+<footer class="footer ">
+  <div class="footer__container grid">
+    <div class="footer__content ">
+      <a href="index.html" class="footer__logo">
+        <img src="../static/images/logobrand.png" alt="" class="footer__logo-img" />
+      </a>
+      <h4 class="footer__title">Contact</h4>
+      <p class="footer__description">
+        <span>Address:</span> 13 Tlemcen Road, Street 32, Beb-Wahren
+      </p>
+      <p class="footer__description">
+        <span>Phone:</span> +01 2222 365 /(+91) 01 2345 6789
+      </p>
+      <p class="footer__description">
+        <span>Hours:</span> 10:00 - 18:00, Mon - Sat
+      </p>
+      <div class="footer__social">
+        <h4 class="footer__subtitle">Follow Me here : </h4>
+        <div class="footer__links flex">
+          <a href="#" class="footer__social-icon">
+            <i class="fab fa-facebook-f" ></i> 
+           </a>
+          <a href="#" class="footer__social-icon">
+            <i class="fab fa-twitter"></i>         
+           </a>
+          <a href="#" class="footer__social-icon">
+            <i class="fa-brands fa-instagram" ></i>          </a>
+          <a href="#" class="footer__social-icon">
+            <i class="fab fa-dribbble" ></i>         
+           </a>
+          <a href="#" class="footer__social-icon">
+            <i class="fab fa-google-plus-g" ></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__content">
+      <h3 class="footer__title">Address</h3>
+      <ul class="footer__links">
+        <li><a href="base#about-us" class="footer__link">About Us</a></li>
+        <li><a href="base#" class="footer__link">Delivery Information</a></li>
+        <li><a href="base#" class="footer__link">Privacy Policy</a></li>
+        <li><a href="base#" class="footer__link">Terms & Conditions</a></li>
+        <li><a href="base#delivery" class="footer__link">Contact Us</a></li>
+        <li><a href="base#delivery" class="footer__link">Support Center</a></li>
+      </ul>
+    </div>
+    <div class="footer__content">
+      <h3 class="footer__title">My Account</h3>
+      <ul class="footer__links">
+        <li><a href="{{ url_for('login') }}" class="footer__link">Log In</a></li>
+        <li><a href="{{ url_for('signup') }}" class="footer__link">Sign Up</a></li>
+        <li><a href="#" class="footer__link">View Cart</a></li>
+        <li><a href="#" class="footer__link">My Wishlist</a></li>
+        <li><a href="#" class="footer__link">Help</a></li>
+        <li><a href="#" class="footer__link">Shop</a></li>
+      </ul>
+    </div>
+    <div class="footer__content">
+      <h3 class="footer__title">Secured Payed Gateways</h3>
+      <img src="../static/images/Untitled-removebg-preview(1).png" alt="" class="payment__img"  width="250px" height="200px" />
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p class="copyright">&copy; 2025 BakeCraft . All right reserved</p>
+    <span class="designer">manar bahy eldein</span>
+  </div>
+</footer>
+ 
+
+  <script src="../static/js/nav.js"></script>
+  <script src="../static/js/logout.js"></script>
+</body>
+
+</html>

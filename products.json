@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "name": "Bread",
+        "type": "Bread",
+        "description": "Artisan bread, sourdough, baguettes, whole grain, etc",
+        "price": 30,
+        "thumbnail": "../static/images/rb_25311.jpg",
+        "inStock": true
+    }
+    ]

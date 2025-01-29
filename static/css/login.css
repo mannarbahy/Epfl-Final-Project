@@ -14,7 +14,7 @@ body{
    
 }
 
-
+/* 
 .nav{
     position: fixed;
     top: 0;
@@ -52,7 +52,7 @@ body{
 .nav-button .btn:hover{
     background: #F72C5B;
     color: #fff;
-}
+} */
 
 .input-field{
     font-size: 15px;
