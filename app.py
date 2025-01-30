@@ -283,6 +283,339 @@ def reset_password():
     return render_template('reset_password.html')
 
 
+@app.route('/wishlist')
+def wishlist():
+    return render_template('wishlist.html')
+
+@app.route('/get_wishlist_products', methods=['POST'])
+def get_wishlist_products():
+    wishlist_ids = request.json.get('wishlist', [])
+    try:
+        with open('products.json', 'r') as file:
+            all_products = json.load(file)
+        wishlist_products = [product for product in all_products if product['id'] in wishlist_ids]
+        return jsonify(wishlist_products)
+    except FileNotFoundError:
+        return jsonify({"error": "Products file not found"}), 404
+    except json.JSONDecodeError:
+        return jsonify({"error": "Invalid JSON in products file"}), 500
+@app.route('/get_wishlist', methods=['GET'])
+def get_wishlist():
+    if not session.get('user'):
+        return jsonify({"error": "You need to be logged in"}), 403
+
+    user_id = session.get('user')
+
+    try:
+        with open('usersDB.json', 'r') as file:
+            users_list = json.load(file)
+
+        user = next((user for user in users_list if user['id'] == user_id), None)
+
+        if user:
+            return jsonify({"success": True, "wishlist": user['wishlist']})
+        else:
+            return jsonify({"error": "User not found"}), 404
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+        
+@app.route('/add_to_wishlist', methods=['POST'])
+def add_to_wishlist():
+    if not session.get('user'):
+        return jsonify({"error": "You need to be logged in"}), 403
+
+    user_id = session.get('user')
+    product_id = request.json.get('product_id')
+
+    try:
+        with open('usersDB.json', 'r') as file:
+            users_list = json.load(file)
+
+        for user in users_list:
+            if user['id'] == user_id:
+                if product_id in user['wishlist']:
+                    user['wishlist'].remove(product_id)  
+                else:
+                    user['wishlist'].append(product_id)  
+                break
+
+        with open("usersDB.json", "w") as file:
+            json.dump(users_list, file, indent=4)
+
+        return jsonify({"success": True, "message": "Wishlist updated!"})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/remove_from_wishlist', methods=['POST'])
+def remove_from_wishlist():
+    if not session.get('user'):
+        return jsonify({"error": "You need to be logged in"}), 403
+
+    user_id = session.get('user')
+    product_id = request.json.get('product_id')
+
+    try:
+        with open('usersDB.json', 'r') as file:
+            users_list = json.load(file)
+
+        for user in users_list:
+            if user['id'] == user_id:
+                if product_id in user['wishlist']:
+                    user['wishlist'].remove(product_id)
+                break
+
+        with open("usersDB.json", "w") as file:
+            json.dump(users_list, file, indent=4)
+
+        return jsonify({"success": True, "message": "Product removed from wishlist!"})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+        
+
+@app.route('/shop')
+def shop():
+    category = request.args.get('category')
+    return render_template('shop.html', category=category)
+
+@app.route('/get_products')
+def get_products():
+    category = request.args.get('category')
+    try:
+        with open('products.json', 'r') as file:
+            products = json.load(file)
+        if category:
+            products = [product for product in products if product['type'] == category]
+        return jsonify(products)
+    except FileNotFoundError:
+        return jsonify({"error": "Products file not found"}), 404
+    except json.JSONDecodeError:
+        return jsonify({"error": "Invalid JSON in products file"}), 500
+
+@app.route('/cart')
+def cart():
+    return render_template('cart.html')
+
+@app.route('/add_to_cart', methods=['POST'])
+def add_to_cart():
+    if not session.get('user'):
+        return jsonify({"error": "You need to be logged in"}), 403
+
+    user_id = session.get('user')
+    product_id = request.json.get('product_id')
+    quantity = request.json.get('quantity', 1)
+
+    try:
+        with open('usersDB.json', 'r') as file:
+            users_list = json.load(file)
+
+        for user in users_list:
+            if user['id'] == user_id:
+                if product_id in user['cart']:
+                    user['cart'][product_id] += quantity  
+                else:
+                    user['cart'][product_id] = quantity  
+                break
+
+        with open("usersDB.json", "w") as file:
+            json.dump(users_list, file, indent=4)
+
+        return jsonify({"success": True, "message": "Product added to cart!"})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/remove_from_cart', methods=['POST'])
+def remove_from_cart():
+    if not session.get('user'):
+        return jsonify({"error": "You need to be logged in"}), 403
+
+    user_id = session.get('user')
+    product_id = request.json.get('product_id')
+
+    try:
+        with open('usersDB.json', 'r') as file:
+            users_list = json.load(file)
+
+        for user in users_list:
+            if user['id'] == user_id:
+                if product_id in user['cart']:
+                    del user['cart'][product_id]  
+                break
+
+        with open("usersDB.json", "w") as file:
+            json.dump(users_list, file, indent=4)
+
+        return jsonify({"success": True, "message": "Product removed from cart!"})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/remove_quantity_from_cart', methods=['POST'])
+def remove_quantity_from_cart():
+    if not session.get('user'):
+        return jsonify({"error": "You need to be logged in"}), 403
+
+    user_id = session.get('user')
+    product_id = request.json.get('product_id')
+    quantity = request.json.get('quantity', 1)
+
+    try:
+        with open('usersDB.json', 'r') as file:
+            users_list = json.load(file)
+
+        for user in users_list:
+            if user['id'] == user_id:
+                if product_id in user['cart']:
+                    user['cart'][product_id] -= quantity
+                    if user['cart'][product_id] <= 0:
+                        del user['cart'][product_id]  
+                break
+
+        with open("usersDB.json", "w") as file:
+            json.dump(users_list, file, indent=4)
+
+        return jsonify({"success": True, "message": "Quantity updated!"})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/get_cart_items', methods=['GET'])
+def get_cart_items():
+    if not session.get('user'):
+        return jsonify({"error": "User not logged in"}), 403
+
+    user_id = session.get('user')
+    
+    try:
+        with open('usersDB.json', 'r') as file:
+            users_list = json.load(file)
+
+        user = next((user for user in users_list if user['id'] == user_id), None)
+
+        cart_items = user['cart'] if user and 'cart' in user else {}
+        
+        cart_products = []
+
+        with open('products.json', 'r') as file:
+            products = json.load(file)
+
+       
+        for product_id, quantity in cart_items.items():
+            for product in products:
+                if str(product['id']) == str(product_id):
+                    product['quantity'] = quantity
+                    cart_products.append(product)
+                    
+       
+        return jsonify(cart_products)
+
+        
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+
+
+@app.route('/base')
+def base():
+    return render_template('home.html')
+
+
+def load_products():
+    with open('products.json', 'r') as f:
+        return json.load(f)
+
+@app.route('/checkout')
+def checkout():
+    return render_template('checkout.html')
+
+@app.route('/get_product_details', methods=['POST'])
+def get_product_details():
+    try:
+        product_ids = request.json
+        products = load_products()
+        product_details = [
+            product for product in products 
+            if str(product['id']) in product_ids
+        ]
+        return jsonify(product_details)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/save_order', methods=['POST'])
+def place_order():
+    if not session.get('user'):
+        return jsonify({"error": "You need to be logged in"}), 403
+
+    user_id = session.get('user')
+    order_data = request.json
+    order_data['order_date'] = datetime.now().isoformat()
+    order_data['order_id'] = generate_order_id()
+
+    try:
+        with open('usersDB.json', 'r') as file:
+            users_list = json.load(file)
+
+        for user in users_list:
+            if str(user['id']) == str(user_id):
+                if 'orders' not in user:
+                    user['orders'] = []
+                user['orders'].append(order_data)
+                user['cart'] = {}
+                break
+
+        with open("usersDB.json", "w") as file:
+            json.dump(users_list, file, indent=4)
+
+        return jsonify({"success": True, "message": "Order placed successfully"})
+    except Exception as e:
+        return jsonify({"success": False, "message": str(e)})
+
+def generate_order_id():
+    return f"ORD-{datetime.now().strftime('%Y%m%d%H%M%S')}"
+
+@app.route('/get_orders', methods=['GET'])
+def get_orders():
+    if not session.get('user'):
+        return jsonify({"success": False, "error": "User not logged in"}), 403
+
+    user_id = session.get('user')
+
+    try:
+        with open('usersDB.json', 'r') as file:
+            users_list = json.load(file)
+
+        user = next((user for user in users_list if user['id'] == user_id), None)
+
+        if user:
+
+            return jsonify({"success": True, "orders": user.get('orders', [])})
+        else:
+            return jsonify({"success": False, "error": "User not found"}), 404
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+
+
+# @app.route('/')
+# def hello_page():
+#     return redirect('/base')
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+@app.route('/blog_2')
+def blog_2():
+    return render_template('blog2.html')
+
+@app.route('/blog_3')
+def blog_3():
+    return render_template('blog3.html')     
 
 @app.route('/logout')
 def logout():

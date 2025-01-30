@@ -68,6 +68,8 @@ ul {
 }
 .container{
   max-width: 1200px;
+  flex: 1;
+  padding: 2rem;
 }
 .home{
     
@@ -435,6 +437,92 @@ color: #fffefe;
 .blog-header h2 {
   color: #ffffff;
 }
+
+
+
+
+
+.faq{
+  padding: 4rem 2rem;
+  
+ 
+}
+.faq .title{
+   text-align: center;
+   font-size: 3rem;
+   font-weight: 700;
+   margin: 1rem; 
+   color: #ffffff;
+}
+.faq .faqlist{
+  list-style: none;
+  max-width: 800px;
+  margin: 0 auto;
+ 
+  
+ 
+
+}
+.faqlist li{
+  background-color: #f2f2ff;
+  border-bottom: 1px #ccc solid;
+  border-radius: 20px;
+  margin: 10px 0;
+
+
+}
+.faqlist li:first-child{
+  border-top: 1px #ccc solid;
+
+}
+.q{
+  padding: 1rem 0;
+  border-left: 10px #f2f2f2;
+  cursor: pointer;
+  color: #603F26;
+  font-weight: 600;
+  margin: 10 auto;
+
+}
+.q:hover , .q:hover .arrow{
+border-left-color: #fdda3f;
+}
+.arrow{
+  display: inline-block;
+  margin: 0 0.5rem;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-left: 6px solid #555;
+  border-bottom: 6px solid transparent;
+  transition: 0.3s;
+  
+}
+.faqlist p {
+  color: #2e2424;
+  line-height: 25px;
+  padding: 0 2rem 0 0;
+  font-weight: 600;
+}
+.a{
+overflow: hidden;
+height: 0;
+padding: 0 1rem 0 2rem;
+}
+.a-opened{
+  padding: 1rem 1rem 2rem 3.3rem ;
+  height: initial;
+}
+.arrow-rotate{
+  transform: rotate(90deg);
+}
+
+
+
+
+
+
+
 @media (max-width: 768px) {
   .blog-container {
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

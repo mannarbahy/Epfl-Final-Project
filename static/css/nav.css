@@ -1,6 +1,6 @@
 
 .header {
-  margin: 50px 50% ;
+  
   top: 30px;
   left: 0;
   z-index: 100;
@@ -260,8 +260,8 @@
   .footer__bottom {
     text-align: center;
     padding: 10px 0;
-    border-top: 1px solid #e1e1e1;
-    margin-top: 12px;
+    /* border-top: 1px solid #e1e1e1; */
+    margin-top: 20px;
   }
   
   .copyright {

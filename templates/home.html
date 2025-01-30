@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BakeCraft</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}" />
+  <link rel="stylesheet" href="../static/css/styles.css" />
+  <link rel="stylesheet" href="../static/css/auth.css" />
+  <link rel="stylesheet" href="../static/css/nav.css" />
   <link rel="shortcut icon" href="../static/images/logobrand.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,7 +54,7 @@
             <li><a href="#blog">Blog</a></li>
         </ul>
         <div class="nav-btns">
-            <a href="#" class="nav-search">
+            <a href="{{ url_for('wishlist') }}" class="nav-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <title>121 heart</title>
                     <g id="_01_align_center" data-name="01 align center">
@@ -62,7 +62,7 @@
                     </g>
                 </svg>
             </a>
-            <a href="#" class="nav-cart">
+            <a href="{{ url_for('cart') }}" class="nav-cart">
                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
                     <title>109 shopping bag</title>
                     <g id="_01_align_center" data-name="01 align center">
@@ -184,7 +184,7 @@
       <h2> New Items   </h2>
   </div>
   <div class="service-content">
-      <div class="ser-box">
+      <div class="ser-box" data-id="1">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button>
@@ -194,7 +194,7 @@
           
       </div>
   
-      <div class="ser-box">
+      <div class="ser-box" data-id="2">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button>
@@ -202,7 +202,7 @@
           <p>french pestry cream</p>
       </div>
   
-      <div class="ser-box">
+      <div class="ser-box" data-id="3">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button>
@@ -210,7 +210,7 @@
           <p>Apple Turnover</p>
       </div>
   
-      <div class="ser-box">
+      <div class="ser-box" data-id="4">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button>
@@ -219,7 +219,7 @@
           <p>Cookies</p>
       </div>
   
-      <div class="ser-box">
+      <div class="ser-box" data-id="5">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button>
@@ -228,7 +228,7 @@
           <p>Pancakes</p>
       </div>
   
-      <div class="ser-box">
+      <div class="ser-box" data-id="6">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button> 
@@ -237,7 +237,7 @@
           <p>Apple Tart</p>
       </div>
   
-      <div class="ser-box">
+      <div class="ser-box" data-id="7">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button>
@@ -246,7 +246,7 @@
           <p>Chocolate Chip Muffin</p>
       </div>
   
-      <div class="ser-box">
+      <div class="ser-box" data-id="8">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button>
@@ -255,7 +255,7 @@
           <p>cupcake</p>
       </div>
   
-      <div class="ser-box">
+      <div class="ser-box" data-id="9">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button> 
@@ -264,7 +264,7 @@
           <p>Raspberry Sponge</p>
       </div>
   
-      <div class="ser-box">
+      <div class="ser-box" data-id="10">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button>
@@ -273,7 +273,7 @@
           <p>Scotch Pie</p>
       </div>
   
-      <div class="ser-box">
+      <div class="ser-box" data-id="11">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button>
@@ -282,7 +282,7 @@
           <p>Macaroni Pie</p>
       </div>
   
-      <div class="ser-box">
+      <div class="ser-box" data-id="12">
           <button class="favorite-btn" onclick="toggleFavorite(this)">
               <i class="far fa-heart"></i> 
           </button>
@@ -377,9 +377,6 @@
 </section>
 
 
-
-
-
 <section class="delivery-info container" id="delivery">
 <div class="delivery-container">
   <div class="delivery-item">
@@ -425,6 +422,73 @@
 
 
 
+<section class="faq">
+  <h1 class="title">F&Q</h1>
+  <ul class="faqlist">
+      <li>
+          <div class="q">
+              <span class="arrow"></span>
+              <span> What are your opening hours?</span>
+          </div>
+          <div class="a">
+              <p>We’re open daily from 8:00 AM to 8:00 PM. </p>
+          </div>
+
+      </li>
+      <li>
+          <div class="q">
+              <span class="arrow"></span>
+              <span>Where are you located?</span>
+          </div>
+          <div class="a">
+              <p>Our bakery is located at Cairo. You can find detailed directions on our Contact Us page. </p>
+          </div>
+
+      </li>
+
+      <li>
+          <div class="q">
+              <span class="arrow"></span>
+              <span>Do you offer gluten-free or vegan options?</span>
+          </div>
+          <div class="a">
+              <p>Yes! We offer a range of gluten-free and vegan treats. Check out our menu for specific items.</p>
+          </div>
+
+      </li>
+
+      <li>
+          <div class="q">
+              <span class="arrow"></span>
+              <span>Are your ingredients organic?</span>
+          </div>
+          <div class="a">
+              <p>We prioritize using high-quality, locally-sourced ingredients, and some of our items are made with organic ingredients. </p>
+          </div>
+
+      </li>
+      <li>
+          <div class="q">
+              <span class="arrow"></span>
+              <span>What safety measures do you follow for hygiene?</span>
+          </div>
+          <div class="a">
+              <p>We follow strict hygiene and safety protocols, ensuring all products are made and handled in a clean environment. </p>
+          </div>
+
+      </li>
+      <li>
+          <div class="q">
+              <span class="arrow"></span>
+              <span>Do you offer gift cards?</span>
+          </div>
+          <div class="a">
+              <p>Yes, we offer gift cards in various denominations. They make a great gift for any occasion! </p>
+          </div>
+
+      </li>
+  </ul>
+</section>
 
 
 <footer class="footer ">
@@ -435,13 +499,14 @@
       </a>
       <h4 class="footer__title">Contact</h4>
       <p class="footer__description">
-        <span>Address:</span> 13 Tlemcen Road, Street 32, Beb-Wahren
+        <span>Address:</span> egypt , cairo
       </p>
       <p class="footer__description">
-        <span>Phone:</span> +01 2222 365 /(+91) 01 2345 6789
+        <span>Phone:</span> 
+        +20 10 2345 6789
       </p>
       <p class="footer__description">
-        <span>Hours:</span> 10:00 - 18:00, Mon - Sat
+        <span>Hours:</span> 08:00 - 12:00, Mon - Sat
       </p>
       <div class="footer__social">
         <h4 class="footer__subtitle">Follow Me here : </h4>
@@ -495,8 +560,10 @@
     <span class="designer">manar bahy eldein</span>
   </div>
 </footer>
- 
-<script src="../static/js/home.js"></script>
+  
+  
+<script src="../static/js/wishlist.js"></script>
+  <script src="../static/js/home.js"></script>
   <script src="../static/js/nav.js"></script>
   <script src="../static/js/logout.js"></script>
 </body>

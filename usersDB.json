@@ -8,7 +8,10 @@
         "phone": "43444444444",
         "security_question": "aaaa",
         "wishlist": [],
-        "cart": {},
+        "cart": {
+            "1": 1,
+            "1": 1
+        },
         "orders": []
     },
     {

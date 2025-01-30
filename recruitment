@@ -1,0 +1,92 @@
+What you'll need to build
+This is your final exercise. And it is a big one! As your final course project, you will have to
+demonstrate that you understood the content of this course and that you are able to use it.
+But you will also need to demonstrate that you know how to use the most important skill a
+programmer can have: how to search for solutions on you own!
+Your App
+You will build a fully functional web app. Whatever web app you want to build. You are
+free to choose what it will do but you can't build a note taking app nor an address book, i.e.,
+it needs to be an app that does not only provide the same functionalities we've seen in the
+exercises such as adding and searching for text and storing the username in the local
+storage! Also note that pre-defined methods or html attributes can be used but do not count
+as "new" functionalities that you implemented.
+If you have issues finding an interesting app to build with everything that you now know,
+get in touch through the Q&A below and we will suggest a few apps that you could create!
+The rating
+We will rate your app to determine if you successfully pass the requirements to receive your
+certificate of completion. But before the rating, we will also check that you have completed
+all the exercises throughout the course according to their requirements, and that they
+are available on GitHub.
+Your project isn't just about ticking boxes—it's about integration. Each component of your
+code should be interconnected, playing a vital role in your app. Redundant or disjointed
+code fragments won't cut it.
+Also note that all content (e.g., code and comments) in your project submission is either
+written by yourself or, where this is not the case, you clearly highlight the extent of the
+copied content and provide a reference to its source.
+In order to successfully complete the course, your app will need to feature the following
+
+
+
+////////////////////////////////
+points:
+• It is available on GitHub and you regularly committed the changes using git.
+• It uses the Flask web framework.
+• It uses at least one module from the Python Standard Library other than
+the random module (for example, you could use the datetime module.)
+• It contains at least one class written by you that has both properties and
+methods (yes, plural!). It uses __init__() to let the class initialize the object's
+properties (note that __init__() doesn't count as a method). This includes
+instantiating the class and using the methods in your app. Methods that only print
+something in the terminal will not be considered.
+• It makes use of JavaScript in the front end and uses the localStorage of the web
+browser.
+• It uses modern JavaScript (for example, let and const rather than var).
+• It makes use of the writing to and reading from the same file feature.
+• It contains both conditional statements and loops.
+• It doesn't generate any error message even if the user enters a wrong input.
+• It lets the user enter a value in a text box at some point. This value should be received
+and processed by your back end Python code.
+• It is styled using CSS.
+• The code follows the code and style conventions we introduced in the course, is fully
+////////////////////////////////////////////////
+documented using comments and doesn't contain unused or experimental code. In
+particular, the code should not use print() or console.log() for any
+information the app user should see. Instead, all user feedback needs to be visible in
+the browser.
+Please note that we do not provide pre-reviews of your final project. As part of this exercise
+we want to see that you can evaluate whether your app fulfills the requirements listed above.
+You can of course reach out to us if you have any questions/doubts or feel stuck! In this case
+please be as specific as possible, i.e., provide the information on which part of the code you
+have questions on (files, lines, which functions etc.), what the expected input/output is, what
+you have tried so far (including the code!), what the error message is you get, etc. Also, it is
+important to regularly commit the changes that you make in your project using git.
+Proof of your git commit history is an important part of your project submission. Please also
+follow the coding conventions we introduced during the course such as naming conventions,
+indentations, code structure, etc. Projects that do not follow these conventions will need to
+be revised.
+Before submission, please make sure that:
+1. Your app fulfills all requirements.
+2. All of the tasks from the checklist have been completed. This includes the exercises.
+3. All content (e.g., code and comments) in your project submission is either written by
+yourself or, where this is not the case, you clearly highlight the extent of the copied
+content and provide a reference to its source.
+4. Your final project submission contains only files that are relevant for the project (i.e.,
+no "test" files or non-project-related files).
+5. Your final project includes a README.md (see details in the next units).
+Review process
+The entire project review process after submission takes approximately two weeks for a
+project in good shape. To give you an example: if your subscription renews on 1 February,
+you would need to submit on 16 January the latest if you want to graduate before that time.
+Also, please note that your project or exercises may require fixes if they don't fullfil the
+requirements, and those adjustments will also need to be reviewed after resubmission. After
+project submission through the platform, we will contact you to fix a date for the final
+review meeting. Please note that you need to have an active subscription to have your
+project reviewed and the appointment date for the final one-to-one must fall within your
+subscription period. If that is not the case, you won't be able to get your certificate of
+completion. So please make provision for submitting and successfully defending your
+project when calculating your monthly subscription fee and determining when your billing
+will end.
+Quick tip
+If you have any doubt, don't hesitate to go back to a previous lesson to refresh your memory,
+or use your one-on-one time with one of our instructors by booking an appointment.
+We can't wait to see what you create. Good luck!
