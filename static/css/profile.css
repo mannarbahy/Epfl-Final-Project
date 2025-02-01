@@ -1,9 +1,14 @@
 :root {
-    --primary-color: #f74b65;
-    --secondary-color: #99556a;
+    --primary-color: #543310;
+    --secondary-color: #99734d;
     --background-color: #ecf0f1;
+    --card-background:hwb(30 44% 31%);
     --text-color: #333;
-    --card-background: #fff;
+    --gold:#D4A373;
+   
+    --muted-orange:#E87C50;
+
+
 }
 body {
     font-family: 'Arial', sans-serif;
@@ -15,8 +20,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--primary-color);
+    color: var(--background-color);
 }
 .profile {
     max-width: 800px;
@@ -27,7 +32,7 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 h1, h2 {
-    color: var(--secondary-color);
+    color: #ffffff;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -68,7 +73,7 @@ a:hover {
     transition: background-color 0.3s ease;
 }
 .button:hover {
-    background-color: #dc8995
+    background-color: var(--secondary-color)
 }
 .order-item {
     background-color: #f8f9fa;
