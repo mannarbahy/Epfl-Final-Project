@@ -27,7 +27,7 @@
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background-color: #ff6b6b;
+    background-color: #543310;
     border-radius: 2px;
 }
 
@@ -39,7 +39,26 @@
     text-align: justify;
     padding: 0 10px;
 }
-
+.blog-navigation{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.blog_button{
+    background-color: #684117 ;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.blog_button:hover{
+    background-color: #bb7021 ;
+    color: white;
+   
+}
 @media (max-width: 768px) {
     .share-love-container {
         padding: 25px;
