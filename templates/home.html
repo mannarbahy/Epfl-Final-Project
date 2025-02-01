@@ -50,7 +50,7 @@
         <ul class="menu">
             <li><a href="#">Home</a></li>
             <li><a href="/shop">Shop</a></li>
-            <li><a href="#about-us">About Us</a></li>
+            <li><a href="/wishlist">favorite</a></li>
             <li><a href="#blog">Blog</a></li>
         </ul>
         <div class="nav-btns">
@@ -103,7 +103,7 @@
     </div> 
      <div class="home-image">
             <img src="/static/images/dd.png" class="home-img" alt="Logo" />
-        </div>
+    </div>
 
 </div>
 </section>
@@ -153,8 +153,8 @@
 
 
 
-<section class="container">
-<div class="product container" id="product">
+
+<div class="product " id="product">
 
   <h2>About Us</h2>
   <div class="shopstory" id="shop">
@@ -170,17 +170,11 @@
   </div>
 </div>
 
-</section>
+
 <!-- ------------------------------ -->
 <div class="service container" id="service">
-  <!-- <div class="heading">
-      <h2>
-        Blending culture , coffe & top <br/>
-         Notch services  
-      </h2>
-   
-  </div> -->
-  <div class="heading2">
+ 
+  <div class="heading2 ">
       <h2> New Items   </h2>
   </div>
   <div class="service-content">
@@ -422,7 +416,7 @@
 
 
 
-<section class="faq">
+<section class="faq ">
   <h1 class="title">F&Q</h1>
   <ul class="faqlist">
       <li>
@@ -491,8 +485,8 @@
 </section>
 
 
-<footer class="footer ">
-  <div class="footer__container grid">
+<footer class="footer">
+  <div class="footer__container ">
     <div class="footer__content ">
       <a href="index.html" class="footer__logo">
         <img src="../static/images/logobrand.png" alt="" class="footer__logo-img" />
@@ -518,7 +512,8 @@
             <i class="fab fa-twitter"></i>         
            </a>
           <a href="#" class="footer__social-icon">
-            <i class="fa-brands fa-instagram" ></i>          </a>
+            <i class="fa-brands fa-instagram" ></i>          
+          </a>
           <a href="#" class="footer__social-icon">
             <i class="fab fa-dribbble" ></i>         
            </a>
@@ -531,12 +526,12 @@
     <div class="footer__content">
       <h3 class="footer__title">Address</h3>
       <ul class="footer__links">
-        <li><a href="base#about-us" class="footer__link">About Us</a></li>
-        <li><a href="base#" class="footer__link">Delivery Information</a></li>
-        <li><a href="base#" class="footer__link">Privacy Policy</a></li>
-        <li><a href="base#" class="footer__link">Terms & Conditions</a></li>
-        <li><a href="base#delivery" class="footer__link">Contact Us</a></li>
-        <li><a href="base#delivery" class="footer__link">Support Center</a></li>
+        <li><a href="#" class="footer__link">About Us</a></li>
+        <li><a href="#" class="footer__link">Delivery Information</a></li>
+        <li><a href="#" class="footer__link">Privacy Policy</a></li>
+        <li><a href="#" class="footer__link">Terms & Conditions</a></li>
+        <li><a href="#" class="footer__link">Contact Us</a></li>
+        <li><a href="#" class="footer__link">Support Center</a></li>
       </ul>
     </div>
     <div class="footer__content">
@@ -544,10 +539,10 @@
       <ul class="footer__links">
         <li><a href="{{ url_for('login') }}" class="footer__link">Log In</a></li>
         <li><a href="{{ url_for('signup') }}" class="footer__link">Sign Up</a></li>
-        <li><a href="#" class="footer__link">View Cart</a></li>
-        <li><a href="#" class="footer__link">My Wishlist</a></li>
+        <li><a href="/cart" class="footer__link">View Cart</a></li>
+        <li><a href="/wishlist" class="footer__link">My Wishlist</a></li>
         <li><a href="#" class="footer__link">Help</a></li>
-        <li><a href="#" class="footer__link">Shop</a></li>
+        <li><a href="/shop" class="footer__link">Shop</a></li>
       </ul>
     </div>
     <div class="footer__content">
@@ -555,7 +550,7 @@
       <img src="../static/images/Untitled-removebg-preview(1).png" alt="" class="payment__img"  width="250px" height="200px" />
     </div>
   </div>
-  <div class="footer__bottom">
+  <div class="footer__bottom ">
     <p class="copyright">&copy; 2025 BakeCraft . All right reserved</p>
     <span class="designer">manar bahy eldein</span>
   </div>

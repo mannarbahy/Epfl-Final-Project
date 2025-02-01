@@ -282,6 +282,24 @@ def reset_password():
 
     return render_template('reset_password.html')
 
+@app.route('/shop')
+def shop():
+    category = request.args.get('category')
+    return render_template('shop.html', category=category)
+
+@app.route('/get_products')
+def get_products():
+    category = request.args.get('category')
+    try:
+        with open('products.json', 'r') as file:
+            products = json.load(file)
+        if category:
+            products = [product for product in products if product['type'] == category]
+        return jsonify(products)
+    except FileNotFoundError:
+        return jsonify({"error": "Products file not found"}), 404
+    except json.JSONDecodeError:
+        return jsonify({"error": "Invalid JSON in products file"}), 500
 
 @app.route('/wishlist')
 def wishlist():
@@ -374,26 +392,6 @@ def remove_from_wishlist():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
         
-
-@app.route('/shop')
-def shop():
-    category = request.args.get('category')
-    return render_template('shop.html', category=category)
-
-@app.route('/get_products')
-def get_products():
-    category = request.args.get('category')
-    try:
-        with open('products.json', 'r') as file:
-            products = json.load(file)
-        if category:
-            products = [product for product in products if product['type'] == category]
-        return jsonify(products)
-    except FileNotFoundError:
-        return jsonify({"error": "Products file not found"}), 404
-    except json.JSONDecodeError:
-        return jsonify({"error": "Invalid JSON in products file"}), 500
-
 @app.route('/cart')
 def cart():
     return render_template('cart.html')
@@ -516,9 +514,6 @@ def get_cart_items():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
-
-
 @app.route('/base')
 def base():
     return render_template('home.html')
@@ -601,9 +596,28 @@ def get_orders():
 
 
 
-# @app.route('/')
-# def hello_page():
-#     return redirect('/base')
+
+@app.route('/profile')
+def profile():
+    if not session.get('user'):
+        return redirect('/login')
+    
+    user_id = session.get('user')
+    users_list = []
+    
+    try:
+        with open('usersDB.json', 'r') as file:
+            users_list = json.load(file)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return render_template('profile.html', error='User data not found')
+
+    current_user = next((user for user in users_list if user['id'] == user_id), None)
+    
+    if current_user:
+        return render_template('profile.html', user=current_user)
+    else:
+        return render_template('profile.html', error='User not found')
+
 
 @app.route('/blog')
 def blog():
@@ -615,12 +629,12 @@ def blog_2():
 
 @app.route('/blog_3')
 def blog_3():
-    return render_template('blog3.html')     
-
+    return render_template('blog3.html')      
 @app.route('/logout')
 def logout():
     session.clear()
-    return redirect('/login')
+    return redirect('/')
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)

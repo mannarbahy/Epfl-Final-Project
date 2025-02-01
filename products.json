@@ -1,11 +1,110 @@
 [
     {
         "id": 1,
-        "name": "Bread",
-        "type": "Bread",
-        "description": "Artisan bread, sourdough, baguettes, whole grain, etc",
+        "name": "Chocolate Tart",
+        "type": "Cakes",
+        "description": "A rich and decadent chocolate tart with a crispy crust.",
         "price": 30,
-        "thumbnail": "../static/images/rb_25311.jpg",
+        "thumbnail": "static/images/tart.png",
+        "inStock": true
+    },
+    {
+        "id": 2,
+        "name": "Butter Croissant",
+        "type": "Bread",
+        "description": "Flaky and buttery croissant, perfect for breakfast.",
+        "price": 15,
+        "thumbnail": "static/images/croassonit.png",
+        "inStock": true
+    },
+    {
+        "id": 3,
+        "name": "Vanilla Cupcakes",
+        "type": "Pastries",
+        "description": "Soft vanilla cupcakes topped with creamy frosting.",
+        "price": 20,
+        "thumbnail": "static/images/cupcakes.png",
+        "inStock": true
+    },
+    {
+        "id": 4,
+        "name": "Strawberry Cheesecake",
+        "type": "Desserts",
+        "description": "Creamy cheesecake with a fresh strawberry topping.",
+        "price": 40,
+        "thumbnail": "static/images/rb_32284.png",
+        "inStock": true
+    },
+    {
+        "id": 5,
+        "name": "Garlic Breadsticks",
+        "type": "Savory Items",
+        "description": "Crispy garlic-infused breadsticks served with marinara sauce.",
+        "price": 12,
+        "thumbnail": "static/images/rb_25311.png",
+        "inStock": true
+    },
+    {
+        "id": 6,
+        "name": "Blueberry Muffin",
+        "type": "Pastries",
+        "description": "Moist muffin packed with fresh blueberries.",
+        "price": 18,
+        "thumbnail": "static/images/delicious-muffin.png",
+        "inStock": true
+    },
+    {
+        "id": 7,
+        "name": "Chocolate Chip Cookies",
+        "type": "Cookies",
+        "description": "Classic cookies loaded with chocolate chips.",
+        "price": 10,
+        "thumbnail": "static/images/delicious-muffin.png",
+        "inStock": true
+    },
+    {
+        "id": 8,
+        "name": "Apple Pie",
+        "type": "Pies",
+        "description": "Traditional apple pie with a buttery crust and cinnamon filling.",
+        "price": 35,
+        "thumbnail": "static/images/rb_32284.png",
+        "inStock": true
+    },
+    {
+        "id": 9,
+        "name": "Cinnamon Roll",
+        "type": "Pastries",
+        "description": "Soft cinnamon rolls drizzled with vanilla icing.",
+        "price": 25,
+        "thumbnail": "static/images/dounats.png",
+        "inStock": true
+    },
+    {
+        "id": 10,
+        "name": "Raspberry Danish",
+        "type": "Pastries",
+        "description": "Flaky Danish pastry filled with raspberry jam.",
+        "price": 22,
+        "thumbnail": "static/images/layered-french-pastry-with-cream.png",
+        "inStock": false
+    },
+    {
+        "id": 24,
+        "name": "Chocolate Poppy Tart",
+        "type": "Pastries",
+        "description": "A delicate, flaky tart filled with rich chocolate ganache and a hint of poppy seeds, topped with a glossy chocolate glaze.",
+        "price": 25,
+        "thumbnail": "../static/images/composition-tasty-breakfast-pancakes.png",
+        "inStock": true
+    },
+    {
+        "id": 24,
+        "name": "Lemon Meringue Pie",
+        "type": "Pies",
+        "description": "A classic tart filled with tangy lemon curd and topped with a light, fluffy meringue, perfectly browned for a delightful crunch.",
+        "price": 28,
+        "thumbnail": "../static/images/layered-french-pastry-with-cream.png",
         "inStock": true
     }
-    ]
+]    

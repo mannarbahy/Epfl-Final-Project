@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Cart</title>
-    <link rel="stylesheet" href="../static/css/cart.css">
+    <link rel="stylesheet" href="../static/css/profile.css" />
     <link rel="stylesheet" href="../static/css/nav.css">
-    <link rel="shortcut icon" href="../static/images/logobrand.png"/>
+    <link rel="shortcut icon" href="../static/images/logobrand.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
 
 
-<body style="background-color: #543310;">
+    <title>Profile</title>
     
+</head>
+<body>
 
-    <section id="main" style="background-color: #543310;">
+    <section id="main">
         <header class="header">
           <nav class="navbar">
             <a href="/base" class="logo">
-              <img src="../static/images/logobrand.png" alt="Logo" width="60px" height="70px" style="margin: 5 30; border-radius: 30px;">
+              <img src="../static/images/log2.png" alt="Logo">
             </a>
             <ul class="menu">
               <li><a href="/base">Home</a></li>
@@ -55,7 +54,7 @@
                 <div class="dropdown-content">
                   <a href="{{ url_for('login') }}">Login</a>
                   <a href="{{ url_for('signup') }}">Sign Up</a>
-                  <a href="#">Profile</a>
+                  <a href="{{ url_for('profile') }}">Profile</a>
                   <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
                 </div>
               </div>
@@ -63,83 +62,54 @@
         </header>
     
       </section>
-    <div class="tablebox">
-    <h1>Your Shopping Cart</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-                <th >Remove</th>
-            </tr>
-        </thead>
-        <tbody id="cart-items">
-        </tbody>
-    </table>
 
-    <div class="button-container">
-        <a class="button" href="{{ url_for('shop') }}">Continue Shopping</a>
-        <a class="button" id="checkout-button" href="{{ url_for('checkout') }}">Proceed To Checkout</a>
+      <div class="profilesection">
+
+     
+    <div class="profile">
+        <h1>User Profile</h1>
+        <div id="profile-info" class="profile-info"></div>
+        <div id="orders" class="orders">
+            <h2>Past Orders</h2>
+            <div id="orders-list"></div>
+        </div>
+        <p><a href="{{ url_for('base') }}" class="button">Back to Home</a> <a href="{{ url_for('logout') }}" class="button">Logout</a></p>
     </div>
+ </div>
 
-    <div class="cart-totals">
-        <h2>Cart Totals</h2>
-        <table>
-            <tr>
-                <td>Cart Subtotal</td>
-                <td id="subtotal">$0.00</td>
-            </tr>
-            <tr>
-                <td>Shipping</td>
-                <td id="shipping">Free Shipping</td>
-            </tr>
-            <tr>
-                <td>Total</td>
-                <td id="total">$0.00</td>
-            </tr>
-        </table>
-    </div>
-
-</div>
-
-
-   
-<footer class="footer ">
+ <footer class="footer container">
   <div class="footer__container grid">
-    <div class="footer__content ">
+    <div class="footer__content footer__contact">
       <a href="index.html" class="footer__logo">
-        <img src="../static/images/logobrand.png" alt="" class="footer__logo-img" />
+        <img src="../static/images/log2.png" alt="" class="footer__logo-img" />
       </a>
-      <h4 class="footer__title">Contact</h4>
+      <h4 class="footer__subtitle">Contact</h4>
       <p class="footer__description">
-        <span>Address:</span> egypt , cairo
+        <span>Address:</span> 13 Tlemcen Road, Street 32, Beb-Wahren
       </p>
       <p class="footer__description">
-        <span>Phone:</span> 
-        +20 10 2345 6789
+        <span>Phone:</span> +01 2222 365 /(+91) 01 2345 6789
       </p>
       <p class="footer__description">
-        <span>Hours:</span> 08:00 - 12:00, Mon - Sat
+        <span>Hours:</span> 10:00 - 18:00, Mon - Sat
       </p>
       <div class="footer__social">
-        <h4 class="footer__subtitle">Follow Me here : </h4>
+        <h4 class="footer__subtitle">Follow Me</h4>
         <div class="footer__links flex">
-          <a href="#" class="footer__social-icon">
-            <i class="fab fa-facebook-f" ></i> 
-           </a>
-          <a href="#" class="footer__social-icon">
-            <i class="fab fa-twitter"></i>         
-           </a>
-          <a href="#" class="footer__social-icon">
-            <i class="fa-brands fa-instagram" ></i>          </a>
-          <a href="#" class="footer__social-icon">
-            <i class="fab fa-dribbble" ></i>         
-           </a>
-          <a href="#" class="footer__social-icon">
-            <i class="fab fa-google-plus-g" ></i>
+          <a href="https://www.facebook.com/Shorok.M.Atwa/">
+            <img src="../static/images/icon-facebook.svg" alt="" class="footer__social-icon" />
+          </a>
+          <a href="https://www.twitter.com/sa147__">
+            <img src="../static/images/icon-twitter.svg" alt="" class="footer__social-icon" />
+          </a>
+          <a href="https://www.instagram.com/shorokatwa14">
+            <img src="../static/images/icon-instagram.svg" alt="" class="footer__social-icon" />
+          </a>
+          <a href="https://www.pinterest.com/sharoukmohamed413">
+            <img src="../static/images/icon-pinterest.svg" alt="" class="footer__social-icon" />
+          </a>
+          <a href="https://www.youtube.com/shorok147">
+            <img src="../static/images/icon-youtube.svg" alt="" class="footer__social-icon" />
           </a>
         </div>
       </div>
@@ -160,31 +130,22 @@
       <ul class="footer__links">
         <li><a href="{{ url_for('login') }}" class="footer__link">Log In</a></li>
         <li><a href="{{ url_for('signup') }}" class="footer__link">Sign Up</a></li>
-        <li><a href="#" class="footer__link">View Cart</a></li>
-        <li><a href="#" class="footer__link">My Wishlist</a></li>
-        <li><a href="#" class="footer__link">Help</a></li>
-        <li><a href="#" class="footer__link">Shop</a></li>
+        <li><a href="{{ url_for('cart') }}" class="footer__link">View Cart</a></li>
+        <li><a href="{{ url_for('wishlist') }}" class="footer__link">My Wishlist</a></li>
+        <li><a href="base#delivery" class="footer__link">Help</a></li>
+        <li><a href="{{ url_for('shop') }}" class="footer__link">Shop</a></li>
       </ul>
     </div>
     <div class="footer__content">
       <h3 class="footer__title">Secured Payed Gateways</h3>
-      <img src="../static/images/Untitled-removebg-preview(1).png" alt="" class="payment__img"  width="250px" height="200px" />
+      <img src="../static/images/payment-method.png" alt="" class="payment__img" />
     </div>
   </div>
   <div class="footer__bottom">
-    <p class="copyright">&copy; 2025 BakeCraft . All right reserved</p>
-    <span class="designer">manar bahy eldein</span>
+    <p class="copyright">&copy; 2024 Flowers. All right reserved</p>
+    <span class="designer">Designer by Shorok Mohamed</span>
   </div>
 </footer>
-
-
-
-
-
-    <script>
-        const productsUrl = "{{ url_for('get_products') }}";
-    </script>
-
-    <script src="../static/js/cart.js"></script>
+    <script src="../static/js/profile.js"></script>
 </body>
 </html>
