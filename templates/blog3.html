@@ -19,6 +19,8 @@
 <body style="background-color: #543310;">
   <section id="main" class="container" style="background-color: #543310;">
 
+    
+ 
     <header class="header">
       <nav class="navbar">
           <a href="" class="logo">
@@ -32,10 +34,11 @@
                   </svg>
               </a>
               <a href="#" class="nav-link">HOME</a>
-              <a href="#" class="nav-link">ABOUT US</a>
-              <a href="#" class="nav-link">PRODUCTS</a>
-              <a href="#" class="nav-link">BLOG</a>
-              <a href="#" class="nav-link">CONNECT</a>
+              <a href="/About_us" class="nav-link">ABOUT US</a>
+              <a href="/shop" class="nav-link">Menu</a>
+              <a href="/blog" class="nav-link">Recipes</a>
+              <a href="/blog" class="nav-link">BLOG</a>
+            
           </div>
   
           <div class="showmenu">
@@ -48,9 +51,9 @@
   
           <ul class="menu">
               <li><a href="#">Home</a></li>
-              <li><a href="/shop">Shop</a></li>
+              <li><a href="/shop">Menu</a></li>
               <li><a href="/wishlist">favorite</a></li>
-              <li><a href="#blog">Blog</a></li>
+              <li><a href="/blog">Blog</a></li>
           </ul>
           <div class="nav-btns">
               <a href="{{ url_for('wishlist') }}" class="nav-search">
@@ -78,13 +81,14 @@
                   <div class="dropdown-content">
                       <a href="{{ url_for('login') }}">Login</a>
                       <a href="{{ url_for('signup') }}">Sign Up</a>
-                      <a href="#">Profile</a>
+                      <a href="{{ url_for('profile') }}">Profile</a>
                       <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
                   </div>
               </div>
           </div>
       </nav>
   </header>
+
 
 
     

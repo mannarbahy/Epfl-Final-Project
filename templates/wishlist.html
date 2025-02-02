@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shop.css') }}" />
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/logobrand.png') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/favorite.css') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,9 +24,11 @@
    
  <!-- <section   style="background-color: #543310;"> -->
 
+  
+ 
   <header class="header">
     <nav class="navbar">
-        <a href="#" class="logo">
+        <a href="" class="logo">
             <img src="../static/images/logobrand.png" alt="Logo" width="60px" height="70px" style="margin: 5 30; border-radius: 30px;">
         </a>
 
@@ -36,10 +39,11 @@
                 </svg>
             </a>
             <a href="#" class="nav-link">HOME</a>
-            <a href="#" class="nav-link">ABOUT US</a>
-            <a href="#" class="nav-link">PRODUCTS</a>
-            <a href="#" class="nav-link">BLOG</a>
-            <a href="#" class="nav-link">CONNECT</a>
+            <a href="/About_us" class="nav-link">ABOUT US</a>
+            <a href="/shop" class="nav-link">Menu</a>
+            <a href="/blog" class="nav-link">Recipes</a>
+            <a href="/blog" class="nav-link">BLOG</a>
+          
         </div>
 
         <div class="showmenu">
@@ -52,9 +56,9 @@
 
         <ul class="menu">
             <li><a href="#">Home</a></li>
-            <li><a href="/shop">Shop</a></li>
-            <li><a href="#about-us">About Us</a></li>
-            <li><a href="#blog">Blog</a></li>
+            <li><a href="/shop">Menu</a></li>
+            <li><a href="/wishlist">favorite</a></li>
+            <li><a href="/blog">Blog</a></li>
         </ul>
         <div class="nav-btns">
             <a href="{{ url_for('wishlist') }}" class="nav-search">
@@ -82,35 +86,37 @@
                 <div class="dropdown-content">
                     <a href="{{ url_for('login') }}">Login</a>
                     <a href="{{ url_for('signup') }}">Sign Up</a>
-                    <a href="#">Profile</a>
+                    <a href="{{ url_for('profile') }}">Profile</a>
                     <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
                 </div>
             </div>
         </div>
     </nav>
 </header>
+
  <!-- </section> -->
-    <div class="Wishlist container service-content" id="wishlist-container">
+    <div class="Wishlist " id="wishlist-container">
         <h1>My favorite</h1>
         <ul id="products"></ul>
     </div>
 
 
-    <footer class="footer  ">
-      <div class="footer__container grid">
+    <footer class="footer">
+      <div class="footer__container ">
         <div class="footer__content ">
           <a href="index.html" class="footer__logo">
             <img src="../static/images/logobrand.png" alt="" class="footer__logo-img" />
           </a>
           <h4 class="footer__title">Contact</h4>
           <p class="footer__description">
-            <span>Address:</span> 13 Tlemcen Road, Street 32, Beb-Wahren
+            <span>Address:</span> egypt , cairo
           </p>
           <p class="footer__description">
-            <span>Phone:</span> +01 2222 365 /(+91) 01 2345 6789
+            <span>Phone:</span> 
+            +20 10 2345 6789
           </p>
           <p class="footer__description">
-            <span>Hours:</span> 10:00 - 18:00, Mon - Sat
+            <span>Hours:</span> 08:00 - 12:00, Mon - Sat
           </p>
           <div class="footer__social">
             <h4 class="footer__subtitle">Follow Me here : </h4>
@@ -122,7 +128,8 @@
                 <i class="fab fa-twitter"></i>         
                </a>
               <a href="#" class="footer__social-icon">
-                <i class="fa-brands fa-instagram" ></i>          </a>
+                <i class="fa-brands fa-instagram" ></i>          
+              </a>
               <a href="#" class="footer__social-icon">
                 <i class="fab fa-dribbble" ></i>         
                </a>
@@ -135,10 +142,10 @@
         <div class="footer__content">
           <h3 class="footer__title">Address</h3>
           <ul class="footer__links">
-            <li><a href="base#about-us" class="footer__link">About Us</a></li>
-            <li><a href="base#" class="footer__link">Delivery Information</a></li>
-            <li><a href="base#" class="footer__link">Privacy Policy</a></li>
-            <li><a href="base#" class="footer__link">Terms & Conditions</a></li>
+            <li><a href="#" class="footer__link">About Us</a></li>
+            <li><a href="#" class="footer__link">Delivery Information</a></li>
+            <li><a href="#" class="footer__link">Privacy Policy</a></li>
+            <li><a href="#" class="footer__link">Terms & Conditions</a></li>
             <li><a href="#" class="footer__link">Contact Us</a></li>
             <li><a href="#" class="footer__link">Support Center</a></li>
           </ul>
@@ -148,10 +155,10 @@
           <ul class="footer__links">
             <li><a href="{{ url_for('login') }}" class="footer__link">Log In</a></li>
             <li><a href="{{ url_for('signup') }}" class="footer__link">Sign Up</a></li>
-            <li><a href="#" class="footer__link">View Cart</a></li>
-            <li><a href="#" class="footer__link">My Wishlist</a></li>
+            <li><a href="/cart" class="footer__link">View Cart</a></li>
+            <li><a href="/wishlist" class="footer__link">My Wishlist</a></li>
             <li><a href="#" class="footer__link">Help</a></li>
-            <li><a href="#" class="footer__link">Shop</a></li>
+            <li><a href="/shop" class="footer__link">Shop</a></li>
           </ul>
         </div>
         <div class="footer__content">
@@ -159,11 +166,13 @@
           <img src="../static/images/Untitled-removebg-preview(1).png" alt="" class="payment__img"  width="250px" height="200px" />
         </div>
       </div>
-      <div class="footer__bottom">
+      <div class="footer__bottom ">
         <p class="copyright">&copy; 2025 BakeCraft . All right reserved</p>
         <span class="designer">manar bahy eldein</span>
       </div>
     </footer>
+
+    
     <script src="../static/js/wishlist.js"></script>
     <script src="../static/js/home.js"></script>
 </body>

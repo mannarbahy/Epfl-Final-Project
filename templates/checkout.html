@@ -19,6 +19,8 @@
 <body style="background-color: #543310;">
 
 
+  
+  
   <header class="header">
     <nav class="navbar">
         <a href="" class="logo">
@@ -31,11 +33,12 @@
                     <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
                 </svg>
             </a>
-            <a href="/home" class="nav-link">HOME</a>
-            <a href="/wishlist" class="nav-link">Favorite</a>
-            <a href="/shop" class="nav-link">PRODUCTS</a>
+            <a href="#" class="nav-link">HOME</a>
+            <a href="/About_us" class="nav-link">ABOUT US</a>
+            <a href="/shop" class="nav-link">Menu</a>
+            <a href="/blog" class="nav-link">Recipes</a>
             <a href="/blog" class="nav-link">BLOG</a>
-            <a href="#" class="nav-link">CONNECT</a>
+          
         </div>
 
         <div class="showmenu">
@@ -48,12 +51,12 @@
 
         <ul class="menu">
             <li><a href="#">Home</a></li>
-            <li><a href="/shop">Shop</a></li>
+            <li><a href="/shop">Menu</a></li>
             <li><a href="/wishlist">favorite</a></li>
             <li><a href="/blog">Blog</a></li>
         </ul>
         <div class="nav-btns">
-            <a href="/wishlist" class="nav-search">
+            <a href="{{ url_for('wishlist') }}" class="nav-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <title>121 heart</title>
                     <g id="_01_align_center" data-name="01 align center">
@@ -61,7 +64,7 @@
                     </g>
                 </svg>
             </a>
-            <a href="/cart" class="nav-cart">
+            <a href="{{ url_for('cart') }}" class="nav-cart">
                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
                     <title>109 shopping bag</title>
                     <g id="_01_align_center" data-name="01 align center">
@@ -76,15 +79,16 @@
                     </svg>
                 </a>
                 <div class="dropdown-content">
-                    <a href="/login">Login</a>
-                    <a href="/signup">Sign Up</a>
-                    <a href="/profile">Profile</a>
-                    <a href="/logout" class="logout-button">Logout</a>
+                    <a href="{{ url_for('login') }}">Login</a>
+                    <a href="{{ url_for('signup') }}">Sign Up</a>
+                    <a href="{{ url_for('profile') }}">Profile</a>
+                    <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
                 </div>
             </div>
         </div>
     </nav>
 </header>
+
      
 <div class="checkoutsection">
         <h1>Checkout</h1>

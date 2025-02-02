@@ -9,7 +9,8 @@
         "security_question": "aaaa",
         "wishlist": [
             1,
-            2
+            2,
+            3
         ],
         "cart": {
             "1": 1,
@@ -50,6 +51,37 @@
         "address": "maadi",
         "phone": "0192928387",
         "security_question": "nono",
+        "wishlist": [],
+        "cart": {},
+        "orders": []
+    },
+    {
+        "name": "manar",
+        "email": "manar221@gmail.com",
+        "id": "c6cf4f33-0f20-4843-9252-a502fa2c287f",
+        "password": "$2b$12$aHE3Y.v6g6jFaAFpuHPxgunHEKsaOVJxAvqyzxOW2PKMDEEzg4EEm",
+        "address": "maadi",
+        "phone": "01098630762",
+        "security_question": "menoo",
+        "wishlist": [
+            3,
+            1,
+            2
+        ],
+        "cart": {
+            "3": 1,
+            "2": 1
+        },
+        "orders": []
+    },
+    {
+        "name": "manar",
+        "email": "manar2213@gmail.com",
+        "id": "6e7e7e1b-34b2-4c6b-9cf1-ed08e6735163",
+        "password": "$2b$12$vIRgpypFFQmNF.Pps3BxPuqJ5fcL4SOaZew9ft8AA151.OWo8bLpa",
+        "address": "maadi",
+        "phone": "0109876543",
+        "security_question": "nino",
         "wishlist": [],
         "cart": {},
         "orders": []

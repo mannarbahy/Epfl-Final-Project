@@ -1,80 +1,127 @@
-document.addEventListener('DOMContentLoaded', function () {
-    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-
-    document.querySelectorAll('.ser-box').forEach(serBox => {
-        const itemId = serBox.getAttribute('data-id');
-        const heartIcon = serBox.querySelector('.favorite-btn i');
-
-        if (wishlist.some(item => item.id === itemId)) {
-            heartIcon.classList.replace('far', 'fas'); 
-        }
-    });
-
-    function toggleFavorite(button) {
-        const serBox = button.closest('.ser-box');
-        const itemId = serBox.getAttribute('data-id');
-        const itemName = serBox.querySelector('p').textContent;
-        const itemImage = serBox.querySelector('img').src;
-        const heartIcon = button.querySelector('i');
-
-        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        const itemIndex = wishlist.findIndex(i => i.id === itemId);
-
-        if (itemIndex === -1) {
-            wishlist.push({ id: itemId, name: itemName, image: itemImage });
-            heartIcon.classList.replace('far', 'fas');
-        } else {
-            wishlist.splice(itemIndex, 1);
-            heartIcon.classList.replace('fas', 'far'); 
-        }
-
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        displayWishlist(); 
+document.addEventListener('DOMContentLoaded', () => {
+    function fetchWishlistProducts() {
+        fetch('/get_wishlist')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const wishlist = data.wishlist;
+                    fetch('/get_wishlist_products', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ wishlist: wishlist })
+                    })
+                        .then(response => response.json())
+                        .then(products => {
+                            renderWishlist(products);
+                        })
+                        .catch(() => alert('Error fetching wishlist products.'));
+                } 
+                else {
+                    alert(data.error);
+                }
+            })
+            .catch(() => alert('Error fetching wishlist.'));
     }
 
-    document.querySelectorAll('.favorite-btn').forEach(button => {
-        button.addEventListener('click', function () {
-            toggleFavorite(button);
-        });
-    });
+    function renderWishlist(products) {
+        const productList = document.getElementById('products');
+        productList.innerHTML = ''; 
 
-    function displayWishlist() {
-        const wishlistContainer = document.getElementById('wishlist-container');
-        if (!wishlistContainer) return;
-
-        wishlistContainer.innerHTML = '<h1>My Wishlist</h1>'; 
-
-        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        wishlist.forEach(item => {
-            const serBox = document.createElement('div');
-            serBox.classList.add('ser-box');
-            serBox.innerHTML = `
-                <img src="${item.image}" alt="${item.name}" width="150px" height="100px">
-                <p>${item.name}</p>
-                <button class="remove-btn" data-id="${item.id}">Remove</button>
+        products.forEach(product => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <span class="wishlist-heart active" data-id="${product.id}">
+                    &#10084;
+                </span>
+                <img src="${product.thumbnail}" alt="${product.name}" width="50">
+                <div class="product-details ${product.inStock ? '' : 'out-of-stock'}">
+                    <strong>${product.name}</strong>
+                    <p>${product.description}</p>
+                    <p class="type">${product.type}</p>
+                    <span class="price">$${product.price} </span>
+                </div>
+                <div class="product-actions">
+                <div class="quantity-control">
+                    <button class="decrease">-</button>
+                    <input type="number" min="1" value="1" class="quantity">
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart-btn ${product.inStock ? '' : 'out-of-stock'}" data-id="${product.id}">
+                    Add to Cart
+                </button>
+                </div>
             `;
-            wishlistContainer.appendChild(serBox);
-        });
+            productList.appendChild(listItem);
 
-        document.querySelectorAll('.remove-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                removeFromWishlist(button.getAttribute('data-id'));
+            const heartIcon = listItem.querySelector('.wishlist-heart');
+            heartIcon.addEventListener('click', () => {
+                heartIcon.classList.toggle('active');
+                removeFromWishlist(product.id);
+            });
+
+            const addToCartBtn = listItem.querySelector('.add-to-cart-btn');
+            const quantityInput = listItem.querySelector('.quantity');
+            const decreaseBtn = listItem.querySelector('.decrease');
+            const increaseBtn = listItem.querySelector('.increase');
+
+            decreaseBtn.addEventListener('click', () => {
+                quantityInput.value = Math.max(1, parseInt(quantityInput.value) - 1);
+            });
+
+            increaseBtn.addEventListener('click', () => {
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+            });
+
+            addToCartBtn.addEventListener('click', () => {
+                if (product.inStock) {
+                    const quantity = parseInt(quantityInput.value);
+                    addToCart(product, quantity);
+                }
             });
         });
     }
 
-    function removeFromWishlist(itemId) {
-        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        wishlist = wishlist.filter(item => item.id !== itemId);
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        displayWishlist(); ف
-
-    
-        const heartButton = document.querySelector(`.ser-box[data-id="${itemId}"] .favorite-btn i`);
-        if (heartButton) {
-            heartButton.classList.replace('fas', 'far'); 
-        }
+    function removeFromWishlist(productId) {
+        fetch('/remove_from_wishlist', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ product_id: productId })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    fetchWishlistProducts(); 
+                } 
+                else {
+                    alert(data.error);
+                }
+            })
+            .catch(() => alert('Error removing from wishlist.'));
     }
 
-    displayWishlist();
+    function addToCart(product, quantity) {
+        fetch('/add_to_cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ product_id: product.id, quantity: quantity })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(`Added ${quantity} ${product.name}(s) to cart!`);
+                } 
+                else {
+                    alert(`Error adding to cart: ${data.error}`);
+                }
+            })
+            .catch(() => alert('Error adding to cart.'));
+    }
+
+    fetchWishlistProducts();
 });

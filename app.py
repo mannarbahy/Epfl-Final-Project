@@ -7,20 +7,20 @@ from email_validator import validate_email, EmailNotValidError
 from datetime import datetime
 import os
 
+
 app = Flask(__name__, template_folder="templates")
 app.secret_key = 'your_secret_key'
-
 class User:
-    def __init__(self, name, email, password, address, phone,security_question):
+    def __init__(self, name, email, password, address, phone, security_question):
         self.name = name
         self.email = email
         self.password = password
         self.address = address
         self.phone = phone
         self.security_question = security_question
-        self.id = uuid.uuid4()
-        self.wishlist = []  
-        self.cart = {}      
+        self.id = str(uuid.uuid4())  # تخزين الـ UUID كنص
+        self.wishlist = []
+        self.cart = {}
         self.orders = []
 
     def hash_password(self):
@@ -31,13 +31,13 @@ class User:
         data = {
             "name": self.name,
             "email": self.email,
-            "id": str(self.id),
+            "id": self.id,
             "password": hashed_password.decode('utf-8'),
             "address": self.address,
             "phone": self.phone,
             "security_question": self.security_question,
-            "wishlist": self.wishlist,  
-            "cart": self.cart,          
+            "wishlist": self.wishlist,
+            "cart": self.cart,
             "orders": self.orders
         }
         try:
@@ -66,53 +66,23 @@ class User:
         except Exception as e:
             raise Exception("Error updating user data:", str(e))
 
-    def __init__(self, name, email, password,address, phone,security_question):
-        self.name = name
-        self.email = email
-        self.password = password
-        self.address = address
-        self.phone = phone
-        self.id = uuid.uuid4()
-        self.security_question = security_question
-
-    def hash_password(self):
-        return bcrypt.hashpw(self.password.encode('utf-8'), bcrypt.gensalt())
-
-    def format_data(self, hashed_password):
-        users_list = []
-        data = {
-            "name": self.name,
-            "email": self.email,
-            "id": str(self.id),
-            "password": hashed_password.decode('utf-8'),
-            "address": self.address,
-            "phone": self.phone,
-            "security_question": self.security_question,
-            "wishlist": [], 
-            "cart": {},
-            "orders": []
-        }
-        try:
-            with open('usersDB.json', 'r') as file:
-                users_list = json.load(file)
-        except (FileNotFoundError, json.JSONDecodeError):
-            pass
-
-        users_list.append(data)
-        with open("usersDB.json", "w") as file:
-            json.dump(users_list, file, indent=4)
-
 def email_validation(email):
     try:
         email_info = validate_email(email, check_deliverability=False)
         return [True, email_info.normalized]
     except EmailNotValidError as e:
         return [False, str(e)]
-def check_password(user_password, hash):
+
+def check_password(user_password, hashed_password):
     user_bytes = user_password.encode('utf-8') 
-    saved_password = hash.encode('utf-8')
-    result = bcrypt.checkpw(user_bytes, saved_password) 
-    return result
+    saved_password = hashed_password.encode('utf-8')
+    return bcrypt.checkpw(user_bytes, saved_password)
+
+
+
+
+
+
 
 
 @app.route('/')
@@ -514,9 +484,6 @@ def get_cart_items():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-@app.route('/base')
-def base():
-    return render_template('home.html')
 
 
 def load_products():
@@ -618,6 +585,16 @@ def profile():
     else:
         return render_template('profile.html', error='User not found')
 
+
+
+
+@app.route('/recipes')
+def recipes():
+    return render_template('recipes.html')
+
+@app.route('/About_us')
+def aboutus():
+    return render_template('aboutus.html')
 
 @app.route('/blog')
 def blog():

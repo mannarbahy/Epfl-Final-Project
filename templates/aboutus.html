@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/profile.css" />
-    <link rel="stylesheet" href="../static/css/nav.css">
-    <link rel="stylesheet" href="../static/css/styles.css">
-    <link rel="shortcut icon" href="../static/images/logobrand.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BakeCraft | our story </title>
+  <link rel="stylesheet" href="../static/css/styles.css" />
+  <link rel="stylesheet" href="../static/css/nav.css" />
+  <link rel="stylesheet" href="../static/css/blog.css" />
+  <link rel="shortcut icon" href="../static/images/logobrand.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-
-    <title>Profile</title>
-    
 </head>
 <body style="background-color: #543310;">
-
-   
- <section  class="container" style="background-color: #543310;">
-
- 
   
+ <section id="main" class="container" style="background-color: #543310;">
+
+  
+ 
+    
   <header class="header">
     <nav class="navbar">
         <a href="" class="logo">
@@ -52,7 +51,7 @@
         </div>
 
         <ul class="menu">
-            <li><a href="#">Home</a></li>
+            <li><a href="/home">Home</a></li>
             <li><a href="/shop">Menu</a></li>
             <li><a href="/wishlist">favorite</a></li>
             <li><a href="/blog">Blog</a></li>
@@ -92,26 +91,55 @@
 </header>
 
 
-  
-</section>
 
-   <div class="profilesection">
-    <div class="profile">
-        <h1>User Profile</h1>
-        <div id="profile-info" class="profile-info"></div>
-        <div id="orders" class="orders">
-            <h2>Past Orders</h2>
-            <div id="orders-list"></div>
-        </div>
-        <p>
-          <a href="{{ url_for('home') }}" class="button">Back to Home</a> 
-          <a href="{{ url_for('logout') }}" class="button">Logout</a>
-        </p>
+    
+    <div class="share-love-container">
+        <img src="/static/images/grandma bake.jpg"  />
+      <h1 style="justify-content: center;"> Our Story : The Warmth of Bread</h1><br>
+      <p>
+        The aroma of fresh bread filled the tiny bakery on the corner of Maple Street. Every morning, before the sun even kissed the horizon, Mr. Elias lit the ovens and kneaded the dough, his hands moving with the kind of grace that only years of love could teach.
+
+        His little bakery, Elias & Sons, had been the heart of the town for decades. But there was no "Sons" anymore. His only son, Daniel, had left years ago, chasing a life far from the scent of vanilla and the crackling sound of golden crusts.
+        
+        The townspeople whispered about how Daniel never called, never visited. And yet, every morning, Elias made Daniel’s favorite pastries—cinnamon rolls with just the right amount of glaze—placing them in the window, as if waiting for him to return.
+        
+        One cold afternoon, a young woman entered the bakery, her coat dusted with snow. She hesitated before speaking.
+        
+        "Are you Mr. Elias?"
+        
+        He wiped his flour-dusted hands on his apron and nodded.
+        
+        She reached into her bag and pulled out an old, crumpled letter. "Daniel wanted me to give you this."
+        
+        Elias’ hands trembled as he unfolded the letter. His eyes moved over the words, and for the first time in years, they filled with tears.
+        
+        "Dad, I know I’ve been gone too long. I was afraid you wouldn’t forgive me. But I miss home. I miss the warmth of your bread. If you’ll have me, I’d like to come back."
+        
+        The old baker let out a shaky breath. He looked at the cinnamon rolls in the window, still warm.
+        
+        "When will he be here?" His voice cracked.
+        
+        The woman smiled. "He's outside."
+        
+        Elias turned toward the door. And there, standing in the snowfall, was Daniel—older, thinner, but with the same boyish eyes.
+        
+        Elias didn’t hesitate. He rushed forward, pulling his son into his arms.
+        
+        "Welcome home, son."
+        
+        And just like that, the warmth of bread was no longer just in the bakery—it was in his heart again.
+      </p>
+      <br>
+   
     </div>
- </div>
+    
+  </section>
 
- <footer class="footer">
-  <div class="footer__container ">
+
+
+  
+<footer class="footer ">
+  <div class="footer__container grid">
     <div class="footer__content ">
       <a href="index.html" class="footer__logo">
         <img src="../static/images/logobrand.png" alt="" class="footer__logo-img" />
@@ -137,8 +165,7 @@
             <i class="fab fa-twitter"></i>         
            </a>
           <a href="#" class="footer__social-icon">
-            <i class="fa-brands fa-instagram" ></i>          
-          </a>
+            <i class="fa-brands fa-instagram" ></i>          </a>
           <a href="#" class="footer__social-icon">
             <i class="fab fa-dribbble" ></i>         
            </a>
@@ -151,12 +178,12 @@
     <div class="footer__content">
       <h3 class="footer__title">Address</h3>
       <ul class="footer__links">
-        <li><a href="#" class="footer__link">About Us</a></li>
-        <li><a href="#" class="footer__link">Delivery Information</a></li>
-        <li><a href="#" class="footer__link">Privacy Policy</a></li>
-        <li><a href="#" class="footer__link">Terms & Conditions</a></li>
-        <li><a href="#" class="footer__link">Contact Us</a></li>
-        <li><a href="#" class="footer__link">Support Center</a></li>
+        <li><a href="base#about-us" class="footer__link">About Us</a></li>
+        <li><a href="base#" class="footer__link">Delivery Information</a></li>
+        <li><a href="base#" class="footer__link">Privacy Policy</a></li>
+        <li><a href="base#" class="footer__link">Terms & Conditions</a></li>
+        <li><a href="base#delivery" class="footer__link">Contact Us</a></li>
+        <li><a href="base#delivery" class="footer__link">Support Center</a></li>
       </ul>
     </div>
     <div class="footer__content">
@@ -164,10 +191,10 @@
       <ul class="footer__links">
         <li><a href="{{ url_for('login') }}" class="footer__link">Log In</a></li>
         <li><a href="{{ url_for('signup') }}" class="footer__link">Sign Up</a></li>
-        <li><a href="/cart" class="footer__link">View Cart</a></li>
-        <li><a href="/wishlist" class="footer__link">My Wishlist</a></li>
+        <li><a href="#" class="footer__link">View Cart</a></li>
+        <li><a href="#" class="footer__link">My Wishlist</a></li>
         <li><a href="#" class="footer__link">Help</a></li>
-        <li><a href="/shop" class="footer__link">Shop</a></li>
+        <li><a href="#" class="footer__link">Shop</a></li>
       </ul>
     </div>
     <div class="footer__content">
@@ -175,12 +202,16 @@
       <img src="../static/images/Untitled-removebg-preview(1).png" alt="" class="payment__img"  width="250px" height="200px" />
     </div>
   </div>
-  <div class="footer__bottom ">
+  <div class="footer__bottom">
     <p class="copyright">&copy; 2025 BakeCraft . All right reserved</p>
     <span class="designer">manar bahy eldein</span>
   </div>
 </footer>
-  
-    <script src="../static/js/profile.js"></script>
+
+
+
+  <script src="../static/js/nav.js"></script>
+  <script src="../static/js/logout.js"></script>
 </body>
+
 </html>
