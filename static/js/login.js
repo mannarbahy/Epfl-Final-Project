@@ -16,7 +16,8 @@ document.querySelector('form').addEventListener('submit', function (e) {
       if (data.id) {
         localStorage.setItem('user', JSON.stringify(data));
         window.location.href = '/home';
-      } else {
+      } 
+      else {
         alert(data.error);
       }
     })

@@ -1,14 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     let wishlist = [];
-    let err =[]
+    let err = [];
+
     function fetchWishlist() {
         return fetch('/get_wishlist')
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
                     wishlist = data.wishlist;
-                } else {
-                    err =data.error
+                } 
+                else {
+                    err = data.error;
                 }
             })
             .catch(() => {
@@ -30,15 +32,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     heartIcon.classList.toggle('active');
                 } else {
                     alert(`${data.error}`);
-
                 }
             })
             .catch(() => {
                 alert('Error adding to wishlist. Please try again later.');
             });
-}
+    }
 
     function addToCart(product, quantity) {
+        if (quantity < 1) {
+            alert('Quantity cannot be less than 1.');
+            
+        }
+
         fetch('/add_to_cart', {
             method: 'POST',
             headers: {
@@ -50,13 +56,15 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 if (data.success) {
                     alert(`Added ${quantity} ${product.name}(s) to cart!`);
-                } else {
+                } 
+                else {
                     alert(`${data.error}`);
                 }
             })
             .catch(() => {
                 alert('Error adding to cart. Please try again later.');
-            });    }
+            });
+    }
 
     function fetchProducts(category = null) {
         let url = "/get_products";
@@ -84,14 +92,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="price">$${product.price} </span>
                         </div>
                         <div class="product-actions">
-                        <div class="quantity-control">
-                            <button class="decrease">-</button>
-                            <input type="number" min="1" value="1" class="quantity">
-                            <button class="increase">+</button>
-                        </div>
-                        <button class="add-to-cart-btn ${product.inStock ? '' : 'out-of-stock'}" data-id="${product.id}">
-                            Add to Cart
-                        </button>
+                            <div class="quantity-control">
+                                <button class="decrease">-</button>
+                                <input type="number" min="1" value="1" class="quantity">
+                                <button class="increase">+</button>
+                            </div>
+                            <button class="add-to-cart-btn ${product.inStock ? '' : 'out-of-stock'}" data-id="${product.id}">
+                                Add to Cart
+                            </button>
                         </div>
                     `;
                     productList.appendChild(listItem);
@@ -106,18 +114,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     const decreaseBtn = listItem.querySelector('.decrease');
                     const increaseBtn = listItem.querySelector('.increase');
 
+                   
                     decreaseBtn.addEventListener('click', () => {
-                        quantityInput.value = Math.max(1, parseInt(quantityInput.value) - 1);
+                        let currentQuantity = parseInt(quantityInput.value);
+                        if (currentQuantity > 1) {
+                            quantityInput.value = currentQuantity - 1;
+                        }
                     });
 
                     increaseBtn.addEventListener('click', () => {
-                        quantityInput.value = parseInt(quantityInput.value) + 1;
+                        let currentQuantity = parseInt(quantityInput.value);
+                        quantityInput.value = currentQuantity + 1;
                     });
 
+                   
                     addToCartBtn.addEventListener('click', () => {
-                        if (product.inStock) {
-                            const quantity = parseInt(quantityInput.value);
+                        const quantity = parseInt(quantityInput.value);
+                        if (product.inStock && quantity >= 1) {
                             addToCart(product, quantity);
+                        } else {
+                            alert('Please select a valid quantity.');
                         }
                     });
                 });
@@ -125,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(() => {
                 alert('Error fetching the products. Please try again later.');
             });
-            }
+    }
 
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('category');

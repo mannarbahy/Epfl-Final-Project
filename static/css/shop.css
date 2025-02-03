@@ -11,6 +11,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 20px;
+    
 }
 
 #products li {
@@ -23,7 +24,7 @@ body {
     margin: 10px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
-    background-color: #cccccc;
+    background-color: #FFEAC5;
 }
 
 #products .product-details {
@@ -154,8 +155,10 @@ body {
     height: 30px;
     font-size: 18px;
     border: none;
+    margin: 0 6px;
     border-radius: 10px;
-    background-color: #f0f0f0;
+    color: white;
+    background-color: #543310;
     cursor: pointer;
     border-radius: 5px;
 

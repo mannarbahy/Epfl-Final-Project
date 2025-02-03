@@ -1,10 +1,13 @@
 import bcrypt
 import uuid
 import json
+import requests
+from mailersend import emails
 from flask import Flask, redirect, request, session, render_template, flash, url_for, jsonify
 from flask_session import Session
 from email_validator import validate_email, EmailNotValidError
 from datetime import datetime
+from flask_mail import Mail, Message
 import os
 
 
@@ -362,6 +365,10 @@ def remove_from_wishlist():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
         
+
+
+
+
 @app.route('/cart')
 def cart():
     return render_template('cart.html')
@@ -507,6 +514,12 @@ def get_product_details():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+
+
+
+MAILERSEND_API_KEY = "mlsn.d16d522a201e35d6c2af7407ff92dea64a67a38c7ea7d3fb77d41b6f9ebbc8f0"
+mailer = emails.NewEmail(MAILERSEND_API_KEY)
+
 @app.route('/save_order', methods=['POST'])
 def place_order():
     if not session.get('user'):
@@ -521,16 +534,21 @@ def place_order():
         with open('usersDB.json', 'r') as file:
             users_list = json.load(file)
 
+        customer_email = None
         for user in users_list:
             if str(user['id']) == str(user_id):
                 if 'orders' not in user:
                     user['orders'] = []
                 user['orders'].append(order_data)
                 user['cart'] = {}
+                customer_email = user.get('email')  
                 break
 
         with open("usersDB.json", "w") as file:
             json.dump(users_list, file, indent=4)
+
+        if customer_email:
+            send_confirmation_email(customer_email, order_data)
 
         return jsonify({"success": True, "message": "Order placed successfully"})
     except Exception as e:
@@ -538,6 +556,39 @@ def place_order():
 
 def generate_order_id():
     return f"ORD-{datetime.now().strftime('%Y%m%d%H%M%S')}"
+
+def send_confirmation_email(email, order_data):
+    order_items = "\n".join([f"{item['name']} x {item['quantity']} - ${item['price']}" for item in order_data['cart']])
+    total_price = order_data['total']
+
+    email_body = f"""
+    🎉 Thank you for your order! 🎉
+    
+    Order ID: {order_data['order_id']}
+    Order Date: {order_data['order_date']}
+    
+    Order Details:
+    {order_items}
+
+    🛒 Total: ${total_price}
+
+    ✅ Your order has been successfully placed.
+    """
+
+    subject = "Order Confirmation"
+    sender_email = "manar.bahy69@gmail.com"  
+    recipients = [email]
+
+    try:
+        mailer.send({
+            "from": {"email": sender_email},
+            "to": [{"email": recipient} for recipient in recipients],
+            "subject": subject,
+            "text": email_body
+        })
+        print(f"✅ Email sent to {email}")
+    except Exception as e:
+        print(f"❌ Failed to send email: {e}")
 
 @app.route('/get_orders', methods=['GET'])
 def get_orders():

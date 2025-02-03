@@ -82,8 +82,144 @@
         "address": "maadi",
         "phone": "0109876543",
         "security_question": "nino",
-        "wishlist": [],
+        "wishlist": [
+            3,
+            2,
+            1
+        ],
         "cart": {},
-        "orders": []
+        "orders": [
+            {
+                "customerInfo": {
+                    "name": "manar",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "22345",
+                    "phone": "01098630762",
+                    "email": "manar.bahy96@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Crispy garlic-infused breadsticks served with marinara sauce.",
+                        "id": 5,
+                        "inStock": true,
+                        "name": "Garlic Breadsticks",
+                        "price": 12,
+                        "quantity": 1,
+                        "thumbnail": "static/images/rb_25311.png",
+                        "type": "Savory Items"
+                    }
+                ],
+                "total": 12,
+                "order_date": "2025-02-03T09:28:55.058501",
+                "order_id": "ORD-20250203092855"
+            },
+            {
+                "customerInfo": {
+                    "name": "manar",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "22344",
+                    "phone": "01098630762",
+                    "email": "manar.bahy96@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [],
+                "total": 0,
+                "order_date": "2025-02-03T09:30:21.385747",
+                "order_id": "ORD-20250203093021"
+            },
+            {
+                "customerInfo": {
+                    "name": "manaar",
+                    "address": "maadi",
+                    "city": "degla",
+                    "country": "cairo",
+                    "postcode": "3456",
+                    "phone": "01923456763",
+                    "email": "manar.bahy96@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Flaky and buttery croissant, perfect for breakfast.",
+                        "id": 2,
+                        "inStock": true,
+                        "name": "Butter Croissant",
+                        "price": 15,
+                        "quantity": 1,
+                        "source": "shop",
+                        "thumbnail": "static/images/croassonit.png",
+                        "type": "Bread"
+                    }
+                ],
+                "total": 15,
+                "order_date": "2025-02-03T09:52:18.545851",
+                "order_id": "ORD-20250203095218"
+            },
+            {
+                "customerInfo": {
+                    "name": "manaar",
+                    "address": "maadi",
+                    "city": "degla",
+                    "country": "cairo",
+                    "postcode": "3456",
+                    "phone": "01923456763",
+                    "email": "manar.bahy96@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [],
+                "total": 15,
+                "order_date": "2025-02-03T09:52:20.607343",
+                "order_id": "ORD-20250203095220"
+            },
+            {
+                "customerInfo": {
+                    "name": "manaar",
+                    "address": "maadi",
+                    "city": "degla",
+                    "country": "cairo",
+                    "postcode": "3456",
+                    "phone": "01923456763",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [],
+                "total": 15,
+                "order_date": "2025-02-03T09:53:39.357551",
+                "order_id": "ORD-20250203095339"
+            },
+            {
+                "customerInfo": {
+                    "name": "manarnoor",
+                    "address": "degla",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "1234",
+                    "phone": "1234567890",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": "hello "
+                },
+                "cart": [
+                    {
+                        "description": "Flaky and buttery croissant, perfect for breakfast.",
+                        "id": 2,
+                        "inStock": true,
+                        "name": "Butter Croissant",
+                        "price": 15,
+                        "quantity": 1,
+                        "source": "shop",
+                        "thumbnail": "static/images/croassonit.png",
+                        "type": "Bread"
+                    }
+                ],
+                "total": 15,
+                "order_date": "2025-02-03T10:32:32.008502",
+                "order_id": "ORD-20250203103232"
+            }
+        ]
     }
 ]
