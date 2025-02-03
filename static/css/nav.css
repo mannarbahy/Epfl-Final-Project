@@ -291,7 +291,7 @@
       display: none;
   }
   .sidebar {
-    display: flex;
+    display: none;
     flex-direction: column;
     position: fixed;
     text-align: center;

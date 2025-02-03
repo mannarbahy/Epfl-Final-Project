@@ -89,9 +89,6 @@ def check_password(user_password, hashed_password):
 
 
 @app.route('/')
-def index():
-    return "Welcome to the Flask App!"
-
 @app.route('/home')
 def home():
     if 'user' in session:
@@ -132,13 +129,7 @@ def signup():
         new_user.format_data(hashed_password)
 
         session['user'] = str(new_user.id)
-        return jsonify({
-            "id": new_user.id,
-            "name": new_user.name,
-            "email": new_user.email,
-            "address": new_user.address,
-            "phone": new_user.phone
-        }), 201
+        return redirect('/home')
     
     return render_template('signup.html')
 
@@ -163,14 +154,7 @@ def login():
         for user in users_list:
             if email == user["email"] and check_password(password, user["password"]):
                 session['user'] = user["id"]
-
-                return jsonify({
-                    "id": user["id"],
-                    "name": user["name"],
-                    "email": user["email"],
-                    "address": user["address"],
-                    "phone": user["phone"]
-                })
+                return redirect('/home')
 
         return render_template('login.html', error='Invalid email or password')
     else:
@@ -290,6 +274,10 @@ def get_wishlist_products():
         return jsonify({"error": "Products file not found"}), 404
     except json.JSONDecodeError:
         return jsonify({"error": "Invalid JSON in products file"}), 500
+
+
+
+
 @app.route('/get_wishlist', methods=['GET'])
 def get_wishlist():
     if not session.get('user'):
@@ -468,7 +456,12 @@ def get_cart_items():
         with open('usersDB.json', 'r') as file:
             users_list = json.load(file)
 
-        user = next((user for user in users_list if user['id'] == user_id), None)
+        user = None
+        for u in users_list:
+           if u['id'] == user_id:
+              user = u
+              break
+
 
         cart_items = user['cart'] if user and 'cart' in user else {}
         
@@ -661,7 +654,7 @@ def blog_3():
 @app.route('/logout')
 def logout():
     session.clear()
-    return redirect('/')
+    return redirect('/home')
 
 
 if __name__ == "__main__":

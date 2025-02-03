@@ -221,5 +221,31 @@
                 "order_id": "ORD-20250203103232"
             }
         ]
+    },
+    {
+        "name": "ahendaeds",
+        "email": "demo@deni.com",
+        "id": "b9770a1a-32f0-4518-a0e7-7dd6faa90988",
+        "password": "$2b$12$kIWWryJLGfdZfoti5YjJyu/RBQhTsl8oMn.oofR3OvmJe9.BY4Ui2",
+        "address": "heinm , hahed",
+        "phone": "0912223445",
+        "security_question": "asd",
+        "wishlist": [],
+        "cart": {
+            "2": 1
+        },
+        "orders": []
+    },
+    {
+        "name": "ahemd",
+        "email": "ahemd@gmail.com",
+        "id": "a8d1c7b8-2edf-4357-b943-68db9a901259",
+        "password": "$2b$12$G7r4RkVlAkQYfQShjSmKueyeZk5kyHucgFuwhP7ckiNE59iBJRGua",
+        "address": "home, town",
+        "phone": "0100100100",
+        "security_question": "asd",
+        "wishlist": [],
+        "cart": {},
+        "orders": []
     }
 ]
