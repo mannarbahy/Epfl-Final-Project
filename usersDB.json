@@ -75,19 +75,21 @@
         "orders": []
     },
     {
-        "name": "manar",
-        "email": "manar2213@gmail.com",
+        "name": "soad mohamed ",
+        "email": "soad.mohamed@gmail.com",
         "id": "6e7e7e1b-34b2-4c6b-9cf1-ed08e6735163",
         "password": "$2b$12$vIRgpypFFQmNF.Pps3BxPuqJ5fcL4SOaZew9ft8AA151.OWo8bLpa",
         "address": "maadi",
-        "phone": "0109876543",
+        "phone": "01097635424",
         "security_question": "nino",
         "wishlist": [
             3,
             2,
             1
         ],
-        "cart": {},
+        "cart": {
+            "2": 1
+        },
         "orders": [
             {
                 "customerInfo": {
@@ -261,12 +263,12 @@
         "orders": []
     },
     {
-        "name": "manarrrrr",
-        "email": "manar.bahyy@gmail.com",
+        "name": "mino",
+        "email": "mino.bahy@gmail.com",
         "id": "96ed14d4-5b49-43a2-9bb1-35c20fce86a8",
         "password": "$2b$12$W1QaZ9XYWnk.d/ADaU/M0OeuUifXzlyjoy72HSTPzuI3LuCsUiP5K",
-        "address": "Maadi",
-        "phone": "01912998374",
+        "address": "maadi",
+        "phone": "0109287465",
         "security_question": "mino",
         "wishlist": [],
         "cart": {},
@@ -715,6 +717,34 @@
                 "total": 35,
                 "order_date": "2025-02-04T11:33:23.719200",
                 "order_id": "ORD-20250204113323"
+            },
+            {
+                "customerInfo": {
+                    "name": "Mohamad",
+                    "address": "6th of october",
+                    "city": "giza",
+                    "country": "Egypt",
+                    "postcode": "12555",
+                    "phone": "01154011744",
+                    "email": "mohamad@remotecoder.org",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Flaky and buttery croissant, perfect for breakfast.",
+                        "id": 2,
+                        "inStock": true,
+                        "name": "Butter Croissant",
+                        "price": 15,
+                        "quantity": 1,
+                        "source": "shop",
+                        "thumbnail": "static/images/croassonit.png",
+                        "type": "Bread"
+                    }
+                ],
+                "total": 15,
+                "order_date": "2025-02-04T14:49:34.150178",
+                "order_id": "ORD-20250204144934"
             }
         ]
     },
@@ -729,5 +759,153 @@
         "wishlist": [],
         "cart": {},
         "orders": []
+    },
+    {
+        "name": "Mohamad Amr Shehab",
+        "email": "mohamad@noury.ch",
+        "id": "6728f707-ae68-4877-848c-69f7f995753a",
+        "password": "$2b$12$itt3DgVEncmwWHJu1WQjNOweh/8tlE.VhcCjkWJspsTIh5kRvosTi",
+        "address": "6th of October",
+        "phone": "01154011744",
+        "security_question": "Shehab",
+        "wishlist": [
+            1
+        ],
+        "cart": {},
+        "orders": []
+    },
+    {
+        "name": "Mohamad",
+        "email": "amroshehab2002a@gmail.com",
+        "id": "01d5f6ef-5fc7-4d17-bdbe-5a89d246a5db",
+        "password": "$2b$12$w47vicHLnRacolBtTdb7HewYZ/jREj/uIaH07xMyMQU8F4QQIFUdm",
+        "address": "6th of october",
+        "phone": "01154011744",
+        "security_question": "Shehab",
+        "wishlist": [],
+        "cart": {},
+        "orders": [
+            {
+                "customerInfo": {
+                    "name": "Mohamad Amr",
+                    "address": "dadsasd",
+                    "city": "sedfsdfsd",
+                    "country": "sfdfsdfs",
+                    "postcode": "dsffs",
+                    "phone": "01154013232",
+                    "email": "fsdfsfsf@fgsdf.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Moist muffin packed with fresh blueberries.",
+                        "id": 6,
+                        "inStock": true,
+                        "name": "Blueberry Muffin",
+                        "price": 18,
+                        "quantity": 1,
+                        "thumbnail": "static/images/delicious-muffin.png",
+                        "type": "Pastries"
+                    }
+                ],
+                "total": 18,
+                "order_date": "2025-02-04T15:00:10.038551",
+                "order_id": "ORD-20250204150010"
+            }
+        ]
+    },
+    {
+        "name": "manarrrr",
+        "email": "manar.bahyy@gmail.com",
+        "id": "39183b2c-b8ed-493c-ae50-1276f46ac639",
+        "password": "$2b$12$lQArfZvES3GWIy9oIRu/oe6cl9MxE3oYutt/NoSEwqLCFfQ1gR/8a",
+        "address": "maadi",
+        "phone": "01098876543",
+        "security_question": "ninooo",
+        "wishlist": [],
+        "cart": {},
+        "orders": [
+            {
+                "customerInfo": {
+                    "name": "manar",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "123454",
+                    "phone": "01098376434",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Flaky and buttery croissant, perfect for breakfast.",
+                        "id": 2,
+                        "inStock": true,
+                        "name": "Butter Croissant",
+                        "price": 15,
+                        "quantity": 1,
+                        "source": "shop",
+                        "thumbnail": "static/images/croassonit.png",
+                        "type": "Bread"
+                    },
+                    {
+                        "description": "Soft vanilla cupcakes topped with creamy frosting.",
+                        "id": 3,
+                        "inStock": true,
+                        "name": "Vanilla Cupcakes",
+                        "price": 20,
+                        "quantity": 1,
+                        "thumbnail": "static/images/cupcakes.png",
+                        "type": "Pastries"
+                    },
+                    {
+                        "description": "A rich and decadent chocolate tart with a crispy crust.",
+                        "id": 1,
+                        "inStock": true,
+                        "name": "Chocolate Tart",
+                        "price": 30,
+                        "quantity": 1,
+                        "source": "home",
+                        "thumbnail": "static/images/tart.png",
+                        "type": "Cakes"
+                    }
+                ],
+                "total": 65,
+                "order_date": "2025-02-04T22:22:15.025299",
+                "order_id": "ORD-20250204222215"
+            },
+            {
+                "customerInfo": {
+                    "name": "manar",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "123454",
+                    "phone": "01098376434",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [],
+                "total": 65,
+                "order_date": "2025-02-04T22:23:10.064714",
+                "order_id": "ORD-20250204222310"
+            },
+            {
+                "customerInfo": {
+                    "name": "manar",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "123454",
+                    "phone": "01098376434",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [],
+                "total": 65,
+                "order_date": "2025-02-04T22:23:11.985927",
+                "order_id": "ORD-20250204222311"
+            }
+        ]
     }
 ]

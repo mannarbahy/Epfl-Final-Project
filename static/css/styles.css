@@ -82,17 +82,7 @@ ul {
   min-height: 650px;
  
 }
-@keyframes fadeIn {
-  from {
-      opacity: 1;
-  }
-  to {
-      opacity: 0;
-  }
-}
-.fade-in{
-   animation: fadeIn 0.5s ease-in;
-}
+
 .home-text h1
 {
 font-size: 3.5rem;

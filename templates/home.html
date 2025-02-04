@@ -27,7 +27,7 @@
         </a>
 
         <div class="sidebar">
-            <a href="#home" class="nav-link" onclick="hideSidebar()">
+            <a href="#home" class="nav-link" onclick="hideSidebar() ">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" >
                     <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
                 </svg>
@@ -37,6 +37,9 @@
             <a href="/shop" class="nav-link">Menu</a>
             <a href="/recipes" class="nav-link">Recipes</a>
             <a href="/blog" class="nav-link">BLOG</a>
+            <a href="{{ url_for('signup') }}" class="nav-link">Sign Up</a>
+            <a href="{{ url_for('profile') }}" class="nav-link">Profile</a>
+            <a href="{{ url_for('logout') }}"  id="logout-btn" class="nav-link">Logout</a>
           
         </div>
 
@@ -48,12 +51,20 @@
             </a>
         </div>
 
-        <ul class="menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="/shop">Menu</a></li>
-            <li><a href="/wishlist">favorite</a></li>
+       <ul class="menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="/shop">Menu</a></li>
+    <li><a href="/wishlist">Favorite</a></li>
+    
+    <li class="nav-user-dropdown">
+        <a href="#" class="dropbtn">Food & Stories ▼</a>
+        <ul class="dropdown-content">
             <li><a href="/blog">Blog</a></li>
+            <li><a href="/recipes">Recipes</a></li>
+            <li><a href="/About_us">About Us</a></li>
         </ul>
+    </li>
+</ul>
         <div class="nav-btns">
             <a href="{{ url_for('wishlist') }}" class="nav-search">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -80,7 +91,7 @@
                 <div class="dropdown-content">
                   <a href="{{ url_for('signup') }}">Sign Up</a>
                   <a href="{{ url_for('profile') }}">Profile</a>
-                  <a href="{{ url_for('logout') }}">Logout</a>
+                  <a href="{{ url_for('logout') }}"  id="logout-btn">Logout</a>
                 </div>
             </div>
         </div>
@@ -529,9 +540,10 @@
 </footer>
   
 
-  <script src="../static/js/home.js"></script>
-  <script src="../static/js/nav.js"></script>
+  <script src="../static/js/home.js"></script> 
   <script src="../static/js/logout.js"></script>
+  <script src="../static/js/nav.js"></script>
+ 
 </body>
 
 </html>

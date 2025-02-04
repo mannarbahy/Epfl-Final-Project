@@ -5,18 +5,18 @@
     --card-background:hwb(30 44% 31%);
     --text-color: #333;
     --gold:#D4A373;
-   
     --muted-orange:#E87C50;
 
 
 }
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins';
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 .profilesection{
+    
     line-height: 1.6;
     margin: 0;
     padding: 20px;
@@ -24,6 +24,7 @@ body {
     color: var(--background-color);
 }
 .profile {
+    
     max-width: 800px;
     margin: 0 auto;
     background-color: var(--card-background);
@@ -31,6 +32,34 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
+#updateProfileForm {
+    
+    margin-left:  160px;
+    
+}
+#updateProfileForm button{
+    margin-left:  170px;
+    
+}
+.input-field{
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #222222;
+    height: 50px;
+    width: 80%;
+    padding: 0 10px 0 45px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    transition: .2s ease;
+    
+}
+.input-field:hover, .input-field:focus{
+    background: rgba(228, 228, 228, 0.25);
+    color: #000000;
+    border: 1px solid #e74c3c;
+}
+
 h1, h2 {
     color: #ffffff;
     text-align: center;
@@ -68,7 +97,7 @@ a:hover {
     padding: 10px 20px;
     background-color: var(--primary-color);
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     margin: 10px 5px;
     transition: background-color 0.3s ease;
@@ -87,20 +116,3 @@ a:hover {
     transform: translateY(-5px);
 }
 
-.input-field{
-    font-size: 15px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #222222;
-    height: 50px;
-    width: 50%;
-    padding: 0 10px 0 45px;
-    border: none;
-    border-radius: 30px;
-    outline: none;
-    transition: .2s ease;
-}
-.input-field:hover, .input-field:focus{
-    background: rgba(228, 228, 228, 0.25);
-    color: #000000;
-    border: 1px solid #e74c3c;
-}
