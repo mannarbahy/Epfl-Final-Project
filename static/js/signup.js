@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function checkFormValidity() {
 
-        const isValidFullname = fullname.value.trim().length >= 3;
+        const isValidFullname = fullname.value.trim().length >= 5;
         const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         const isValidPassword = passwordPattern.test(password.value);
         const isValidAddress = address.value.trim() !== '';
@@ -57,21 +57,23 @@ document.addEventListener('DOMContentLoaded', function () {
         phoneError.style.display = phone.value ? (isValidPhone ? 'none' : 'block') : 'none';
         securityQuestionError.style.display = security_question.value ? (isValidSecurityQuestion ? 'none' : 'block') : 'none';
 
-        if (phoneValue.length>15){
-            phoneError.textContent="Phone number is too long. It must be no more than 15 digits"
-            phoneError.style.display='block';
+        if (phoneValue.length > 0) { 
+            if (phoneValue.length > 15) {
+                phoneError.textContent = "Phone number is too long. It must be no more than 15 digits";
+                phoneError.style.display = 'block';
+            } else if (phoneValue.length < 10) {
+                phoneError.textContent = "Phone number is too short. It must be at least 10 digits";
+                phoneError.style.display = 'block';
+            } else if (!/^[0-9]+$/.test(phoneValue)) {
+                phoneError.textContent = "Phone number must contain only digits.";
+                phoneError.style.display = 'block';
+            } else {
+                phoneError.style.display = 'none';
+            }
+        } else {
+            phoneError.style.display = 'none';  
         }
-        if (phoneValue.length<10){
-            phoneError.textContent="Phone number is too short. It must be at least 10 digits"
-            phoneError.style.display='block';
-        }
-        else if (!isValidPhone) {
-            phoneError.textContent = 'Phone number must contain only digits.';
-            phoneError.style.display = 'block';
-        } 
-        else {
-            phoneError.style.display = 'none';
-        }
+        
 
         const isEmailValid = checkEmailValidity();
         

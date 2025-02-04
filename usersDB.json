@@ -247,5 +247,487 @@
         "wishlist": [],
         "cart": {},
         "orders": []
+    },
+    {
+        "name": "nino",
+        "email": "manar.bah@gmail.com",
+        "id": "b9c527c6-f7e6-4fee-92dc-aefba61f8e7d",
+        "password": "$2b$12$zCLTtCpzHY4XzzIeeFNX4eUsfJZiAHkx8B/TJtbxMBn5Ie31L7gf2",
+        "address": "maadi",
+        "phone": "123456788976",
+        "security_question": "nnnnn",
+        "wishlist": [],
+        "cart": {},
+        "orders": []
+    },
+    {
+        "name": "manarrrrr",
+        "email": "manar.bahyy@gmail.com",
+        "id": "96ed14d4-5b49-43a2-9bb1-35c20fce86a8",
+        "password": "$2b$12$W1QaZ9XYWnk.d/ADaU/M0OeuUifXzlyjoy72HSTPzuI3LuCsUiP5K",
+        "address": "Maadi",
+        "phone": "01912998374",
+        "security_question": "mino",
+        "wishlist": [],
+        "cart": {},
+        "orders": [
+            {
+                "customerInfo": {
+                    "name": "manarrrr",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "12345",
+                    "phone": "0109876543",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": "helllo"
+                },
+                "cart": [
+                    {
+                        "description": "Flaky and buttery croissant, perfect for breakfast.",
+                        "id": 2,
+                        "inStock": true,
+                        "name": "Butter Croissant",
+                        "price": 15,
+                        "quantity": 1,
+                        "source": "shop",
+                        "thumbnail": "static/images/croassonit.png",
+                        "type": "Bread"
+                    },
+                    {
+                        "description": "Soft vanilla cupcakes topped with creamy frosting.",
+                        "id": 3,
+                        "inStock": true,
+                        "name": "Vanilla Cupcakes",
+                        "price": 20,
+                        "quantity": 1,
+                        "thumbnail": "static/images/cupcakes.png",
+                        "type": "Pastries"
+                    },
+                    {
+                        "description": "A rich and decadent chocolate tart with a crispy crust.",
+                        "id": 1,
+                        "inStock": true,
+                        "name": "Chocolate Tart",
+                        "price": 30,
+                        "quantity": 1,
+                        "source": "home",
+                        "thumbnail": "static/images/tart.png",
+                        "type": "Cakes"
+                    }
+                ],
+                "total": 65,
+                "order_date": "2025-02-03T20:03:05.564135",
+                "order_id": "ORD-20250203200305"
+            },
+            {
+                "customerInfo": {
+                    "name": "manarrrr",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "12345",
+                    "phone": "0109876543",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": "helllo"
+                },
+                "cart": [],
+                "total": 65,
+                "order_date": "2025-02-03T20:05:08.101286",
+                "order_id": "ORD-20250203200508"
+            },
+            {
+                "customerInfo": {
+                    "name": "manarrrr",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "12345",
+                    "phone": "0109876543",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [],
+                "total": 65,
+                "order_date": "2025-02-03T20:06:44.192941",
+                "order_id": "ORD-20250203200644"
+            },
+            {
+                "customerInfo": {
+                    "name": "manar",
+                    "address": "maadi",
+                    "city": "cairo",
+                    "country": "cairo",
+                    "postcode": "1233",
+                    "phone": "01098765422",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Flaky and buttery croissant, perfect for breakfast.",
+                        "id": 2,
+                        "inStock": true,
+                        "name": "Butter Croissant",
+                        "price": 15,
+                        "quantity": 1,
+                        "source": "shop",
+                        "thumbnail": "static/images/croassonit.png",
+                        "type": "Bread"
+                    },
+                    {
+                        "description": "Crispy garlic-infused breadsticks served with marinara sauce.",
+                        "id": 5,
+                        "inStock": true,
+                        "name": "Garlic Breadsticks",
+                        "price": 12,
+                        "quantity": 1,
+                        "thumbnail": "static/images/rb_25311.png",
+                        "type": "Savory Items"
+                    }
+                ],
+                "total": 27,
+                "order_date": "2025-02-04T09:56:37.434842",
+                "order_id": "ORD-20250204095637"
+            },
+            {
+                "customerInfo": {
+                    "name": "manarr",
+                    "address": "maadi",
+                    "city": "cairo",
+                    "country": "cairo",
+                    "postcode": "1233",
+                    "phone": "01098765422",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [],
+                "total": 0,
+                "order_date": "2025-02-04T10:04:05.066062",
+                "order_id": "ORD-20250204100405"
+            },
+            {
+                "customerInfo": {
+                    "name": "manarr",
+                    "address": "maadi",
+                    "city": "cairo",
+                    "country": "cairo",
+                    "postcode": "12335",
+                    "phone": "01098765422",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [],
+                "total": 0,
+                "order_date": "2025-02-04T10:12:44.645418",
+                "order_id": "ORD-20250204101244"
+            },
+            {
+                "customerInfo": {
+                    "name": "manar",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "12345",
+                    "phone": "0109876543",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Flaky and buttery croissant, perfect for breakfast.",
+                        "id": 2,
+                        "inStock": true,
+                        "name": "Butter Croissant",
+                        "price": 15,
+                        "quantity": 1,
+                        "source": "shop",
+                        "thumbnail": "static/images/croassonit.png",
+                        "type": "Bread"
+                    }
+                ],
+                "total": 15,
+                "order_date": "2025-02-04T10:15:28.144787",
+                "order_id": "ORD-20250204101528"
+            },
+            {
+                "customerInfo": {
+                    "name": "manart",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "1234",
+                    "phone": "123456343243",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Soft vanilla cupcakes topped with creamy frosting.",
+                        "id": 3,
+                        "inStock": true,
+                        "name": "Vanilla Cupcakes",
+                        "price": 20,
+                        "quantity": 1,
+                        "thumbnail": "static/images/cupcakes.png",
+                        "type": "Pastries"
+                    }
+                ],
+                "total": 20,
+                "order_date": "2025-02-04T10:18:51.519419",
+                "order_id": "ORD-20250204101851"
+            },
+            {
+                "customerInfo": {
+                    "name": "manar",
+                    "address": "maadi",
+                    "city": "cairo",
+                    "country": "cairo",
+                    "postcode": "12345",
+                    "phone": "0109876853286",
+                    "email": "manar.bahy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "A rich and decadent chocolate tart with a crispy crust.",
+                        "id": 1,
+                        "inStock": true,
+                        "name": "Chocolate Tart",
+                        "price": 30,
+                        "quantity": 1,
+                        "source": "home",
+                        "thumbnail": "static/images/tart.png",
+                        "type": "Cakes"
+                    },
+                    {
+                        "description": "Traditional apple pie with a buttery crust and cinnamon filling.",
+                        "id": 8,
+                        "inStock": true,
+                        "name": "Apple Pie",
+                        "price": 35,
+                        "quantity": 1,
+                        "thumbnail": "static/images/rb_32284.png",
+                        "type": "Pies"
+                    },
+                    {
+                        "description": "Classic cookies loaded with chocolate chips.",
+                        "id": 7,
+                        "inStock": true,
+                        "name": "Chocolate Chip Cookies",
+                        "price": 10,
+                        "quantity": 1,
+                        "thumbnail": "static/images/delicious-muffin.png",
+                        "type": "Cookies"
+                    }
+                ],
+                "total": 75,
+                "order_date": "2025-02-04T10:21:10.915195",
+                "order_id": "ORD-20250204102110"
+            },
+            {
+                "customerInfo": {
+                    "name": "hala",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "1234",
+                    "phone": "010987654323",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Flaky and buttery croissant, perfect for breakfast.",
+                        "id": 2,
+                        "inStock": true,
+                        "name": "Butter Croissant",
+                        "price": 15,
+                        "quantity": 1,
+                        "source": "shop",
+                        "thumbnail": "static/images/croassonit.png",
+                        "type": "Bread"
+                    }
+                ],
+                "total": 15,
+                "order_date": "2025-02-04T10:28:02.837519",
+                "order_id": "ORD-20250204102802"
+            },
+            {
+                "customerInfo": {
+                    "name": "manaryy",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "12345",
+                    "phone": "0109866348",
+                    "email": "manar.bahyy@gmai.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Flaky and buttery croissant, perfect for breakfast.",
+                        "id": 2,
+                        "inStock": true,
+                        "name": "Butter Croissant",
+                        "price": 15,
+                        "quantity": 1,
+                        "source": "shop",
+                        "thumbnail": "static/images/croassonit.png",
+                        "type": "Bread"
+                    }
+                ],
+                "total": 15,
+                "order_date": "2025-02-04T10:56:04.728433",
+                "order_id": "ORD-20250204105604"
+            },
+            {
+                "customerInfo": {
+                    "name": "halah",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "1234",
+                    "phone": "010987654323",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [],
+                "total": 15,
+                "order_date": "2025-02-04T10:57:41.538402",
+                "order_id": "ORD-20250204105741"
+            },
+            {
+                "customerInfo": {
+                    "name": "manarrrrrr",
+                    "address": "cairo",
+                    "city": "cairo",
+                    "country": "cairo",
+                    "postcode": "cairo",
+                    "phone": "0109876543",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "A rich and decadent chocolate tart with a crispy crust.",
+                        "id": 1,
+                        "inStock": true,
+                        "name": "Chocolate Tart",
+                        "price": 30,
+                        "quantity": 1,
+                        "source": "home",
+                        "thumbnail": "static/images/tart.png",
+                        "type": "Cakes"
+                    }
+                ],
+                "total": 30,
+                "order_date": "2025-02-04T10:58:50.432987",
+                "order_id": "ORD-20250204105850"
+            },
+            {
+                "customerInfo": {
+                    "name": "manarr",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "12345",
+                    "phone": "010998873635",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Soft vanilla cupcakes topped with creamy frosting.",
+                        "id": 3,
+                        "inStock": true,
+                        "name": "Vanilla Cupcakes",
+                        "price": 20,
+                        "quantity": 1,
+                        "thumbnail": "static/images/cupcakes.png",
+                        "type": "Pastries"
+                    }
+                ],
+                "total": 20,
+                "order_date": "2025-02-04T11:05:48.287176",
+                "order_id": "ORD-20250204110548"
+            },
+            {
+                "customerInfo": {
+                    "name": "naana",
+                    "address": "cairo",
+                    "city": "cairo",
+                    "country": "cairo",
+                    "postcode": "123456",
+                    "phone": "0109864983",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Traditional apple pie with a buttery crust and cinnamon filling.",
+                        "id": 8,
+                        "inStock": true,
+                        "name": "Apple Pie",
+                        "price": 35,
+                        "quantity": 1,
+                        "thumbnail": "static/images/rb_32284.png",
+                        "type": "Pies"
+                    },
+                    {
+                        "description": "Soft cinnamon rolls drizzled with vanilla icing.",
+                        "id": 9,
+                        "inStock": true,
+                        "name": "Cinnamon Roll",
+                        "price": 25,
+                        "quantity": 1,
+                        "thumbnail": "static/images/dounats.png",
+                        "type": "Pastries"
+                    }
+                ],
+                "total": 60,
+                "order_date": "2025-02-04T11:08:23.061904",
+                "order_id": "ORD-20250204110823"
+            },
+            {
+                "customerInfo": {
+                    "name": "manar",
+                    "address": "maadi",
+                    "city": "maadi",
+                    "country": "cairo",
+                    "postcode": "12345",
+                    "phone": "01098765436",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Traditional apple pie with a buttery crust and cinnamon filling.",
+                        "id": 8,
+                        "inStock": true,
+                        "name": "Apple Pie",
+                        "price": 35,
+                        "quantity": 1,
+                        "thumbnail": "static/images/rb_32284.png",
+                        "type": "Pies"
+                    }
+                ],
+                "total": 35,
+                "order_date": "2025-02-04T11:33:23.719200",
+                "order_id": "ORD-20250204113323"
+            }
+        ]
+    },
+    {
+        "name": "manar bahy",
+        "email": "manarbahy@gmail.com",
+        "id": "f85fc558-0e06-4593-a58d-c20291f6a44c",
+        "password": "$2b$12$0AKhG1k1pqYBOizZHsRw.OZki6ztZ/RWih8Yd1WH5abcIBTfJoUyy",
+        "address": "cairo, maadi",
+        "phone": "010098769999999",
+        "security_question": "minoo",
+        "wishlist": [],
+        "cart": {},
+        "orders": []
     }
 ]

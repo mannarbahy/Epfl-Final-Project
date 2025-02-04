@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <p><span class="label">Address:</span> ${user.address}</p>
             <p><span class="label">Phone:</span> ${user.phone}</p>
         `;
-    } else {
+    } 
+    else {
         document.getElementById('profile-info').innerHTML = '<p class="error">User data not found.</p>';
     }
     
@@ -27,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                     ordersList.appendChild(orderItem);
                 });
-            } else {
+            } 
+            else {
                 document.getElementById('orders-list').innerHTML = '<p class="error">Error fetching orders.</p>';
             }
         })

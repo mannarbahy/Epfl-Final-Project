@@ -42,6 +42,7 @@ h1, h2 {
 .profile-info p, .orders p {
     margin: 15px 0;
     font-size: 16px;
+    color: #000000;
 }
 .label {
     font-weight: bold;

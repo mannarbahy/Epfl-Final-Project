@@ -22,7 +22,8 @@ function validateForm() {
         placeOrderBtn.disabled = false;
         placeOrderBtn.style.opacity = '1';
         placeOrderBtn.style.cursor = 'pointer';
-    } else {
+    } 
+    else {
         placeOrderBtn.disabled = true;
         placeOrderBtn.style.opacity = '0.5';
         placeOrderBtn.style.cursor = 'not-allowed';
@@ -82,7 +83,8 @@ async function fetchCartFromBackend() {
             headers: { 'Content-Type': 'application/json' }
         });
         return await response.json();
-    } catch (error) {
+    } 
+    catch (error) {
         document.getElementById('cart-items').innerHTML = '<div>Error fetching cart items.</div>';
         return {};
     }
@@ -129,7 +131,8 @@ async function placeOrder() {
         } else {
             alert('Error placing order: ' + data.message);
         }
-    } catch (error) {
+    } 
+    catch (error) {
         alert('Error placing order.');
     }
 }

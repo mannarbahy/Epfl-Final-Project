@@ -129,9 +129,16 @@ def signup():
         new_user.format_data(hashed_password)
 
         session['user'] = str(new_user.id)
-        return redirect('/home')
+        return jsonify({
+            "id": new_user.id,
+            "name": new_user.name,
+            "email": new_user.email,
+            "address": new_user.address,
+            "phone": new_user.phone
+        }), 201
     
     return render_template('signup.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -154,7 +161,14 @@ def login():
         for user in users_list:
             if email == user["email"] and check_password(password, user["password"]):
                 session['user'] = user["id"]
-                return redirect('/home')
+
+                return jsonify({
+                    "id": user["id"],
+                    "name": user["name"],
+                    "email": user["email"],
+                    "address": user["address"],
+                    "phone": user["phone"]
+                })
 
         return render_template('login.html', error='Invalid email or password')
     else:
@@ -508,10 +522,15 @@ def get_product_details():
         return jsonify({'error': str(e)}), 500
 
 
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = 'manar.bahy55@gmail.com'  
+app.config['MAIL_PASSWORD'] = 'xyfp ogdm xlni lqtk'  
+app.config['MAIL_DEFAULT_SENDER'] = 'manar.bahy55@gmail.com'
 
-
-MAILERSEND_API_KEY = "mlsn.d16d522a201e35d6c2af7407ff92dea64a67a38c7ea7d3fb77d41b6f9ebbc8f0"
-mailer = emails.NewEmail(MAILERSEND_API_KEY)
+mail = Mail(app)
 
 @app.route('/save_order', methods=['POST'])
 def place_order():
@@ -554,6 +573,7 @@ def send_confirmation_email(email, order_data):
     order_items = "\n".join([f"{item['name']} x {item['quantity']} - ${item['price']}" for item in order_data['cart']])
     total_price = order_data['total']
 
+    subject = "Order Confirmation"
     email_body = f"""
     🎉 Thank you for your order! 🎉
     
@@ -568,20 +588,18 @@ def send_confirmation_email(email, order_data):
     ✅ Your order has been successfully placed.
     """
 
-    subject = "Order Confirmation"
-    sender_email = "manar.bahy69@gmail.com"  
-    recipients = [email]
-
     try:
-        mailer.send({
-            "from": {"email": sender_email},
-            "to": [{"email": recipient} for recipient in recipients],
-            "subject": subject,
-            "text": email_body
-        })
+        msg = Message(
+            subject=subject,  
+            sender="BakeCraft <manar.bahy55@gmail.com>",  
+            recipients=[email],  
+            body=email_body
+        )
+        mail.send(msg)
         print(f"✅ Email sent to {email}")
     except Exception as e:
         print(f"❌ Failed to send email: {e}")
+
 
 @app.route('/get_orders', methods=['GET'])
 def get_orders():
@@ -597,14 +615,12 @@ def get_orders():
         user = next((user for user in users_list if user['id'] == user_id), None)
 
         if user:
-
             return jsonify({"success": True, "orders": user.get('orders', [])})
         else:
             return jsonify({"success": False, "error": "User not found"}), 404
 
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
-
 
 
 

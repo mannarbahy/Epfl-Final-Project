@@ -106,7 +106,9 @@ input:focus {
 .error-message {
     color: #ff4757;
     margin-bottom: 10px;
+    margin-left: 10px;
     display: none;
+    font-size: 12px;
   }
   .error {
     border-color: #ff2e40;
