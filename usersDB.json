@@ -7,6 +7,7 @@
         "address": "dsasfsa",
         "phone": "43444444444",
         "security_question": "aaaa",
+        "role": "User",
         "wishlist": [
             1,
             2,
@@ -27,6 +28,7 @@
         "address": "maadi",
         "phone": "01098630762",
         "security_question": "menna",
+        "role": "User",
         "wishlist": [],
         "cart": {},
         "orders": []
@@ -39,6 +41,7 @@
         "address": "cssa",
         "phone": "3543532523",
         "security_question": "xcsss",
+        "role": "User",
         "wishlist": [],
         "cart": {},
         "orders": []
@@ -51,6 +54,7 @@
         "address": "maadi",
         "phone": "0192928387",
         "security_question": "nono",
+        "role": "User",
         "wishlist": [],
         "cart": {},
         "orders": []
@@ -63,6 +67,7 @@
         "address": "maadi",
         "phone": "01098630762",
         "security_question": "menoo",
+        "role": "User",
         "wishlist": [
             3,
             1,
@@ -82,6 +87,7 @@
         "address": "maadi",
         "phone": "01097635424",
         "security_question": "nino",
+        "role": "User",
         "wishlist": [
             3,
             2,
@@ -232,6 +238,7 @@
         "address": "heinm , hahed",
         "phone": "0912223445",
         "security_question": "asd",
+        "role": "User",
         "wishlist": [],
         "cart": {
             "2": 1
@@ -246,6 +253,7 @@
         "address": "home, town",
         "phone": "0100100100",
         "security_question": "asd",
+        "role": "User",
         "wishlist": [],
         "cart": {},
         "orders": []
@@ -258,6 +266,7 @@
         "address": "maadi",
         "phone": "123456788976",
         "security_question": "nnnnn",
+        "role": "User",
         "wishlist": [],
         "cart": {},
         "orders": []
@@ -270,6 +279,7 @@
         "address": "maadi",
         "phone": "0109287465",
         "security_question": "mino",
+        "role": "User",
         "wishlist": [],
         "cart": {},
         "orders": [
@@ -756,6 +766,7 @@
         "address": "cairo, maadi",
         "phone": "010098769999999",
         "security_question": "minoo",
+        "role": "User",
         "wishlist": [],
         "cart": {},
         "orders": []
@@ -768,6 +779,7 @@
         "address": "6th of October",
         "phone": "01154011744",
         "security_question": "Shehab",
+        "role": "User",
         "wishlist": [
             1
         ],
@@ -782,6 +794,7 @@
         "address": "6th of october",
         "phone": "01154011744",
         "security_question": "Shehab",
+        "role": "User",
         "wishlist": [],
         "cart": {},
         "orders": [
@@ -822,6 +835,7 @@
         "address": "maadi",
         "phone": "01098876543",
         "security_question": "ninooo",
+        "role": "User",
         "wishlist": [],
         "cart": {},
         "orders": [
@@ -907,5 +921,18 @@
                 "order_id": "ORD-20250204222311"
             }
         ]
+    },
+    {
+        "name": "admin",
+        "email": "admin@example.com",
+        "id": "114775d1-08db-4485-b270-66656eceeafd",
+        "password": "$2b$12$vbrpeSyARDNHT1m.IKhWyunAyHJNQgmJwc9JM/pKzLdwIeT25ffJu",
+        "address": "cairo",
+        "phone": "01098653473",
+        "security_question": "mino",
+        "role": "Admin",
+        "wishlist": [],
+        "cart": {},
+        "orders": []
     }
 ]

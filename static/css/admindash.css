@@ -1,0 +1,21 @@
+body { 
+    font-family: Arial, sans-serif;
+     margin: 20px;
+      text-align: center;
+     }
+.container {
+     max-width: 600px; 
+     margin: auto;
+     }
+.button {
+     display: block; 
+     padding: 10px;
+      margin: 10px; 
+     background: blue; 
+     color: white; 
+     text-decoration: none;
+      text-align: center;
+       border-radius: 5px; }
+.logout {
+     background: red; 
+    }

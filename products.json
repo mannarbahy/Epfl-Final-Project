@@ -6,8 +6,8 @@
         "description": "A rich and decadent chocolate tart with a crispy crust.",
         "price": 30,
         "thumbnail": "static/images/tart.png",
-        "inStock": true,
-        "source": "home"
+        "inStock": true
+       
     },
     {
         "id": 2,
@@ -16,8 +16,7 @@
         "description": "Flaky and buttery croissant, perfect for breakfast.",
         "price": 15,
         "thumbnail": "static/images/croassonit.png",
-        "inStock": true,
-        "source": "shop"
+        "inStock": true
     },
     {
         "id": 3,

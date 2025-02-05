@@ -14,14 +14,15 @@ import os
 app = Flask(__name__, template_folder="templates")
 app.secret_key = 'your_secret_key'
 class User:
-    def __init__(self, name, email, password, address, phone, security_question):
+    def __init__(self, name, email, password, address, phone, security_question,role):
         self.name = name
         self.email = email
         self.password = password
         self.address = address
         self.phone = phone
         self.security_question = security_question
-        self.id = str(uuid.uuid4())  # تخزين الـ UUID كنص
+        self.id = str(uuid.uuid4())  
+        self.role = role
         self.wishlist = []
         self.cart = {}
         self.orders = []
@@ -92,8 +93,12 @@ def check_password(user_password, hashed_password):
 @app.route('/home')
 def home():
     if 'user' in session:
-        return render_template('home.html')
+        role = session.get('role')  
+        if role == "Admin":
+            return redirect('/admin_dashboard')  
+        return render_template('home.html') 
     return redirect('/login')
+
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -104,9 +109,10 @@ def signup():
         address = request.form.get('address')
         phone = request.form.get('phone')
         security_question = request.form.get('security_question')
+        role = request.form.get('role')
 
-        if not email or not password or not name:
-            return render_template('signup.html', error='Please enter email, password, and username')
+        if not email or not password or not name or not role:
+            return render_template('signup.html', error='Please fill all required fields.')
 
         email_valid = email_validation(email)
         if not email_valid[0]:
@@ -123,8 +129,9 @@ def signup():
 
         if any(user['email'] == email for user in userdb):
             return jsonify({"error": 'Email already exists! Please use a different email.'}), 400
-
-        new_user = User(name, email, password,address, phone,security_question)
+        
+        role = request.form.get('role', 'User')
+        new_user = User(name, email, password,address, phone,security_question,role)
         hashed_password = new_user.hash_password()
         new_user.format_data(hashed_password)
 
@@ -134,49 +141,61 @@ def signup():
             "name": new_user.name,
             "email": new_user.email,
             "address": new_user.address,
-            "phone": new_user.phone
+            "phone": new_user.phone,
+            "role": new_user.role
         }), 201
     
     return render_template('signup.html')
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email = request.form.get('email')
-        password = request.form.get('password')
-        users_list = []
-        with open('usersDB.json') as file:
-            users_list = json.load(file)
+        try:
+            email = request.form.get('email')
+            password = request.form.get('password')
 
-        if not email or not password:
-            return render_template('login.html', error='Please enter email and password') 
-        
-        email_valid = email_validation(email)
-        if not email_valid[0]:
-            return render_template('login.html', error=email_valid[1])
-                
-        email = email_valid[1]
+            if not email or not password:
+                return render_template('login.html', error='Please enter email and password') 
 
-        for user in users_list:
-            if email == user["email"] and check_password(password, user["password"]):
-                session['user'] = user["id"]
+            email_valid = email_validation(email)
+            if not email_valid[0]:
+                return render_template('login.html', error=email_valid[1])
 
-                return jsonify({
-                    "id": user["id"],
-                    "name": user["name"],
-                    "email": user["email"],
-                    "address": user["address"],
-                    "phone": user["phone"]
-                })
+            email = email_valid[1]
 
-        return render_template('login.html', error='Invalid email or password')
+            
+            users_list = []
+            with open('usersDB.json') as file:
+                users_list = json.load(file)
+
+            for user in users_list:
+                if email == user["email"] and check_password(password, user["password"]):
+                    session['user'] = user["id"]
+                    session['role'] = user.get("role", "User")  # إضافة role بشكل آمن
+
+                    print(f"User logged in: {user['email']}, Role: {session['role']}")  # Debugging
+
+                    return jsonify({
+                        "id": user["id"],
+                        "name": user["name"],
+                        "email": user["email"],
+                        "role": session['role'],
+                        "address": user["address"],
+                        "phone": user["phone"]
+                    })
+
+            return render_template('login.html', error='Invalid email or password')
+
+        except Exception as e:
+            print("Login error:", str(e)) 
+            return render_template('login.html', error="An error occurred while logging in.")
+    
     else:
         if session.get('user'):
             return redirect('/home')
 
         return render_template('login.html')
-    
+
     
 @app.route('/pass_page', methods=['GET', 'POST'])
 def pass_page():
@@ -638,12 +657,12 @@ def profile():
         current_user = next((user for user in users_list if str(user['id']) == str(user_id)), None)
         
         if current_user:
-            print(f"✅ Current user data: {current_user}")  
+            print(f"Current user data: {current_user}")  
             return render_template('profile.html', user=current_user)
         else:
             return render_template('profile.html', error='User not found')
     except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"❌ Error loading profile: {e}")
+        print(f"Error loading profile: {e}")
         return render_template('profile.html', error='User data not found')
 
 
@@ -697,6 +716,21 @@ def profile_data():
             return jsonify({"success": False, "message": "User not found"})
     except Exception as e:
         return jsonify({"success": False, "message": str(e)})
+    
+
+#####################admin section route###############################
+
+def load_users():
+    with open("usersDB.json", "r") as file:
+        return json.load(file)
+        
+@app.route('/admin_dashboard')
+def admin_dashboard():
+    if 'user' in session and session.get('role') == "Admin":
+        return render_template('admin_dashboard.html')
+    return redirect('/login')  
+
+
 
 
 @app.route('/recipes')
@@ -720,8 +754,10 @@ def blog_3():
     return render_template('blog3.html')      
 @app.route('/logout')
 def logout():
-    session.clear()
-    return redirect('/home')
+    session.pop('user', None)
+    session.pop('role', None) 
+    return redirect('/login')
+
 
 
 if __name__ == "__main__":

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/adminuser.css">
+    <title> Manage Users </title>
+   
+</head>
+<body>
+
+    <h1>Manage Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Orders</th>
+            </tr>
+        </thead>
+        <tbody id="users-table"></tbody>
+    </table>
+
+    <br>
+    <a href="{{ url_for('admin_dashboard') }}" class="button back">Back to Dashboard</a>
+
+    <script>
+        async function fetchUsers() {
+            try {
+                const response = await fetch('/admin/users/data');  // جلب البيانات من API
+                const data = await response.json();
+
+                if (!data.success) {
+                    alert("Unauthorized access!");
+                    return;
+                }
+
+                const tableBody = document.getElementById('users-table');
+                tableBody.innerHTML = "";
+
+                data.users.forEach(user => {
+                    const row = document.createElement('tr');
+
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = user.name;
+
+                    const emailCell = document.createElement('td');
+                    emailCell.textContent = user.email;
+
+                    const ordersCell = document.createElement('td');
+                    ordersCell.textContent = user.orders.length > 0 ? `${user.orders.length} Orders` : "No Orders";
+
+                    row.appendChild(nameCell);
+                    row.appendChild(emailCell);
+                    row.appendChild(ordersCell);
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        fetchUsers();
+    </script>
+
+</body>
+</html>

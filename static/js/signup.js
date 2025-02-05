@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-
     const form = document.getElementById('signup-form');
     const submitButton = document.querySelector('input[type="submit"]');
 
@@ -9,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const address = document.getElementById('address');
     const phone = document.getElementById('phone');
     const security_question = document.getElementById('security_question');
+    const role = document.getElementById('role');
 
     const fullnameError = document.getElementById('fullname-error');
     const emailError = document.getElementById('email-error');
@@ -16,68 +16,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const addressError = document.getElementById('address-error');
     const phoneError = document.getElementById('phone-error');
     const securityQuestionError = document.getElementById('security_question-error');
+    const roleError = document.getElementById('role-error');
 
     submitButton.disabled = true;
 
-    function checkEmailValidity() {
-        const emailPattern = /^[a-zA-Z][^@]+@[^@]+\.[a-zA-Z]{2,}$/;
-        const emailValid = emailPattern.test(email.value);
-
-        if (!email.value) {
-            emailError.style.display = 'none'; 
-            return true; 
-        }
-
-        if (!emailValid) {
-            email.classList.add('error');
-            emailError.textContent = 'Please enter a valid email address.';
-            emailError.style.display = 'block';
-            return false;
-        } 
-        else {
-            email.classList.remove('error');
-            emailError.style.display = 'none';
-            return true; 
-        }
-    }
-
     function checkFormValidity() {
-
         const isValidFullname = fullname.value.trim().length >= 5;
         const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         const isValidPassword = passwordPattern.test(password.value);
         const isValidAddress = address.value.trim() !== '';
-        const phoneValue = phone.value.trim();
         const isValidPhone = /^[0-9]{10,15}$/.test(phone.value);
         const isValidSecurityQuestion = security_question.value.trim() !== '';
+        const isValidRole = role.value !== '';
 
         fullnameError.style.display = fullname.value ? (isValidFullname ? 'none' : 'block') : 'none';
         passwordError.style.display = password.value ? (isValidPassword ? 'none' : 'block') : 'none';
         addressError.style.display = address.value ? (isValidAddress ? 'none' : 'block') : 'none';
         phoneError.style.display = phone.value ? (isValidPhone ? 'none' : 'block') : 'none';
         securityQuestionError.style.display = security_question.value ? (isValidSecurityQuestion ? 'none' : 'block') : 'none';
+        roleError.style.display = role.value ? 'none' : 'block';
 
-        if (phoneValue.length > 0) { 
-            if (phoneValue.length > 15) {
-                phoneError.textContent = "Phone number is too long. It must be no more than 15 digits";
-                phoneError.style.display = 'block';
-            } else if (phoneValue.length < 10) {
-                phoneError.textContent = "Phone number is too short. It must be at least 10 digits";
-                phoneError.style.display = 'block';
-            } else if (!/^[0-9]+$/.test(phoneValue)) {
-                phoneError.textContent = "Phone number must contain only digits.";
-                phoneError.style.display = 'block';
-            } else {
-                phoneError.style.display = 'none';
-            }
-        } else {
-            phoneError.style.display = 'none';  
-        }
-        
-
-        const isEmailValid = checkEmailValidity();
-        
-        submitButton.disabled = !(isValidFullname && isEmailValid && isValidPassword && isValidAddress && isValidPhone && isValidSecurityQuestion);
+        submitButton.disabled = !(isValidFullname && isValidPassword && isValidAddress && isValidPhone && isValidSecurityQuestion && isValidRole);
     }
 
     fullname.addEventListener('input', checkFormValidity);
@@ -86,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     address.addEventListener('input', checkFormValidity);
     phone.addEventListener('input', checkFormValidity);
     security_question.addEventListener('input', checkFormValidity);
+    role.addEventListener('change', checkFormValidity);
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -97,7 +57,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 password: password.value,
                 address: address.value,
                 phone: phone.value,
-                security_question: security_question.value
+                security_question: security_question.value,
+                role: role.value
             });
 
             fetch('/signup', {
@@ -127,11 +88,5 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert("There was an error processing your request. Please try again later.");
             });       
          }
-    });
-
-    email.addEventListener('input', function () {
-        if (email.classList.contains('error')) {
-            checkFormValidity();
-        }
     });
 });
