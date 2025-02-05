@@ -85,18 +85,27 @@ def check_password(user_password, hashed_password):
 
 
 
-
-
-
-
 @app.route('/')
+
 @app.route('/home')
 def home():
+    with open('usersDB.json') as file:
+        users_list = json.load(file)
+    
     if 'user' in session:
         role = session.get('role')  
+
         if role == "Admin":
-            return redirect('/admin_dashboard')  
-        return render_template('home.html') 
+            return redirect('/admin_dashboard') 
+        
+        if users_list:
+            user = users_list[0]  
+            return render_template('home.html', user=user)  
+        
+    else:
+        return render_template('home.html', user=None) 
+
+   
     return redirect('/login')
 
 
@@ -290,6 +299,8 @@ def get_products():
         return jsonify({"error": "Products file not found"}), 404
     except json.JSONDecodeError:
         return jsonify({"error": "Invalid JSON in products file"}), 500
+    
+    ###################wishlist#############################
 
 @app.route('/wishlist')
 def wishlist():
@@ -388,7 +399,7 @@ def remove_from_wishlist():
         
 
 
-
+###################carttttttttttt##################
 
 @app.route('/cart')
 def cart():
@@ -518,7 +529,7 @@ def get_cart_items():
         return jsonify({"error": str(e)}), 500
 
 
-
+################################checkout##########################################
 def load_products():
     with open('products.json', 'r') as f:
         return json.load(f)
@@ -731,7 +742,26 @@ def admin_dashboard():
     return redirect('/login')  
 
 
+@app.route('/admin_orders')
+def admin_orders():
+    if 'user' in session and session.get('role') == "Admin":
+        try:
+            with open('usersDB.json', 'r') as file:
+                users_list = json.load(file)
 
+            users_with_orders = []
+            for user in users_list:
+                if 'orders' in user and user['orders']:
+                    users_with_orders.append({
+                        'name': user['name'],
+                        'email': user['email'],
+                        'orders': user['orders']
+                    })
+
+            return render_template('admin_orders.html', users=users_with_orders)
+        except Exception as e:
+            return render_template('admin_orders.html', error=str(e))
+    return redirect('/login')
 
 @app.route('/recipes')
 def recipes():

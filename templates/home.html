@@ -102,8 +102,14 @@
 
     <div class="home-text">
         <h1>
-            Freshly Baked Happiness
-            Every Day!  
+          {% if user %}
+          <h1>Welcome, {{ user['name'] }}! <br/>Freshly Baked Happiness Every Day!</h1>  
+        
+      {% else %}
+          <h1>Welcome, Guest !</h1>  
+          
+      {% endif %}
+ 
         </h1>
         <p> Indulge in our handcrafted pastries, bread, and cakes made with love and the finest ingredients. Taste the magic today! </p>
         <a href="{{ url_for('shop') }}" class="btn">
