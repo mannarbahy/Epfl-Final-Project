@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const address = document.getElementById('address');
     const phone = document.getElementById('phone');
     const security_question = document.getElementById('security_question');
-    const role = document.getElementById('role');
+    
 
     const fullnameError = document.getElementById('fullname-error');
     const emailError = document.getElementById('email-error');
@@ -16,27 +16,32 @@ document.addEventListener('DOMContentLoaded', function () {
     const addressError = document.getElementById('address-error');
     const phoneError = document.getElementById('phone-error');
     const securityQuestionError = document.getElementById('security_question-error');
-    const roleError = document.getElementById('role-error');
+   
 
     submitButton.disabled = true;
 
     function checkFormValidity() {
-        const isValidFullname = fullname.value.trim().length >= 5;
-        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        const isValidPassword = passwordPattern.test(password.value);
-        const isValidAddress = address.value.trim() !== '';
-        const isValidPhone = /^[0-9]{10,15}$/.test(phone.value);
-        const isValidSecurityQuestion = security_question.value.trim() !== '';
-        const isValidRole = role.value !== '';
 
-        fullnameError.style.display = fullname.value ? (isValidFullname ? 'none' : 'block') : 'none';
-        passwordError.style.display = password.value ? (isValidPassword ? 'none' : 'block') : 'none';
-        addressError.style.display = address.value ? (isValidAddress ? 'none' : 'block') : 'none';
-        phoneError.style.display = phone.value ? (isValidPhone ? 'none' : 'block') : 'none';
-        securityQuestionError.style.display = security_question.value ? (isValidSecurityQuestion ? 'none' : 'block') : 'none';
-        roleError.style.display = role.value ? 'none' : 'block';
+    const isValidFullname = fullname.value.trim().length >= 5;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const isValidEmail = emailPattern.test(email.value);
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&./)(#^])[A-Za-z\d@$!%*?&]{8,}$/;
+    const isValidPassword = passwordPattern.test(password.value);
+    const addressPattern = /^[A-Za-z\s,]+$/;
+    const isValidAddress = addressPattern.test(address.value.trim());
+    const isValidPhone = /^[0-9]{10,15}$/.test(phone.value);
+    const securityQuestionPattern = /^[A-Za-z\s]+$/;
+    const isValidSecurityQuestion = securityQuestionPattern.test(security_question.value.trim()) && security_question.value.trim().length >= 3;
+   
 
-        submitButton.disabled = !(isValidFullname && isValidPassword && isValidAddress && isValidPhone && isValidSecurityQuestion && isValidRole);
+    fullnameError.style.display = fullname.value ? (isValidFullname ? 'none' : 'block') : 'none';
+    emailError.style.display = email.value ? (isValidEmail ? 'none' : 'block') : 'none';
+    passwordError.style.display = password.value ? (isValidPassword ? 'none' : 'block') : 'none';
+    addressError.style.display = address.value ? (isValidAddress ? 'none' : 'block') : 'none';
+    phoneError.style.display = phone.value ? (isValidPhone ? 'none' : 'block') : 'none';
+    securityQuestionError.style.display = security_question.value ? (isValidSecurityQuestion ? 'none' : 'block') : 'none';
+
+    submitButton.disabled = !(isValidFullname && isValidEmail && isValidPassword && isValidAddress && isValidPhone && isValidSecurityQuestion && isValidRole);
     }
 
     fullname.addEventListener('input', checkFormValidity);
@@ -45,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     address.addEventListener('input', checkFormValidity);
     phone.addEventListener('input', checkFormValidity);
     security_question.addEventListener('input', checkFormValidity);
-    role.addEventListener('change', checkFormValidity);
+   
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -58,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 address: address.value,
                 phone: phone.value,
                 security_question: security_question.value,
-                role: role.value
+                
             });
 
             fetch('/signup', {

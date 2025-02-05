@@ -17,8 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             renderWishlist(products);
                         })
                         .catch(() => alert('Error fetching wishlist products.'));
-                } 
-                else {
+                } else {
                     alert(data.error);
                 }
             })
@@ -78,6 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (product.inStock) {
                     const quantity = parseInt(quantityInput.value);
                     addToCart(product, quantity);
+                } else {
+                    alert('This product is out of stock.');
                 }
             });
         });
@@ -95,8 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 if (data.success) {
                     fetchWishlistProducts(); 
-                } 
-                else {
+                } else {
                     alert(data.error);
                 }
             })
@@ -111,12 +111,18 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify({ product_id: product.id, quantity: quantity })
         })
-            .then(response => response.json())
+            .then(response => {
+                if (response.status === 403) {
+                    alert("You need to be logged in to add items to the cart. Redirecting to login page...");
+                    window.location.href = '/login'; // Redirect to login page
+                    return;
+                }
+                return response.json();
+            })
             .then(data => {
-                if (data.success) {
+                if (data && data.success) {
                     alert(`Added ${quantity} ${product.name}(s) to cart!`);
-                } 
-                else {
+                } else if (data) {
                     alert(`Error adding to cart: ${data.error}`);
                 }
             })

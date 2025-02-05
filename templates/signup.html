@@ -41,7 +41,7 @@
                  Password must be at least 8 characters long,<br> 
                  contain at least one uppercase letter,<br>
                   one lowercase letter, <br>
-                  one number, and one special character<br>
+                  one number, and  special character like @$%!&*<br>
                 </span>
              <i class="fas fa-lock"></i>
              
@@ -51,7 +51,7 @@
           <div class="input-box">
 
              <input type="text" name="address" id="address" placeholder="Address" class="input-field" required />
-             <span id="address-error" class="error-message">Please enter your address.</span>
+             <div id="address-error" class="error-message">Address must contain only letters and spaces.</div>
              <i class="fa-solid fa-house"></i>
           </div>
          
@@ -71,15 +71,7 @@
             <i class="fa-solid fa-user"></i>
 
           </div>
-          <div class="input-box">
-            <select name="role" id="role" class="input-field" required>
-              <option value="" disabled selected>Select Role</option>
-              <option value="user">User</option>
-              <option value="admin">Admin</option>
-            </select>
-            <span id="role-error" class="error-message">Please select a role.</span>
-            <i class="fa-solid fa-user-tag"></i>
-          </div>
+         
           
           <input type="submit" value="Sign Up" disabled />
         </form>

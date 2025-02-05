@@ -934,5 +934,93 @@
         "wishlist": [],
         "cart": {},
         "orders": []
+    },
+    {
+        "name": "sarasalah",
+        "email": "sara@gmail.com",
+        "id": "b1ada567-73c2-41ac-83e6-ac9b67e41056",
+        "password": "$2b$12$5ADzkKtqNgBdskVv/DDi4u0sM11fL1m8jjayI2SCWN3xpuJ4rN24G",
+        "address": "helwan",
+        "phone": "0123456789",
+        "security_question": "sara",
+        "wishlist": [
+            7,
+            24,
+            1
+        ],
+        "cart": {},
+        "orders": [
+            {
+                "customerInfo": {
+                    "name": "sara",
+                    "address": "hhh",
+                    "city": "hellwan",
+                    "country": "Egypt",
+                    "postcode": "gfdjkdhjidfcg",
+                    "phone": "jsgjhsswkjnhskjn",
+                    "email": "2345678990",
+                    "order_notes": ""
+                },
+                "cart": [
+                    {
+                        "description": "Soft vanilla cupcakes topped with creamy frosting.",
+                        "id": 3,
+                        "inStock": true,
+                        "name": "Vanilla Cupcakes",
+                        "price": 20,
+                        "quantity": 96,
+                        "thumbnail": "static/images/cupcakes.png",
+                        "type": "Pastries"
+                    }
+                ],
+                "total": 1920,
+                "order_date": "2025-02-05T17:49:27.036071",
+                "order_id": "ORD-20250205174927"
+            },
+            {
+                "customerInfo": {
+                    "name": "sara",
+                    "address": "hhh",
+                    "city": "hellwan",
+                    "country": "Egypt",
+                    "postcode": "gfdjkdhjidfcg",
+                    "phone": "jsgjhsswkjnhskjn",
+                    "email": "2345678990",
+                    "order_notes": ""
+                },
+                "cart": [],
+                "total": 1920,
+                "order_date": "2025-02-05T17:49:50.984869",
+                "order_id": "ORD-20250205174950"
+            },
+            {
+                "customerInfo": {
+                    "name": "sara",
+                    "address": "hhh",
+                    "city": "hellwan",
+                    "country": "Egypt",
+                    "postcode": "gfdjkdhjidfcg",
+                    "phone": "jsgjhsswkjnhskjn",
+                    "email": "2345678990",
+                    "order_notes": ""
+                },
+                "cart": [],
+                "total": 1920,
+                "order_date": "2025-02-05T17:49:55.232008",
+                "order_id": "ORD-20250205174955"
+            }
+        ]
+    },
+    {
+        "name": "salma ahmed",
+        "email": "salma@gmail.com",
+        "id": "d97d1155-275b-4248-b597-dee451cfe560",
+        "password": "$2b$12$beb/4vTv4X1v8fb71/W1rucWYD2iyepUbFqlgRt8Lv3mqOfws.kPS",
+        "address": "maadi , cairo",
+        "phone": "010987656544",
+        "security_question": "sasa",
+        "wishlist": [],
+        "cart": {},
+        "orders": []
     }
 ]

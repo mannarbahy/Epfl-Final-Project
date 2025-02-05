@@ -38,11 +38,11 @@ async function removeItem(itemId) {
         }
 
         fetchCartItems();
-    } catch (error) {
+    } 
+    catch (error) {
         disableCheckoutButton();
     }
 }
-
 async function addQuantity(itemId) {
     try {
         const response = await fetch('/add_to_cart', {
@@ -60,10 +60,10 @@ async function addQuantity(itemId) {
         }
 
         fetchCartItems();
-    } catch (error) {
+    } 
+    catch (error) {
     }
 }
-
 async function removeQuantity(itemId) {
     try {
         const response = await fetch('/remove_quantity_from_cart', {
@@ -84,7 +84,6 @@ async function removeQuantity(itemId) {
     } catch (error) {
     }
 }
-
 function displayCartItems(cartItems) {  
     const cartItemsContainer = document.getElementById('cart-items');
     
@@ -92,6 +91,12 @@ function displayCartItems(cartItems) {
     if (!cartItems.length) {
         cartItemsContainer.innerHTML = '<tr><td colspan="6">Cart is empty.</td></tr>';
         disableCheckoutButton();
+
+        updateCartTotals(0); 
+        setTimeout(() => {
+            window.location.href = '/shop'; 
+        }, 4000);
+
         return;   
     }
     enableCheckoutButton();
@@ -102,7 +107,6 @@ function displayCartItems(cartItems) {
         const quantity = item.quantity || 1; 
         const itemSubtotal = item.price * quantity;
 
-        // Create a new table row
         const row = document.createElement('tr');
         row.innerHTML = `
             <td><img src="${item.thumbnail}" alt="${item.name}" width="50"></td>
@@ -123,7 +127,6 @@ function displayCartItems(cartItems) {
 
     updateCartTotals(subtotal);
 }
-
 function updateCartTotals(subtotal) {
     const shipping = 0; 
     const total = subtotal + shipping;
@@ -131,7 +134,6 @@ function updateCartTotals(subtotal) {
     document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
     document.getElementById('total').textContent = `$${total.toFixed(2)}`;
 }
-
 function disableCheckoutButton() {
     const checkoutButton = document.getElementById('checkout-button');
     checkoutButton.classList.add('disabled');

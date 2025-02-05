@@ -178,6 +178,7 @@
   
   .footer__content {
     margin-bottom: 20px;
+    
   }
   
   .footer__logo {
@@ -193,6 +194,7 @@
   
   .footer__contact {
     grid-column: 1;
+    
   }
   
   .footer__subtitle {
@@ -295,9 +297,6 @@
     .menu {
       display: none;
   }
-
-
-
 
   
   .sidebar {

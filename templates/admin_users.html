@@ -27,7 +27,7 @@
     <script>
         async function fetchUsers() {
             try {
-                const response = await fetch('/admin/users/data');  // جلب البيانات من API
+                const response = await fetch('/admin/users/data');  
                 const data = await response.json();
 
                 if (!data.success) {

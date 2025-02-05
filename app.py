@@ -408,7 +408,8 @@ def cart():
 @app.route('/add_to_cart', methods=['POST'])
 def add_to_cart():
     if not session.get('user'):
-        return jsonify({"error": "You need to be logged in"}), 403
+        return redirect('/login')
+        
 
     user_id = session.get('user')
     product_id = request.json.get('product_id')
