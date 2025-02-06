@@ -1,3 +1,67 @@
+
+document.addEventListener('DOMContentLoaded', () => {
+    const name = document.getElementById('name');
+    const address = document.getElementById('address');
+    const city = document.getElementById('city');
+    const country = document.getElementById('country');
+    const postcode = document.getElementById('postcode');
+    const phone = document.getElementById('phone');
+    const email = document.getElementById('email');
+    const nameError = document.getElementById('name-error');
+    const addressError = document.getElementById('address-error');
+    const cityError = document.getElementById('city-error');
+    const countryError = document.getElementById('country-error');
+    const postcodeError = document.getElementById('postcode-error');
+    const phoneError = document.getElementById('phone-error');
+    const emailError = document.getElementById('email-error');
+    const placeOrderBtn = document.querySelector('.place-order');
+
+   
+    function checkFormValidity() {
+        const isValidName = name.value.trim().length >= 5;
+        const isValidAddress = /^[A-Za-z\s,]+$/.test(address.value.trim());
+        const isValidCity = city.value.trim().length >= 2;
+        const isValidCountry = country.value.trim().length >= 2;
+        const isValidPostcode = /^[0-9]{3,5}$/.test(postcode.value.trim());
+        const isValidPhone = /^[0-9]{10,15}$/.test(phone.value);
+        const isValidEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value);
+
+        nameError.style.display = name.value ? (isValidName ? 'none' : 'block') : 'none';
+        addressError.style.display = address.value ? (isValidAddress ? 'none' : 'block') : 'none';
+        cityError.style.display = city.value ? (isValidCity ? 'none' : 'block') : 'none';
+        countryError.style.display = country.value ? (isValidCountry ? 'none' : 'block') : 'none';
+        postcodeError.style.display = postcode.value ? (isValidPostcode ? 'none' : 'block') : 'none';
+        phoneError.style.display = phone.value ? (isValidPhone ? 'none' : 'block') : 'none';
+        emailError.style.display = email.value ? (isValidEmail ? 'none' : 'block') : 'none';
+
+        return isValidName && isValidAddress && isValidCity && isValidCountry && isValidPostcode && isValidPhone && isValidEmail;
+    }
+
+    function placeOrder() {
+        if (checkFormValidity()) {
+            document.getElementById('checkout-form').submit();
+        } else {
+            alert('Please fill out all fields correctly.');
+        }
+    }
+
+
+    name.addEventListener('input', checkFormValidity);
+    address.addEventListener('input', checkFormValidity);
+    city.addEventListener('input', checkFormValidity);
+    country.addEventListener('input', checkFormValidity);
+    postcode.addEventListener('input', checkFormValidity);
+    phone.addEventListener('input', checkFormValidity);
+    email.addEventListener('input', checkFormValidity);
+
+   
+   
+    placeOrderBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        placeOrder();
+    });
+});
+
 let total = 0;
 const checkoutForm = document.getElementById('checkout-form');
 const placeOrderBtn = document.querySelector('.place-order');
@@ -34,9 +98,7 @@ function validateForm() {
 
 requiredInputs.forEach(input => {
     input.addEventListener('input', validateForm);
-    input.addEventListener('focus', () => {
-        input.style.borderColor = '';
-    });
+  
 });
 
 async function displayCart() {

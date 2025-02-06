@@ -18,24 +18,23 @@
         <h3>Sign Up</h3>
         <form id="signup-form" action="/signup" method="post" autocomplete="off">
 
-          <div class="input-box">
+          <div class="input-box"> 
+            <i class="fas fa-user"></i>
           <input type="text" name="fullname" id="fullname" placeholder="Full Name" class="input-field" required />
           <span id="fullname-error" class="error-message">Please enter a valid full name.</span>
-          <i class="fas fa-user"></i>
+         
           </div>
 
           <div class="input-box">
-
+          <i class="fas fa-envelope"></i>
           <input type="email" name="email" id="email" placeholder="Example@gmail.com"  class="input-field" required />
           <span id="email-error" class="error-message">Please enter a valid email address.</span>
-          <i class="fas fa-envelope"></i>
-
-          
+        
         </div>
          
 
           <div class="input-box">
-
+             <i class="fas fa-lock"></i>
              <input type="password" name="password" id="password" placeholder="Password" class="input-field" required />
              <span id="password-error" class="error-message">
                  Password must be at least 8 characters long,<br> 
@@ -43,32 +42,32 @@
                   one lowercase letter, <br>
                   one number, and  special character like @$%!&*<br>
                 </span>
-             <i class="fas fa-lock"></i>
+             
              
           </div>
          
 
           <div class="input-box">
-
+            <i class="fa-solid fa-house"></i>
              <input type="text" name="address" id="address" placeholder="Address" class="input-field" required />
              <div id="address-error" class="error-message">Address must contain only letters and spaces.</div>
-             <i class="fa-solid fa-house"></i>
+             
           </div>
          
  
           <div class="input-box">
-
+            <i class="fa-solid fa-phone"></i>
             <input type="text" name="phone" id="phone" placeholder="Phone number" class="input-field" required />
             <span id="phone-error" class="error-message">Please enter a valid phone number.</span>
-            <i class="fa-solid fa-phone"></i>
+            
           </div>
           
 
           <div class="input-box">
-
+            <i class="fa-solid fa-user"></i>
             <input type="text" name="security_question" id="security_question" placeholder="What is your nikname?" class="input-field" required />
             <span id="security_question-error" class="error-message">Please answer the security question.</span>
-            <i class="fa-solid fa-user"></i>
+            
 
           </div>
          

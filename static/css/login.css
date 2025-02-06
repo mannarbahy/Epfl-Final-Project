@@ -14,63 +14,35 @@ body{
    
 }
 
-/* 
-.nav{
-    position: fixed;
-    top: 0;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 100px;
-    line-height: 100px;
-    background: linear-gradient(rgba(39,39,39, 0.6), transparent);
-    z-index: 1;
-}
 
-.logowebsite{
-    margin: 20 20 20 20; 
-    border: solid rgba(255, 255, 255, 0.096); 
-    border-radius: 40px;
-    width:100px;
-    height:70px;
-}
-.link:hover, 
-.active{
-    border-bottom: 2px solid #f846c3;
-}
-.nav-button .btn{
-    width: 130px;
-    height: 40px;
-    font-weight: 500;
-    background: rgba(255, 255, 255, 0.4);
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: .3s ease;
-    
-}
-.nav-button .btn:hover{
-    background: #F72C5B;
-    color: #fff;
-} */
 
 .input-field{
     font-size: 15px;
     background: rgba(255, 255, 255, 0.2);
     color: #222222;
-    height: 50px;
     width: 100%;
-    padding: 0 10px 0 45px;
+    padding: 10px 10px 10px 40px;
     border: none;
     border-radius: 30px;
     outline: none;
     transition: .2s ease;
+    box-sizing: border-box;
 }
 .input-field:hover, .input-field:focus{
     background: rgba(228, 228, 228, 0.25);
     color: #000000;
 }
 
+.input-box:focus-within i {
+
+    color: rgb(88, 88, 255);
+    z-index: 2;
+    top:0 ;
+    left: 10px;
+    margin-top:30px ;
+    
+    
+    }
 .input-box {
     position: relative; 
     margin-bottom: 5px; 
@@ -103,11 +75,11 @@ input:focus {
 }
 
 
-.error-message {
-    color: #ff4757;
-    margin-bottom: 10px;
-    margin-left: 10px;
+.error-message { 
     display: none;
+    color: #ff4757;
+    margin-top: 5px;
+    margin-left: 10px;
     font-size: 12px;
   }
   .error {

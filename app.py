@@ -764,6 +764,15 @@ def admin_orders():
             return render_template('admin_orders.html', error=str(e))
     return redirect('/login')
 
+
+@app.route('/admin_profile')
+def admin_profile():
+    if 'user' in session and session.get('role') == "Admin":
+        return render_template('adminprofile.html')
+    return redirect('/login') 
+
+
+
 @app.route('/recipes')
 def recipes():
     return render_template('recipes.html')

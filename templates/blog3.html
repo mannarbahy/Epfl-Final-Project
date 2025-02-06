@@ -33,7 +33,7 @@
                       <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
                   </svg>
               </a>
-              <a href="#" class="nav-link">HOME</a>
+              <a href="/home" class="nav-link">HOME</a>
               <a href="/About_us" class="nav-link">ABOUT US</a>
               <a href="/shop" class="nav-link">Menu</a>
               <a href="/recipes" class="nav-link">Recipes</a>
@@ -53,7 +53,7 @@
           </div>
   
          <ul class="menu">
-      <li><a href="#">Home</a></li>
+      <li><a href="/home">Home</a></li>
       <li><a href="/shop">Menu</a></li>
       <li><a href="/wishlist">Favorite</a></li>
       
@@ -129,10 +129,10 @@
     </div>
   </section>
  
-  <footer class="footer ">
-    <div class="footer__container grid">
+  <footer class="footer">
+    <div class="footer__container ">
       <div class="footer__content ">
-        <a href="index.html" class="footer__logo">
+        <a href="home.html" class="footer__logo">
           <img src="../static/images/logobrand.png" alt="" class="footer__logo-img" />
         </a>
         <h4 class="footer__title">Contact</h4>
@@ -149,43 +149,33 @@
         <div class="footer__social">
           <h4 class="footer__subtitle">Follow Me here : </h4>
           <div class="footer__links flex">
-            <a href="#" class="footer__social-icon">
+            <a href="https://www.facebook.com/share/1DGUJbr7ob/" class="footer__social-icon">
               <i class="fab fa-facebook-f" ></i> 
              </a>
-            <a href="#" class="footer__social-icon">
+            <a href="https://x.com/manar_bahy?t=DvZfjJO05BBcPE7gixEfgw&s=09" class="footer__social-icon">
               <i class="fab fa-twitter"></i>         
              </a>
-            <a href="#" class="footer__social-icon">
-              <i class="fa-brands fa-instagram" ></i>          </a>
-            <a href="#" class="footer__social-icon">
+            <a href=" https://www.instagram.com/manar.pahy?igsh=d2RveGllNmdlcDJ4" class="footer__social-icon">
+              <i class="fa-brands fa-instagram" ></i>          
+            </a>
+            <a href="https://x.com/manar_bahy?t=DvZfjJO05BBcPE7gixEfgw&s=09" class="footer__social-icon">
               <i class="fab fa-dribbble" ></i>         
              </a>
-            <a href="#" class="footer__social-icon">
+            <a href="https://x.com/manar_bahy?t=DvZfjJO05BBcPE7gixEfgw&s=09" class="footer__social-icon">
               <i class="fab fa-google-plus-g" ></i>
             </a>
           </div>
         </div>
       </div>
-      <div class="footer__content">
-        <h3 class="footer__title">Address</h3>
-        <ul class="footer__links">
-          <li><a href="base#about-us" class="footer__link">About Us</a></li>
-          <li><a href="base#" class="footer__link">Delivery Information</a></li>
-          <li><a href="base#" class="footer__link">Privacy Policy</a></li>
-          <li><a href="base#" class="footer__link">Terms & Conditions</a></li>
-          <li><a href="base#delivery" class="footer__link">Contact Us</a></li>
-          <li><a href="base#delivery" class="footer__link">Support Center</a></li>
-        </ul>
-      </div>
+      
       <div class="footer__content">
         <h3 class="footer__title">My Account</h3>
         <ul class="footer__links">
           <li><a href="{{ url_for('login') }}" class="footer__link">Log In</a></li>
           <li><a href="{{ url_for('signup') }}" class="footer__link">Sign Up</a></li>
-          <li><a href="#" class="footer__link">View Cart</a></li>
-          <li><a href="#" class="footer__link">My Wishlist</a></li>
-          <li><a href="#" class="footer__link">Help</a></li>
-          <li><a href="#" class="footer__link">Shop</a></li>
+          <li><a href="/cart" class="footer__link">View Cart</a></li>
+          <li><a href="/wishlist" class="footer__link">My Wishlist</a></li>
+          <li><a href="/shop" class="footer__link">Shop</a></li>
         </ul>
       </div>
       <div class="footer__content">
@@ -193,7 +183,7 @@
         <img src="../static/images/Untitled-removebg-preview(1).png" alt="" class="payment__img"  width="250px" height="200px" />
       </div>
     </div>
-    <div class="footer__bottom">
+    <div class="footer__bottom ">
       <p class="copyright">&copy; 2025 BakeCraft . All right reserved</p>
       <span class="designer">manar bahy eldein</span>
     </div>
