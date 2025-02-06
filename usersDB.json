@@ -836,7 +836,10 @@
         "phone": "01098876543",
         "security_question": "ninooo",
         "role": "User",
-        "wishlist": [],
+        "wishlist": [
+            2,
+            1
+        ],
         "cart": {},
         "orders": [
             {

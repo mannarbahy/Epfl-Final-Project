@@ -20,8 +20,8 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: var(--primary-color);
-    color: var(--background-color);
+    background-color: #FFE5B4;
+    color: #8B4513;
 }
 .profile {
     max-width: 800px;

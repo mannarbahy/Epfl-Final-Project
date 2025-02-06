@@ -9,8 +9,8 @@ a {
   text-decoration: none;
 }
 .body{
-  color: white;
-  background-color: #543310;
+  color: #8B4513;
+  background-color: #F5F5DC;
   width: 100%;
 
 }
@@ -29,6 +29,7 @@ ul {
   --bbrown--main:#603F26;
   --gold:#D4A373;
   --muted-orange:#E87C50;
+    
  
 
 }
@@ -88,14 +89,14 @@ ul {
 {
 font-size: 3.5rem;
 font-weight: 800;
-color: #fffefe;
+color: #8B4513;
 }
 .home-text p{
   max-width: 300px;
   font-size: 15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
   margin: 60px 10px;
-  color: #FFDBB5;
+  color: #8B4513;
 }
 .home .btn{
   display: flex;
@@ -104,7 +105,7 @@ color: #fffefe;
   align-items: center;
   justify-content: center;
   column-gap: 20px;
-  background-color: #681110;
+  background-color: #283618;
   color: #dbb692;
   border-radius: 20px;
   text-transform: uppercase;
@@ -114,7 +115,7 @@ color: #fffefe;
 }
 .home .btn:hover{
   color: aliceblue;
-  background-color: #144605;
+  background-color: #606c38;
 }
 .home-img{
   max-width: 560px;
@@ -134,7 +135,7 @@ color: #fffefe;
   padding: 50px 0;
 }
 #category h2{
-  color: #ffffff;
+  color: #8B4513;
 }
 
 .category-box {
@@ -167,7 +168,7 @@ color: #fffefe;
 }
 
 .category-box strong {
-  color: #ffffff;
+  color: #8B4513;
   font-size: 0.8rem;
   font-weight: 600;
 }
@@ -179,7 +180,7 @@ color: #fffefe;
 .product h2{
   font-size: 3rem;
   font-weight: bold;
-  color: #ffffff;
+  color: #8B4513;
  justify-items: center;
  margin-bottom: 100px;
  z-index: 2;
@@ -201,7 +202,7 @@ color: #fffefe;
 .shopstory p{
   font-size: 20px;
   font-weight:400;
-  color: #ffffff;
+  color: #8B4513;
 }
 
 
@@ -222,12 +223,12 @@ color: #fffefe;
 .service .heading2 h2{
   font-size: 3rem;
   font-weight: bold;
-  color: #ffffff;
+  color: #8B4513;
   align-items: center;
  justify-items: center;
 }
 .service .heading2 p{
- color: #FFDBB5;
+ color: #8B4513;
  font-size: 1.4rem;
  padding: 30px;
  max-width:850px;
@@ -257,7 +258,7 @@ color: #fffefe;
 
 }
 .ser-box p,a{
-  color: #D4A373;
+  color: #ffffff;
   text-align: center;
 
 }
@@ -288,7 +289,7 @@ color: #fffefe;
 
 .blog-header h2 {
   font-size: 2.5rem;
-  color: #333;
+  color: #8B4513;
   margin-bottom: 15px;
 }
 
@@ -341,7 +342,7 @@ color: #fffefe;
   right: 20px;
   bottom: -25px;
   background: #fa8e1b;
-  color: white;
+  color: #8B4513;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -370,7 +371,7 @@ color: #fffefe;
 
 .blog-title {
   font-size: 1.25rem;
-  color: #333;
+  color: #8B4513;
   margin-bottom: 15px;
   font-weight: 600;
 }
@@ -415,7 +416,7 @@ color: #fffefe;
   background: #fa8e1b;
 }
 .blog-header h2 {
-  color: #ffffff;
+  color: #8B4513;
 }
 
 
@@ -433,7 +434,7 @@ color: #fffefe;
    font-size: 3rem;
    font-weight: 700;
    margin: 1rem; 
-   color: #ffffff;
+   color: #8B4513;
 }
 .faq .faqlist{
   list-style: none;
@@ -545,7 +546,7 @@ color: #fffefe;
 
 .delivery-info {
   padding: 4rem 2rem;
-  background-color: #543310; 
+  background-color: #FFE5B4; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -587,7 +588,7 @@ color: #fffefe;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #74512D; 
+  background-color: #FFE5B4; 
   border-radius: 50%;
   transition: background-color 0.3s ease;
 }
