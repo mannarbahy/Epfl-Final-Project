@@ -16,9 +16,9 @@
 </head>  
 
 
-<body style="background-color: #543310;">
+<body style="background-color: #FFE5B4;">
   
- <section id="main" class="container" style="background-color: #543310;">
+ <section id="main" class="container" style="background-color: #FFE5B4;">
 
   
   
@@ -38,7 +38,6 @@
             <a href="/About_us" class="nav-link">ABOUT US</a>
             <a href="/shop" class="nav-link">Menu</a>
             <a href="/recipes" class="nav-link">Recipes</a>
-            <a href="/blog" class="nav-link">BLOG</a>
             <a href="{{ url_for('signup') }}" class="nav-link">Sign Up</a>
             <a href="{{ url_for('profile') }}" class="nav-link">Profile</a>
             <a href="{{ url_for('logout') }}"  id="logout-btn" class="nav-link">Logout</a>
@@ -61,7 +60,6 @@
     <li class="nav-user-dropdown">
         <a href="#" class="dropbtn">Food & Stories ▼</a>
         <ul class="dropdown-content">
-            <li><a href="/blog">Blog</a></li>
             <li><a href="/recipes">Recipes</a></li>
             <li><a href="/About_us">About Us</a></li>
         </ul>
@@ -102,25 +100,30 @@
 
 
 
-
+   
     <div class="share-love-container">
-      <h1 style="justify-content: center;"> The Future of Baking</h1><br>
-      <p>There’s something about stepping into a bakery that brings a sense of warmth, comfort, and anticipation. The inviting scent of fresh bread, sweet pastries, and the promise of something delightful often pulls us in. But why is it that we love bakeries so much? Let’s break down the reasons why these charming spaces hold such a special place in our hearts.
-        1. The Irresistible Smell of Freshly Baked Goods
+      <img src="{{ url_for('static', filename='images/eclier.jpg') }}" alt="Chocolate Éclair Delight" />
+      <h1 style="justify-content: center;">  Chocolate Éclair Delight 🍫</h1><br>
+      <p>Try making this classic French pastry filled with smooth cream and topped with a rich chocolate glaze.</p>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>120ml water</li>
+                <li>60g butter</li>
+                <li>75g flour</li>
+                <li>2 eggs</li>
+                <li>250ml milk (for filling)</li>
+                <li>100g dark chocolate (for glaze)</li>
+            </ul>
+            <h3>Instructions:</h3>
+            <p>1. Cook butter and water, then add flour and stir into dough.<br>
+               2. Mix in eggs, pipe into shapes, and bake at 200°C for 25 minutes.<br>
+               3. Make custard filling, stuff éclairs, and coat with melted chocolate.</p>
+            <a href="/shop" class="cta"> 📍 Try Our Signature Éclairs at BakeCraft!</a>
         
-        The moment you walk into a bakery, you’re hit with that wonderful aroma—the sweet scent of cookies, the comforting fragrance of warm bread, and the occasional hint of cinnamon or butter. This smell is not only comforting but triggers memories of home and family. Scientists suggest that the sense of smell is closely linked to emotions and memory, which is why that bakery aroma can evoke feelings of nostalgia and happiness. It’s not just a pleasant fragrance; it’s a sensory invitation to indulge in something special.
-        2. A Warm and Welcoming Atmosphere
-        
-        Bakeries often have an ambiance that makes us feel at home. With cozy interiors, the hum of the oven, and the friendly faces behind the counter, bakeries create a sense of belonging. They offer a space where we can slow down, sip on coffee, and enjoy a delicious treat. Whether it’s a neighborhood bakery or a trendy spot in the city, bakeries have a unique way of fostering community. They’re places to chat with friends, share a moment with strangers, or even just enjoy some quiet time with a pastry in hand.
-        3. The Art of Baking: Where Tradition Meets Innovation
-        
-        Bakeries are not just about the food—they’re about the craft. 
-        The art of baking combines tradition and creativity. Whether it’s a classic sourdough loaf or a modern twist on a croissant, bakeries offer both nostalgia and innovation. Bakers are often passionate about their craft, experimenting with new flavors, textures, and techniques while still honoring the age-old methods of baking. The result is a perfect blend of comfort and excitement, where we can savor something familiar yet new.
-      </p>
       <br>
       <div class="blog-navigation">
-        <a href="{{ url_for('blog') }}" class="blog_button">Previous Blog</a>
-        <a href="{{ url_for('blog_3') }}" class="blog_button">Next Blog</a>
+        <a href="{{ url_for('recipe_3') }}" class="blog_button">Previous Blog</a>
+        <a href="{{ url_for('recipe_1') }}" class="blog_button">Next Blog</a>
     </div>
     </div>
   </section>

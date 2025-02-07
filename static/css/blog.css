@@ -32,7 +32,10 @@
 }
 .share-love-container img {
    width: 100%;
-   height: 70vh;
+   max-width: 700px;
+   max-height: 250px; /* Adjust the max-width as needed */
+   height: auto;
+   object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
    border: none;
    border-radius: 20px;
 
@@ -51,7 +54,7 @@
     margin-top: 20px;
 }
 .blog_button{
-    background-color: #684117 ;
+    background-color: #283618  ;
     color: white;
     padding: 10px 20px;
     border-radius: 6px;
@@ -61,7 +64,7 @@
     transition: all 0.3s;
 }
 .blog_button:hover{
-    background-color: #bb7021 ;
+    background-color: #606c38;
     color: white;
    
 }

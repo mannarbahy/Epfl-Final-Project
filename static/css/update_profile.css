@@ -1,16 +1,19 @@
 :root {
-    --primary-color: #543310;
+    --primary-color: #FFE5B4;
     --secondary-color: #99734d;
     --background-color: #ecf0f1;
     --card-background:hwb(30 44% 31%);
     --text-color: #333;
     --gold:#D4A373;
     --muted-orange:#E87C50;
-
+ 
 
 }
+*{
+    font-family:   'Segoe UI', Roboto,  'Open Sans', 'Helvetica Neue', sans-serif;
+}
 body {
-    font-family: 'Poppins';
+    font-family:   'Segoe UI', Roboto,  'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -95,7 +98,7 @@ a:hover {
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--primary-color);
+    background-color: #283618 ;
     color: white;
     border-radius: 10px;
     text-align: center;
@@ -103,7 +106,7 @@ a:hover {
     transition: background-color 0.3s ease;
 }
 .button:hover {
-    background-color: var(--secondary-color)
+    background-color:#606c38;
 }
 .order-item {
     background-color: #f8f9fa;

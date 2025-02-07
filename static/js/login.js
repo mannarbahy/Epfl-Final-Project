@@ -3,6 +3,8 @@ document.querySelector('form').addEventListener('submit', function (e) {
 
     const email = document.querySelector('input[name="email"]').value;
     const password = document.querySelector('input[name="password"]').value;
+    const errorMessage = document.getElementById('error-message'); 
+
 
     fetch('/login', {
       method: 'POST',
@@ -18,11 +20,13 @@ document.querySelector('form').addEventListener('submit', function (e) {
         window.location.href = '/home';
       } 
       else {
-        alert(data.error);
+        errorMessage.textContent = data.error; 
+        errorMessage.style.display = 'block';
       }
     })
     .catch(() => {
-      alert('An error occurred while logging in.');  
+      errorMessage.textContent = 'Your email or password is incorrect!';
+        errorMessage.style.display = 'block'; 
   });
 });
 

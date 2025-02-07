@@ -10,7 +10,7 @@ body {
     
 }
 .tablebox h1{
-    color: #f2f2f2;
+    color: #8B4513;
     padding: 3rem 0;
 }
 table {
@@ -59,7 +59,7 @@ th {
     background-color: #f2f2f2;
 }
 .button {
-    background-color: #fa8e1b;
+    background-color: #283618 ;
     border: none;
     border-radius: 20px;
     color: white;

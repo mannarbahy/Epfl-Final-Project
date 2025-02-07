@@ -399,7 +399,21 @@ color: #8B4513;
   gap: 20px;
  
 }
-
+.cta {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 200px;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background: #a04000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.cta:hover {
+  background: #ca570a;
+}
 .read-more {
   display: inline-block;
   padding: 8px 20px;

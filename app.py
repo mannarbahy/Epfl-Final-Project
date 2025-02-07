@@ -781,17 +781,19 @@ def recipes():
 def aboutus():
     return render_template('aboutus.html')
 
-@app.route('/blog')
-def blog():
-    return render_template('blog.html')
+@app.route('/recipe_1')
+def recipe_1():
+    return render_template('recipes2.html')
 
-@app.route('/blog_2')
-def blog_2():
-    return render_template('blog2.html')
+@app.route('/recipe_2')
+def recipe_2():
+    return render_template('recipes3.html')
 
-@app.route('/blog_3')
-def blog_3():
-    return render_template('blog3.html')      
+@app.route('/recipe_3')
+def recipe_3():
+    return render_template('recipes4.html')  
+
+
 @app.route('/logout')
 def logout():
     session.pop('user', None)

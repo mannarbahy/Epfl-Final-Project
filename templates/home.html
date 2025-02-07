@@ -36,7 +36,6 @@
             <a href="/About_us" class="nav-link">ABOUT US</a>
             <a href="/shop" class="nav-link">Menu</a>
             <a href="/recipes" class="nav-link">Recipes</a>
-            <a href="/blog" class="nav-link">BLOG</a>
             <a href="{{ url_for('signup') }}" class="nav-link">Sign Up</a>
             <a href="{{ url_for('profile') }}" class="nav-link">Profile</a>
             <a href="{{ url_for('logout') }}"  id="logout-btn" class="nav-link">Logout</a>
@@ -59,7 +58,6 @@
     <li class="nav-user-dropdown">
         <a href="#" class="dropbtn">Food & Stories ▼</a>
         <ul class="dropdown-content">
-            <li><a href="/blog">Blog</a></li>
             <li><a href="/recipes">Recipes</a></li>
             <li><a href="/About_us">About Us</a></li>
         </ul>
@@ -282,7 +280,7 @@
 <!-- ------------------------------------------------------------------------ -->
 <section id="blog" class="container">
   <div class="blog-header">
-      <h2 class="blog_title">Blog & Recipes</h2>
+      <h2 class="blog_title"> Recipes</h2>
   </div>
   
   <div class="blog-container">
@@ -295,7 +293,7 @@
               </div>
           </div>
           <div class="blog-content">
-              <h3 class="blog-title">Why We Love Bakeries</h3>
+              <h3 class="blog-title">Savor the Delight: The Art of Our Freshly Baked Baguettes 🥖</h3>
               <div class="blog-meta">
                   <div class="author">
                       <span>By Sarah Green</span>
@@ -303,10 +301,9 @@
                   <div class="date">jun 2, 2025</div>
               </div>
               <p class="blog-excerpt">
-                The aroma of fresh bread, the artistry of a 
-                decorated cake—bakeries remind us to slow down and enjoy life’s simple pleasures...
+                A perfectly baked baguette is more than just bread—it’s a crispy, golden masterpiece with a soft...
               </p>
-              <a href="/blog" class="read-more">Read More →</a>
+              <a href="/recipe_1" class="read-more">Read More →</a>
           </div>
       </article>
       <article class="blog-card">
@@ -318,7 +315,7 @@
             </div>
         </div>
         <div class="blog-content">
-            <h3 class="blog-title">The Future of Baking</h3>
+            <h3 class="blog-title">Sweet Indulgence: The Magic of Our Signature Éclairs 🍫</h3>
             <div class="blog-meta">
                 <div class="author">
                     <span>By Michael Lee</span>
@@ -326,10 +323,9 @@
                 <div class="date">October 10, 2025</div>
             </div>
             <p class="blog-excerpt">
-              Modern bakeries are innovating with global flavors and sustainable
-              practices, ensuring they remain a beloved part of our lives...
+              Light, airy choux pastry filled with luscious cream and topped with glossy chocolate—our éclairs are...
             </p>
-            <a href="/blog_2" class="read-more">Read More →</a>
+            <a href="/recipe_2" class="read-more">Read More → </a>
         </div>
     </article>
      <article class="blog-card">

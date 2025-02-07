@@ -95,7 +95,7 @@ function displayCartItems(cartItems) {
         updateCartTotals(0); 
         setTimeout(() => {
             window.location.href = '/shop'; 
-        }, 4000);
+        }, 10000);
 
         return;   
     }

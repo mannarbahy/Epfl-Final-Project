@@ -16,8 +16,8 @@
 
     
     
-<body style="background-color: #543310;">
-  <section id="main" class="container" style="background-color: #543310;">
+<body style="background-color: #FFE5B4;">
+  <section id="main" class="container" style="background-color: #FFE5B4;">
 
     
  
@@ -37,7 +37,6 @@
               <a href="/About_us" class="nav-link">ABOUT US</a>
               <a href="/shop" class="nav-link">Menu</a>
               <a href="/recipes" class="nav-link">Recipes</a>
-              <a href="/blog" class="nav-link">BLOG</a>
               <a href="{{ url_for('signup') }}" class="nav-link">Sign Up</a>
               <a href="{{ url_for('profile') }}" class="nav-link">Profile</a>
               <a href="{{ url_for('logout') }}"  id="logout-btn" class="nav-link">Logout</a>
@@ -60,7 +59,6 @@
       <li class="nav-user-dropdown">
           <a href="#" class="dropbtn">Food & Stories ▼</a>
           <ul class="dropdown-content">
-              <li><a href="/blog">Blog</a></li>
               <li><a href="/recipes">Recipes</a></li>
               <li><a href="/About_us">About Us</a></li>
           </ul>
@@ -103,28 +101,27 @@
 
     
     <div class="share-love-container">
-      <h1 style="justify-content: center;">Bakeries:the Community</h1><br>
-      <p>
-        Bakeries are often more than just places to buy delicious bread or pastries—they are the heart of many communities. Whether nestled on a quiet street or located in the bustling center of a city, 
-        bakeries hold a special place in the fabric of the neighborhood. They serve as gathering spots, cultural touchstones, and sources of comfort and joy. Here’s why bakeries are often considered the heartbeat of the community.
-        1. A Hub for Social Interaction
-        
-        Bakeries create a sense of connection. They bring people together from all walks of life—neighbors,
-        tourists, students, professionals, and families. The bakery serves as an informal meeting spot where people can chat over
-        coffee or share a freshly baked pastry. The relaxed, welcoming atmosphere encourages casual conversations and even friendships to blossom. 
-        A regular stop at the local bakery can lead to familiar faces and ongoing connections, making it an integral part of the social fabric of the area.
-        2. A Sense of Tradition and Local Culture
-        
-        Bakeries are often tied to local history and traditions. 
-        Many bakeries are family-owned businesses that have passed down recipes and baking techniques from generation to generation. These establishments become cultural landmarks,
-         holding stories and memories of the community’s past. In some towns, the bakery might be the oldest establishment, symbolizing a connection to the roots of the neighborhood.
-          This sense of history creates a deep sense of pride and belonging,
-         as locals know that they are part of something special.
-      </p>
+      <img src="/static/images/strwpere.jpg"  />
+      <h1 style="justify-content: center;"> Morning Bliss: Danish Pastries  🍓</h1><br>
+      <p>Flaky, buttery, and filled with your favorite flavors! Here’s how to make delicious Danish pastries.</p>
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>250g flour</li>
+                <li>125ml warm milk</li>
+                <li>50g butter</li>
+                <li>1 tsp dry yeast</li>
+                <li>1 tbsp sugar</li>
+                <li>Optional: fruit jam, vanilla custard, or cream cheese</li>
+            </ul>
+            <h3>Instructions:</h3>
+            <p>1. Activate yeast with warm milk and sugar.<br>
+               2. Knead dough, fold with butter for layers, and let it rise.<br>
+               3. Cut into shapes, fill with toppings, and bake at 180°C for 15-20 minutes.</p>
+            <a href="/shop" class="cta">Get the Best Danish Pastries at BakeCraft!</a>
       <br>
       <div class="blog-navigation">
-        <a href="{{ url_for('blog_2') }}" class="blog_button">Previous Blog</a>
-        <a href="{{ url_for('blog') }}" class="blog_button">Next Blog</a>
+        <a href="{{ url_for('recipe_2') }}" class="blog_button">Previous Blog</a>
+        <a href="{{ url_for('recipes') }}" class="blog_button">Next Blog</a>
     </div>
     </div>
   </section>
