@@ -773,6 +773,45 @@ def admin_profile():
 
 
 
+@app.route('/admin_products', methods=['GET', 'POST'])
+def admin_products():
+    return render_template('admin_users.html')
+
+
+
+
+@app.route('/update_product', methods=['POST'])
+def update_product():
+    product_data = request.get_json()
+
+    try:
+     
+        with open('products.json', 'r') as file:
+            products = json.load(file)
+
+        product_exists = False
+        for product in products:
+            if product['id'] == product_data['id']:
+                product.update(product_data)  
+                product_exists = True
+                break
+
+        if not product_exists:
+            products.append(product_data)
+
+       
+        with open('products.json', 'w') as file:
+            json.dump(products, file, indent=4)
+
+        return jsonify({"success": True})
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+
+
+
+
 @app.route('/recipes')
 def recipes():
     return render_template('recipes.html')

@@ -3,65 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/adminuser.css">
+    <link rel="stylesheet" href="../static/css/admin_products.css">
     <title> Manage Users </title>
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <link rel="stylesheet" href="../static/css/auth.css" />
+    <link rel="stylesheet" href="../static/css/nav.css" />
+    <link rel="shortcut icon" href="../static/images/logobrand.png"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
    
 </head>
-<body>
+<body style="background-color: #FFE5B4;">
 
-    <h1>Manage Users</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Orders</th>
-            </tr>
-        </thead>
-        <tbody id="users-table"></tbody>
-    </table>
+    <header class="header" >
+        <nav class="navbar">
+            <a href="admin_dashboard" class="logo">
+                <img src="../static/images/logobrand.png" alt="Logo" width="60px" height="70px" style="margin: 5 30; border-radius: 30px;">
+            </a>
+    
+            <div class="sidebar">
+                <a href="#home" class="nav-link" onclick="hideSidebar() ">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" >
+                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                    </svg>
+                </a>
+               
+                <a href="{{ url_for('admin_profile') }}" class="nav-link">Profile</a>
+                <a href="{{ url_for('logout') }}"  id="logout-btn" class="nav-link">Logout</a>
+              
+            </div>
+    
+            <div class="showmenu">
+                <a href="#" class="showmenu" onclick="showSidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" style="margin: 0 40px ;">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                    </svg>
+                </a>
+            </div>
+    
+         
+            <div class="nav-btns">
+               
+                <div class="nav-user-dropdown">
+                    <a href="#" class="nav-user">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/>
+                        </svg>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('admin_orders') }}">orders</a>
+                      <a href="{{ url_for('admin_profile') }}">Profile</a>
+                      <a href="{{ url_for('logout') }}"  id="logout-btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <br>
-    <a href="{{ url_for('admin_dashboard') }}" class="button back">Back to Dashboard</a>
 
-    <script>
-        async function fetchUsers() {
-            try {
-                const response = await fetch('/admin/users/data');  
-                const data = await response.json();
 
-                if (!data.success) {
-                    alert("Unauthorized access!");
-                    return;
-                }
+    <h1>Manage Products</h1>
+    
+    <form id="product-form" autocomplete="off">
+        <label for="product-id">Product ID (for Update or Leave Blank for New):</label>
+        <input type="text" id="product-id" name="id" />
+        
+        <label for="product-name">Product Name:</label>
+        <input type="text" id="product-name" name="name" required />
+        
+        <label for="product-type">Type:</label>
+        <input type="text" id="product-type" name="type" required />
+        
+        <label for="product-description">Description:</label>
+        <textarea id="product-description" name="description" required></textarea>
+        
+        <label for="product-price">Price:</label>
+        <input type="number" id="product-price" name="price" required />
+        
+        <label for="product-thumbnail">Thumbnail path:</label>
+        <input type="text" id="product-thumbnail" name="thumbnail" required />
+        
+        <label for="product-inStock">In Stock:</label>
+        <input type="checkbox" id="product-inStock" name="inStock" />
+        <br>
+        <button type="submit">Submit</button>
+    </form>
 
-                const tableBody = document.getElementById('users-table');
-                tableBody.innerHTML = "";
-
-                data.users.forEach(user => {
-                    const row = document.createElement('tr');
-
-                    const nameCell = document.createElement('td');
-                    nameCell.textContent = user.name;
-
-                    const emailCell = document.createElement('td');
-                    emailCell.textContent = user.email;
-
-                    const ordersCell = document.createElement('td');
-                    ordersCell.textContent = user.orders.length > 0 ? `${user.orders.length} Orders` : "No Orders";
-
-                    row.appendChild(nameCell);
-                    row.appendChild(emailCell);
-                    row.appendChild(ordersCell);
-                    tableBody.appendChild(row);
-                });
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        }
-
-        fetchUsers();
-    </script>
+    <script src="../static/js/admin.js"></script>
+    <script src="../static/js/nav.js"></script>
 
 </body>
 </html>

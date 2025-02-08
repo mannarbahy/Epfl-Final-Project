@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="../static/css/nav.css" />
   <link rel="stylesheet" href="../static/css/adminuser.css" />
   <link rel="shortcut icon" href="../static/images/logobrand.png"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <title>Admin Orders</title>
@@ -17,9 +15,9 @@
 </head>
 <body>
 
-    <header class="header">
+    <header class="header" >
         <nav class="navbar">
-            <a href="" class="logo">
+            <a href="/admin_dashboard" class="logo">
                 <img src="../static/images/logobrand.png" alt="Logo" width="60px" height="70px" style="margin: 5 30; border-radius: 30px;">
             </a>
     
@@ -30,7 +28,7 @@
                     </svg>
                 </a>
                
-                <a href="{{ url_for('profile') }}" class="nav-link">Profile</a>
+                <a href="{{ url_for('admin_profile') }}" class="nav-link">Profile</a>
                 <a href="{{ url_for('logout') }}"  id="logout-btn" class="nav-link">Logout</a>
               
             </div>
@@ -53,7 +51,7 @@
                         </svg>
                     </a>
                     <div class="dropdown-content">
-                      
+                        <a href="{{ url_for('admin_products') }}">Manage Users</a>
                       <a href="{{ url_for('admin_profile') }}">Profile</a>
                       <a href="{{ url_for('logout') }}"  id="logout-btn">Logout</a>
                     </div>
@@ -62,7 +60,7 @@
         </nav>
     </header>
     <div class="container ">
-        <h1 class="mb-4">User Orders</h1>
+        <h1 >User Orders</h1>
         {% if error %}
             <div class="alert alert-danger">{{ error }}</div>
         {% else %}
