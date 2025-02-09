@@ -71,7 +71,15 @@
 
           </div>
          
-          
+          <div class="input-box">
+            <select name="role" id="role" class="input-field" required>
+              <option value="" disabled selected>Select Role</option>
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+            <span id="role-error" class="error-message">Please select a role.</span>
+            <i class="fa-solid fa-user-tag"></i>
+          </div>
           <input type="submit" value="Sign Up" disabled />
         </form>
         <p class="error-message">{{ error }}</p>

@@ -40,6 +40,7 @@ class User:
             "address": self.address,
             "phone": self.phone,
             "security_question": self.security_question,
+            "role": self.role,
             "wishlist": self.wishlist,
             "cart": self.cart,
             "orders": self.orders
@@ -180,9 +181,9 @@ def login():
             for user in users_list:
                 if email == user["email"] and check_password(password, user["password"]):
                     session['user'] = user["id"]
-                    session['role'] = user.get("role", "User")  # إضافة role بشكل آمن
+                    session['role'] = user.get("role", "User")  
 
-                    print(f"User logged in: {user['email']}, Role: {session['role']}")  # Debugging
+                    print(f"User logged in: {user['email']}, Role: {session['role']}")  
 
                     return jsonify({
                         "id": user["id"],

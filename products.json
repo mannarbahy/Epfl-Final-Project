@@ -127,5 +127,14 @@
         "price": 40,
         "thumbnail": "../static/images/layered-french-pastry-with-cream.png",
         "inStock": true
+    },
+    {
+        "id": "1111",
+        "name": "New Bread",
+        "type": "bread",
+        "description": "This is a description",
+        "price": 12,
+        "thumbnail": "link",
+        "inStock": true
     }
 ]
