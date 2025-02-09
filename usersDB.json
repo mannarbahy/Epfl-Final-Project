@@ -1054,5 +1054,20 @@
         ],
         "cart": {},
         "orders": []
+    },
+    {
+        "name": "nadia",
+        "email": "maanar@gamil.com",
+        "id": "cd01dff2-b0bf-4fee-9177-780bfc24af5f",
+        "password": "$2b$12$TaaS673CeOJHKJV08ffD7OcoWRYpVk0sEos/0Cm1LWTWxjo1dTxJq",
+        "address": "maadi madina",
+        "phone": "0109286455",
+        "security_question": "nia",
+        "role": "user",
+        "wishlist": [],
+        "cart": {
+            "2": 1
+        },
+        "orders": []
     }
 ]

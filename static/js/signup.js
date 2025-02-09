@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const address = document.getElementById('address');
     const phone = document.getElementById('phone');
     const security_question = document.getElementById('security_question');
-    const role = document.getElementById('role'); 
+    const defaultRole = 'user';
     
 
     const fullnameError = document.getElementById('fullname-error');
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const isValidPhone = /^[0-9]{10,15}$/.test(phone.value);
         const securityQuestionPattern = /^[A-Za-z\s]+$/;
         const isValidSecurityQuestion = securityQuestionPattern.test(security_question.value.trim()) && security_question.value.trim().length >= 3;
-        const isValidRole = role && role.value.trim() !== '';
+        
 
         fullnameError.style.display = fullname.value ? (isValidFullname ? 'none' : 'block') : 'none';
         emailError.style.display = email.value ? (isValidEmail ? 'none' : 'block') : 'none';
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
         phoneError.style.display = phone.value ? (isValidPhone ? 'none' : 'block') : 'none';
         securityQuestionError.style.display = security_question.value ? (isValidSecurityQuestion ? 'none' : 'block') : 'none';
 
-        submitButton.disabled = !(isValidFullname && isValidEmail && isValidPassword && isValidAddress && isValidPhone && isValidSecurityQuestion && isValidRole);
+        submitButton.disabled = !(isValidFullname && isValidEmail && isValidPassword && isValidAddress && isValidPhone && isValidSecurityQuestion);
     }
 
      fullname.addEventListener('input', checkFormValidity);
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     address.addEventListener('input', checkFormValidity);
     phone.addEventListener('input', checkFormValidity);
     security_question.addEventListener('input', checkFormValidity);
-    role.addEventListener('input', checkFormValidity);
+    
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 address: address.value,
                 phone: phone.value,
                 security_question: security_question.value,
-                role: role.value
+                role: defaultRole
             });
             fetch('/signup', {
                 method: 'POST',

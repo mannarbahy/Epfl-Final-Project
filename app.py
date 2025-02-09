@@ -119,9 +119,12 @@ def signup():
         address = request.form.get('address')
         phone = request.form.get('phone')
         security_question = request.form.get('security_question')
-        role = request.form.get('role')
+        role = 'user'
 
-        if not email or not password or not name or not role:
+        if email == 'admin@example.com':
+            role = 'admin'
+
+        if not email or not password or not name :
             return render_template('signup.html', error='Please fill all required fields.')
 
         email_valid = email_validation(email)
@@ -285,7 +288,8 @@ def reset_password():
 @app.route('/shop')
 def shop():
     category = request.args.get('category')
-    return render_template('shop.html', category=category)
+    user = session.get('user')
+    return render_template('shop.html', category=category, user=user)
 
 @app.route('/get_products')
 def get_products():
@@ -305,7 +309,8 @@ def get_products():
 
 @app.route('/wishlist')
 def wishlist():
-    return render_template('wishlist.html')
+    user = session.get('user') 
+    return render_template('wishlist.html', user=user)
 
 @app.route('/get_wishlist_products', methods=['POST'])
 def get_wishlist_products():
@@ -404,7 +409,8 @@ def remove_from_wishlist():
 
 @app.route('/cart')
 def cart():
-    return render_template('cart.html')
+    user = session.get('user')
+    return render_template('cart.html', user=user)
 
 @app.route('/add_to_cart', methods=['POST'])
 def add_to_cart():
@@ -776,7 +782,9 @@ def admin_profile():
 
 @app.route('/admin_products', methods=['GET', 'POST'])
 def admin_products():
-    return render_template('admin_users.html')
+    if 'user' in session and session.get('role') == "Admin":
+        return render_template('admin_users.html')
+    return redirect('/login') 
 
 
 
@@ -836,8 +844,7 @@ def recipe_3():
 
 @app.route('/logout')
 def logout():
-    session.pop('user', None)
-    session.pop('role', None) 
+    session.clear()
     return redirect('/login')
 
 
