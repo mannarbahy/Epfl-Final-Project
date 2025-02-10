@@ -33,7 +33,7 @@ def setup_order_routes(app):
     @app.route('/checkout')
     def checkout():
         user = session.get('user') 
-        return render_template('checkout.html')
+        return render_template('checkout.html',user=user)
 
     @app.route('/get_product_details', methods=['POST'])
     def get_product_details():

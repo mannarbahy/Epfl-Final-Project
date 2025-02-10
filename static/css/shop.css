@@ -4,6 +4,7 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
 .toast {
     visibility: hidden;
     min-width: 200px;
@@ -27,7 +28,19 @@ body {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1)
 }
+.edit-btn {
+    margin-left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 14px;
+}
 
+.edit-btn:hover {
+    background-color: #45a049;
+}
 #products {
     list-style-type: none;
     padding: 0;

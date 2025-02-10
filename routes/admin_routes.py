@@ -38,11 +38,12 @@ def setup_admin_routes(app):
             return render_template('adminprofile.html')
         return redirect('/login')
 
+    
     @app.route('/admin_products', methods=['GET', 'POST'])
     def admin_products():
         if 'user' in session and session.get('role') == "Admin":
-            return render_template('admin_products.html')  
-        return redirect('/login')
+            return render_template('admin_users.html')
+        return redirect('/login') 
 
     @app.route('/update_product', methods=['POST'])
     def update_product():

@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(() => {
-                alert('Error fetching wishlist. Please try again later.');
+                showToast('Error fetching wishlist. Please try again later.');
             });
     }
     function showToast(message, type = 'success') {
@@ -42,17 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (data.success) {
                     heartIcon.classList.toggle('active');
                 } else {
-                    alert(`${data.error}`);
+                    showToast(`${data.error}`);
                 }
             })
             .catch(() => {
-                alert('Error adding to wishlist. Please try again later.');
+                showToast('Error adding to wishlist. Please try again later.');
             });
     }
 
     function addToCart(product, quantity) {
         if (quantity < 1) {
-            alert('Quantity cannot be less than 1.');
+            showToast('Quantity cannot be less than 1.');
             
         }
 

@@ -8,6 +8,7 @@ from models.user import User
 
 
 def setup_auth_routes(app):
+   
     @app.route('/signup', methods=['GET', 'POST'])
     def signup():
         if request.method == 'POST':
@@ -22,7 +23,7 @@ def setup_auth_routes(app):
             if email == 'admin@example.com':
                 role = 'admin'
 
-            if not email or not password or not name:
+            if not email or not password or not name :
                 return render_template('signup.html', error='Please fill all required fields.')
 
             email_valid = email_validation(email)
@@ -40,8 +41,9 @@ def setup_auth_routes(app):
 
             if any(user['email'] == email for user in userdb):
                 return jsonify({"error": 'Email already exists! Please use a different email.'}), 400
-
-            new_user = User(name, email, password, address, phone, security_question, role)
+            
+            role = request.form.get('role', 'User')
+            new_user = User(name, email, password,address, phone,security_question,role)
             hashed_password = new_user.hash_password()
             new_user.format_data(hashed_password)
 
@@ -50,52 +52,63 @@ def setup_auth_routes(app):
                 "id": new_user.id,
                 "name": new_user.name,
                 "email": new_user.email,
+                "address": new_user.address,
+                "phone": new_user.phone,
                 "role": new_user.role
             }), 201
-
+        
         return render_template('signup.html')
 
     @app.route('/login', methods=['GET', 'POST'])
     def login():
         if request.method == 'POST':
-            email = request.form.get('email')
-            password = request.form.get('password')
+            try:
+                email = request.form.get('email')
+                password = request.form.get('password')
 
-            if not email or not password:
-                return render_template('login.html', error='Please enter email and password')
+                if not email or not password:
+                    return render_template('login.html', error='Please enter email and password') 
 
-            email_valid = email_validation(email)
-            if not email_valid[0]:
-                return render_template('login.html', error=email_valid[1])
+                email_valid = email_validation(email)
+                if not email_valid[0]:
+                    return render_template('login.html', error=email_valid[1])
 
-            email = email_valid[1]
+                email = email_valid[1]
 
-            users_list = []
-            with open('usersDB.json') as file:
-                users_list = json.load(file)
+                
+                users_list = []
+                with open('usersDB.json') as file:
+                    users_list = json.load(file)
 
-            for user in users_list:
-                if email == user["email"] and check_password(password, user["password"]):
-                    session['user'] = user["id"]
-                    session['role'] = user.get("role", "User")
+                for user in users_list:
+                    if email == user["email"] and check_password(password, user["password"]):
+                        session['user'] = user["id"]
+                        session['role'] = user.get("role", "User")  
 
-                    return jsonify({
-                        "id": user["id"],
-                        "name": user["name"],
-                        "email": user["email"],
-                        "role": session['role'],
-                        "address": user["address"],
-                        "phone": user["phone"]
-                    })
+                        print(f"User logged in: {user['email']}, Role: {session['role']}")  
 
-            return render_template('login.html', error='Invalid email or password')
+                        return jsonify({
+                            "id": user["id"],
+                            "name": user["name"],
+                            "email": user["email"],
+                            "role": session['role'],
+                            "address": user["address"],
+                            "phone": user["phone"]
+                        })
 
+                return render_template('login.html', error='Invalid email or password')
+
+            except Exception as e:
+                print("Login error:", str(e)) 
+                return render_template('login.html', error="An error occurred while logging in.")
+        
         else:
             if session.get('user'):
                 return redirect('/home')
 
             return render_template('login.html')
 
+        
     @app.route('/pass_page', methods=['GET', 'POST'])
     def pass_page():
         if request.method == 'POST':
@@ -170,6 +183,7 @@ def setup_auth_routes(app):
             return redirect('/reset_password')
 
         return render_template('reset_password.html')
+
     
     @app.route('/logout')
     def logout():
