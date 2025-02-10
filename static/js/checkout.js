@@ -1,4 +1,13 @@
+function showToast(message, type = 'success') {
+    const toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.style.backgroundColor = type === 'error' ? '#D32F2F' : '#4CAF50'; 
+    toast.classList.add("show");
 
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2000);
+}
 document.addEventListener('DOMContentLoaded', () => {
     const name = document.getElementById('name');
     const address = document.getElementById('address');
@@ -41,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (checkFormValidity()) {
             document.getElementById('checkout-form').submit();
         } else {
-            alert('Please fill out all fields correctly.');
+            showToast('Please fill out all fields correctly.');
         }
     }
 
@@ -157,7 +166,7 @@ async function placeOrder() {
     
     if (!validation.isValid) {
         const emptyFieldsList = validation.emptyFields.join(', ');
-        alert(`Please fill in all required fields to continue your order.\n\nMissing information for: ${emptyFieldsList}`);
+        showToast(`Please fill in all required fields to continue your order.\n\nMissing information for: ${emptyFieldsList}`);
         
         requiredInputs.forEach(input => {
             if (!input.value.trim()) {
@@ -191,11 +200,11 @@ async function placeOrder() {
         if (data.success) {
             showSuccessDialog();
         } else {
-            alert('Error placing order: ' + data.message);
+            showToast('Error placing order: ' + data.message);
         }
     } 
     catch (error) {
-        alert('Error placing order.');
+        showToast('Error placing order.');
     }
 }
 

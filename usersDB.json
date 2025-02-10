@@ -60,12 +60,12 @@
         "orders": []
     },
     {
-        "name": "manar",
-        "email": "manar221@gmail.com",
+        "name": "dalia",
+        "email": "nona@gmail.com",
         "id": "c6cf4f33-0f20-4843-9252-a502fa2c287f",
         "password": "$2b$12$aHE3Y.v6g6jFaAFpuHPxgunHEKsaOVJxAvqyzxOW2PKMDEEzg4EEm",
         "address": "maadi",
-        "phone": "01098630762",
+        "phone": "01098754335",
         "security_question": "menoo",
         "role": "User",
         "wishlist": [
@@ -837,10 +837,13 @@
         "security_question": "ninooo",
         "role": "User",
         "wishlist": [
-            2,
-            1
+            1,
+            3,
+            2
         ],
-        "cart": {},
+        "cart": {
+            "2": 2
+        },
         "orders": [
             {
                 "customerInfo": {
@@ -1024,6 +1027,49 @@
         "security_question": "sasa",
         "wishlist": [],
         "cart": {},
+        "orders": []
+    },
+    {
+        "name": "Nadin",
+        "email": "nadin@gmail.com",
+        "id": "a6806f63-64a6-4ac8-91c5-4b7660bea4e8",
+        "password": "$2b$12$pZGUV3YRDwqFvmc6oX4AzeY4doqEVvbl5GCee/ilxQYLr0gYEoPqC",
+        "address": "maadi",
+        "phone": "01092928837",
+        "security_question": "Nina",
+        "role": "user",
+        "wishlist": [],
+        "cart": {},
+        "orders": []
+    },
+    {
+        "name": "lila",
+        "email": "lilagama@gmail.com",
+        "id": "8cf51741-1b90-4f2d-ab02-6796b290dc8d",
+        "password": "$2b$12$GwhvqUZnhxb1Kmu5g97LDee0QNahfP7a0bmg/aB/oZXx2ICxy6Xj.",
+        "address": "maadi",
+        "phone": "01098754335",
+        "security_question": "Shosho",
+        "role": "user",
+        "wishlist": [
+            2
+        ],
+        "cart": {},
+        "orders": []
+    },
+    {
+        "name": "nadia",
+        "email": "maanar@gamil.com",
+        "id": "cd01dff2-b0bf-4fee-9177-780bfc24af5f",
+        "password": "$2b$12$TaaS673CeOJHKJV08ffD7OcoWRYpVk0sEos/0Cm1LWTWxjo1dTxJq",
+        "address": "maadi madina",
+        "phone": "0109286455",
+        "security_question": "nia",
+        "role": "user",
+        "wishlist": [],
+        "cart": {
+            "2": 1
+        },
         "orders": []
     }
 ]

@@ -14,9 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .catch(() => {
-                alert('Error fetching wishlist. Please try again later.');
+                showToast('Error fetching wishlist. Please try again later.');
             });
     }
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById("toast");
+        toast.innerText = message;
+        toast.style.backgroundColor = type === 'error' ? '#D32F2F' : '#4CAF50'; 
+        toast.classList.add("show");
+    
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2000);
+    }
+    
 
     function toggleWishlist(productId, heartIcon) {
         fetch('/add_to_wishlist', {
@@ -31,17 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (data.success) {
                     heartIcon.classList.toggle('active');
                 } else {
-                    alert(`${data.error}`);
+                    showToast(`${data.error}`);
                 }
             })
             .catch(() => {
-                alert('Error adding to wishlist. Please try again later.');
+                showToast('Error adding to wishlist. Please try again later.');
             });
     }
 
     function addToCart(product, quantity) {
         if (quantity < 1) {
-            alert('Quantity cannot be less than 1.');
+            showToast('Quantity cannot be less than 1.');
             
         }
 
@@ -55,14 +66,14 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert(`Added ${quantity} ${product.name}(s) to cart!`);
+                    showToast(`Added ${quantity} ${product.name}(s) to cart!`);
                 } 
                 else {
-                    alert(`${data.error}`);
+                    showToast(`${data.error}`);
                 }
             })
             .catch(() => {
-                alert('Error adding to cart. Please try again later.');
+                showToast('Error adding to cart. Please try again later.');
             });
     }
 
@@ -133,13 +144,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (product.inStock && quantity >= 1) {
                             addToCart(product, quantity);
                         } else {
-                            alert('Please select a valid quantity.');
+                            showToast('Please select a valid quantity.');
                         }
                     });
                 });
             })
             .catch(() => {
-                alert('Error fetching the products. Please try again later.');
+                showToast('Error fetching the products. Please try again later.');
             });
     }
 

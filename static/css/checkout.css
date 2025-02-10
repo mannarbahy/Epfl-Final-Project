@@ -22,7 +22,7 @@ body {
 
     h1, h2 {
       margin-bottom: 20px;
-      color: #333;
+      color: #74370b;
     }
 
     .breadcrumb {
@@ -158,7 +158,29 @@ body {
         .success-dialog button:hover {
             background-color: #9e682e;
         }
-      
+        .toast {
+            visibility: hidden;
+            min-width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1)
+        }
         .checkoutsection{
         line-height: 1.6;
         margin: 0;
@@ -170,7 +192,7 @@ body {
         
         }
         .checkoutsection h1{
-            color: rgb(253, 253, 253);
+            color: #8B4513;
 
         }
 

@@ -19,6 +19,16 @@ document.getElementById('product-form').addEventListener('submit', function(e) {
         inStock
     };
 
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById("toast");
+        toast.innerText = message;
+        toast.style.backgroundColor = type === 'error' ? '#D32F2F' : '#4CAF50'; 
+        toast.classList.add("show");
+    
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2000);
+    }
     fetch('/update_product', {
         method: 'POST',
         headers: {
@@ -29,17 +39,17 @@ document.getElementById('product-form').addEventListener('submit', function(e) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert('Product successfully added/updated!');
+            showToast('Product successfully added/updated!');
             document.getElementById('product-form').reset(); 
             setTimeout(() => {
                 location.reload(); 
             }, 1000);
         } 
         else {
-            alert('Error: ' + data.error);
+            showToast('Error: ' + data.error);
         }
     })
     .catch(() => {
-        alert('There was an error processing your request.');
+        showToast('There was an error processing your request...');
     });
 });

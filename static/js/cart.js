@@ -127,6 +127,17 @@ function displayCartItems(cartItems) {
 
     updateCartTotals(subtotal);
 }
+function showToast(message, type = 'success') {
+    const toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.style.backgroundColor = type === 'error' ? '#D32F2F' : '#4CAF50'; 
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2000);
+}
+
 function updateCartTotals(subtotal) {
     const shipping = 0; 
     const total = subtotal + shipping;
@@ -148,7 +159,7 @@ function enableCheckoutButton() {
 
 function preventCheckout(event) {
     event.preventDefault();
-    alert('You must add items to your cart before proceeding to checkout.');
+    showToast('You must add items to your cart before proceeding to checkout.');
 }
 
 window.onload = fetchCartItems;

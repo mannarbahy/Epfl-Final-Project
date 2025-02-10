@@ -7,7 +7,9 @@
   width: 100%;
   }
   
-  .navbar {
+  .navbar { 
+    display: flex;
+    position: relative;
     max-width: 1200px;
     width: 90%;
     margin: auto;
@@ -15,7 +17,6 @@
     left: 0;
     z-index: 1000;
     padding: 15px 0;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #131010;
@@ -160,7 +161,7 @@
   .footer {
     background-color:#dda15e;
     color: #ffffff;
-    padding: 40px 40px;
+    padding: 20px 20px;
     box-sizing: border-box;
     width: 100vw;
     
@@ -168,31 +169,31 @@
   
   .footer__container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 20px;
     justify-items: flex-start; 
     align-items: start;
     width: 100%;
   }
   
   .footer__content {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     
   }
   
   .footer__logo {
     display: block;
-    margin-bottom: 20px;
-    margin-right: 30px;
+    margin-bottom: 10px;
+    margin-right: 20px;
   }
   
   .footer__logo-img {
     max-width: 150px;
     border: none;
     border-radius: 20px;
-    margin-right: 20px;
+    margin-right: 60px;
     justify-content: flex-start;
   }
   
@@ -202,13 +203,13 @@
   }
   
   .footer__subtitle {
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    margin-bottom: 5px;
     color: #ffffff;
   }
   
   .footer__description {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #ffffff;
   }
   
@@ -218,13 +219,13 @@
   }
   
   .footer__social {
-    margin-top: 20px;
+    margin-top: 10px;
     
   }
   
   .footer__links.flex {
     display: flex;
-    gap: 10px;
+    gap: 5px;
   }
   
   .footer__social-icon {
@@ -242,8 +243,8 @@
  
   
   .footer__title {
-    font-size: 20px;
-    margin-bottom: 15px;
+    font-size: 18px;
+    margin-bottom: 10px;
   }
   
   .footer__links {
@@ -254,7 +255,7 @@
   
   .footer__link {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #ffffff;
     text-decoration: none;
     transition: color 0.3s;
@@ -267,14 +268,13 @@
   
   .payment__img {
     max-width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   
   .footer__bottom {
     text-align: center;
-    padding: 10px 0;
-    /* border-top: 1px solid #e1e1e1; */
-    margin-top: 20px;
+    padding: 5px 0;
+    margin-top: 10px;
   }
   
   .copyright {

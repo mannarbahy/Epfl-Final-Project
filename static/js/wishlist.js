@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+    function showToast(message, type = 'success') {
+        const toast = document.getElementById("toast");
+        toast.innerText = message;
+        toast.style.backgroundColor = type === 'error' ? '#D32F2F' : '#4CAF50'; 
+        toast.classList.add("show");
+    
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 2000);
+    }
     function fetchWishlistProducts() {
         fetch('/get_wishlist')
             .then(response => response.json())
@@ -16,12 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         .then(products => {
                             renderWishlist(products);
                         })
-                        .catch(() => alert('Error fetching wishlist products.'));
+                        .catch(() => showToast('Error fetching wishlist products.'));
                 } else {
-                    alert(data.error);
+                    showToast(data.error);
                 }
             })
-            .catch(() => alert('Error fetching wishlist.'));
+            .catch(() => showToast('Error fetching wishlist.'));
     }
 
     function renderWishlist(products) {
@@ -78,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const quantity = parseInt(quantityInput.value);
                     addToCart(product, quantity);
                 } else {
-                    alert('This product is out of stock.');
+                    showToast('This product is out of stock.');
                 }
             });
         });
@@ -97,10 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (data.success) {
                     fetchWishlistProducts(); 
                 } else {
-                    alert(data.error);
+                    showToast(data.error);
                 }
             })
-            .catch(() => alert('Error removing from wishlist.'));
+            .catch(() => showToast('Error removing from wishlist.'));
     }
 
     function addToCart(product, quantity) {
@@ -113,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
             .then(response => {
                 if (response.status === 403) {
-                    alert("You need to be logged in to add items to the cart. Redirecting to login page...");
+                    showToast("You need to be logged in to add items to the cart. Redirecting to login page...");
                     window.location.href = '/login'; // Redirect to login page
                     return;
                 }
@@ -121,12 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(data => {
                 if (data && data.success) {
-                    alert(`Added ${quantity} ${product.name}(s) to cart!`);
+                    showToast(`Added ${quantity} ${product.name}(s) to cart!`);
                 } else if (data) {
-                    alert(`Error adding to cart: ${data.error}`);
+                    showToast(`Error adding to cart: ${data.error}`);
                 }
             })
-            .catch(() => alert('Error adding to cart.'));
+            .catch(() => showToast('Error adding to cart.'));
     }
 
     fetchWishlistProducts();

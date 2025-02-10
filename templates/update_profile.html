@@ -21,8 +21,7 @@
     <header class="header">
         <nav class="navbar">
             <a href="" class="logo">
-                <img src="../static/images/logobrand.png" alt="Logo" width="60px" height="70px" style="margin: 5 30; border-radius: 30px;">
-            </a>
+                <img src="../static/images/logobrand.png" alt="Logo" width="60px" height="50px" style="margin: 5 30; border-radius: 30px;">            </a>
     
             <div class="sidebar">
                 <a href="#home" class="nav-link" onclick="hideSidebar() ">
@@ -102,16 +101,16 @@
             <h1>Update Profile</h1>
             <form id="updateProfileForm">
                 
-                <input type="text" id="name" name="name" class="input-field" placeholder="Enter your name"required><br><br>
+                <input type="text" id="name" name="name" class="input-field" placeholder="Enter your name"><br><br>
 
                 
-                <input type="email" id="email" name="email" class="input-field" placeholder="Enter your email"  required><br><br>
+                <input type="email" id="email" name="email" class="input-field" placeholder="Enter your email"  ><br><br>
 
                
-                <input type="text" id="address" name="address" class="input-field" placeholder="Enter your address" required><br><br>
+                <input type="text" id="address" name="address" class="input-field" placeholder="Enter your address" ><br><br>
 
               
-                <input type="text" id="phone" name="phone" class="input-field" placeholder="Enter your phone number" required><br><br>
+                <input type="text" id="phone" name="phone" class="input-field" placeholder="Enter your phone number" ><br><br>
 
                 <button type="submit" class="button">Update Profile</button>
             </form>
@@ -124,30 +123,33 @@
     <script>
         document.getElementById("updateProfileForm").addEventListener("submit", async function(event) {
             event.preventDefault();
-
-            const newData = {
-                name: document.getElementById("name").value,
-                email: document.getElementById("email").value,
-                address: document.getElementById("address").value,
-                phone: document.getElementById("phone").value
+    
+           
+            let oldData = JSON.parse(localStorage.getItem('user')) || {};
+    
+           
+            let newData = {
+                name: document.getElementById("name").value || oldData.name,
+                email: document.getElementById("email").value || oldData.email,
+                address: document.getElementById("address").value || oldData.address,
+                phone: document.getElementById("phone").value || oldData.phone
             };
-
+    
             const response = await fetch('/update_profile', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(newData)
             });
-
+    
             const result = await response.json();
             alert(result.message);
+    
             if (result.success) {
-            localStorage.setItem('user', JSON.stringify(newData));
-             window.location.href = "/profile";
-              }
-
-
-           
+                localStorage.setItem('user', JSON.stringify(newData));
+                window.location.href = "/profile";
+            }
         });
     </script>
+    
 </body>
 </html>

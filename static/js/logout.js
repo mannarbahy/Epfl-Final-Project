@@ -6,7 +6,5 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Logging out...");
            
         });
-    } else {
-        console.warn("Logout button not found!");
-    }
+    } 
 });
