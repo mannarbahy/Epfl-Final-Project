@@ -837,13 +837,14 @@
         "security_question": "ninooo",
         "role": "User",
         "wishlist": [
-            3,
-            2,
-            1
+            1,
+            2
         ],
         "cart": {
-            "2": 1,
-            "2": 1
+            "3": 2,
+            "1": 3,
+            "2": 2,
+            "9": 2
         },
         "orders": [
             {

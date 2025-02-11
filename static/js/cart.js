@@ -6,7 +6,6 @@ async function fetchCartItems() {
         });
 
         if (!response.ok) {
-            const errorData = await response.json();
             document.getElementById('cart-items').innerHTML = '<tr><td colspan="6">No items in the cart.</td></tr>';
             disableCheckoutButton();
             return;
@@ -28,21 +27,18 @@ async function removeItem(itemId) {
                 'Content-Type': 'application/json'
             },
             credentials: 'include',
-            body: JSON.stringify({ product_id: itemId , quantity: 1})
+            body: JSON.stringify({ product_id: itemId, quantity: 1 })
         });
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            disableCheckoutButton();
-            return;
-        }
+        if (!response.ok) return;
 
-        fetchCartItems();
+        await refreshCart();
     } 
     catch (error) {
         disableCheckoutButton();
     }
 }
+
 async function addQuantity(itemId) {
     try {
         const response = await fetch('/add_to_cart', {
@@ -54,16 +50,13 @@ async function addQuantity(itemId) {
             body: JSON.stringify({ product_id: itemId, quantity: 1 })
         });
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            return;
-        }
+        if (!response.ok) return;
 
-        fetchCartItems();
+        await refreshCart();
     } 
-    catch (error) {
-    }
+    catch (error) {}
 }
+
 async function removeQuantity(itemId) {
     try {
         const response = await fetch('/remove_quantity_from_cart', {
@@ -75,15 +68,17 @@ async function removeQuantity(itemId) {
             body: JSON.stringify({ product_id: itemId, quantity: 1 })
         });
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            return;
-        }
+        if (!response.ok) return;
 
-        fetchCartItems();
-    } catch (error) {
-    }
+        await refreshCart();
+    } catch (error) {}
 }
+
+async function refreshCart() {
+    await new Promise(resolve => setTimeout(resolve, 500)); 
+    await fetchCartItems();
+}
+
 function displayCartItems(cartItems) {  
     const cartItemsContainer = document.getElementById('cart-items');
     
@@ -103,7 +98,8 @@ function displayCartItems(cartItems) {
 
     let subtotal = 0;
 
-    cartItems?.forEach(item => {        
+    cartItems?.forEach(item => {   
+        console.log(item)     
         const quantity = item.quantity || 1; 
         const itemSubtotal = item.price * quantity;
 
@@ -128,7 +124,6 @@ function displayCartItems(cartItems) {
     updateCartTotals(subtotal);
 }
 
-
 function showToast(message, type = 'success') {
     const toast = document.getElementById("toast");
     toast.innerText = message;
@@ -138,6 +133,7 @@ function showToast(message, type = 'success') {
         toast.classList.remove("show");
     }, 1000);
 }
+
 function updateCartTotals(subtotal) {
     const shipping = 0; 
     const total = subtotal + shipping;
@@ -145,6 +141,7 @@ function updateCartTotals(subtotal) {
     document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
     document.getElementById('total').textContent = `$${total.toFixed(2)}`;
 }
+
 function disableCheckoutButton() {
     const checkoutButton = document.getElementById('checkout-button');
     checkoutButton.classList.add('disabled');

@@ -19,8 +19,10 @@ def setup_order_routes(app):
         try:
             products = load_products()
             if category:
-                products = [product for product in products if product.get('type') == category]
+                products = [product for product in products if product.get('category') == category]
             return jsonify(products)
+            
+        
         except FileNotFoundError:
             return jsonify({"error": "Products file not found"}), 404
         except json.JSONDecodeError:
