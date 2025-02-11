@@ -17,17 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 showToast('Error fetching wishlist. Please try again later.');
             });
     }
+
     function showToast(message, type = 'success') {
         const toast = document.getElementById("toast");
         toast.innerText = message;
         toast.style.backgroundColor = type === 'error' ? '#D32F2F' : '#4CAF50'; 
         toast.classList.add("show");
-    
         setTimeout(() => {
             toast.classList.remove("show");
         }, 2000);
     }
-    
 
     function toggleWishlist(productId, heartIcon) {
         fetch('/add_to_wishlist', {

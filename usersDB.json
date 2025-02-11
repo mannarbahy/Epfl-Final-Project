@@ -841,9 +841,7 @@
             3,
             2
         ],
-        "cart": {
-            "2": 2
-        },
+        "cart": {},
         "orders": [
             {
                 "customerInfo": {
@@ -925,6 +923,22 @@
                 "total": 65,
                 "order_date": "2025-02-04T22:23:11.985927",
                 "order_id": "ORD-20250204222311"
+            },
+            {
+                "customerInfo": {
+                    "name": "sddsssssss",
+                    "address": "xddddddddddddd",
+                    "city": "sssssssssssss",
+                    "country": "ssssddss",
+                    "postcode": "2342",
+                    "phone": "3344444444",
+                    "email": "shorok@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": {},
+                "total": 20,
+                "order_date": "2025-02-11T11:26:20.910600",
+                "order_id": "ORD-20250211112620"
             }
         ]
     },
@@ -1071,5 +1085,35 @@
             "2": 1
         },
         "orders": []
+    },
+    {
+        "name": "shorok",
+        "email": "shorok33@gmail.com",
+        "id": "1741f3b0-556d-4e7c-b3fa-b0949f3bc9dc",
+        "password": "$2b$12$spTuxf8aLPxNmctngDQT9urDZdCl5hjqjVahmAAsMXNzSLZEqPBai",
+        "address": "maadi",
+        "phone": "7878788888",
+        "security_question": "sddddddddd",
+        "role": "user",
+        "wishlist": [],
+        "cart": {},
+        "orders": [
+            {
+                "customerInfo": {
+                    "name": "ggggggggggggggggg",
+                    "address": "gggggggggggg",
+                    "city": "ggggggggggggg",
+                    "country": "gggggggggggggggg",
+                    "postcode": "8888",
+                    "phone": "88888888888",
+                    "email": "shorok@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": {},
+                "total": 40,
+                "order_date": "2025-02-11T11:31:33.982355",
+                "order_id": "ORD-20250211113133"
+            }
+        ]
     }
 ]

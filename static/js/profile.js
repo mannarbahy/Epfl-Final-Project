@@ -39,15 +39,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     fetch('/get_orders')
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             if (data.success) {
                 const ordersList = document.getElementById('orders-list');
                 data.orders.forEach(order => {
+                    console.log("Cart", typeof order.cart);
                     const orderItem = document.createElement('div');
                     orderItem.className = 'order-item';
                     orderItem.innerHTML = `
                         <p><span class="label">Order ID:</span> ${order.order_id}</p>
                         <p><span class="label">Date:</span> ${order.order_date}</p>
-                        <p><span class="label">Items:</span> ${order.cart.map(item => item.name).join(', ')}</p>
                         <p><span class="label">Total:</span> $${order.total}</p>
                     `;
                     ordersList.appendChild(orderItem);
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         })
         .catch(error => {
+            console.error('Error fetching orders:', error);
             document.getElementById('orders-list').innerHTML = '<p class="error">Error fetching orders.</p>';
         });
 });

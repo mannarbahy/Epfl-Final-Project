@@ -113,12 +113,12 @@ function displayCartItems(cartItems) {
             <td>${item.name}</td>
             <td>$${item.price.toFixed(2)}</td>
             <td>
-                <button onclick="removeQuantity('${item.id}')">-</button>
+                <button onclick="removeQuantity('${item.id}')" style="padding: 2px; background-color: #603F26; color: #fff; border-radius: 5px;">-</button>
                 ${quantity}
-                <button onclick="addQuantity('${item.id}')">+</button>
+                <button onclick="addQuantity('${item.id}') " style="padding: 2px; background-color: #603F26; color: #fff; border-radius: 5px;">+</button>
             </td>
             <td>$${itemSubtotal.toFixed(2)}</td>
-            <td><button onclick="removeItem('${item.id}')">Remove</button></td>
+            <td><button onclick="removeItem('${item.id}')" style="background-color: rgb(168, 43, 11); color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius:  10px;">Remove</button></td>
         `;
         cartItemsContainer.appendChild(row);
 
@@ -127,17 +127,17 @@ function displayCartItems(cartItems) {
 
     updateCartTotals(subtotal);
 }
+
+
 function showToast(message, type = 'success') {
     const toast = document.getElementById("toast");
     toast.innerText = message;
     toast.style.backgroundColor = type === 'error' ? '#D32F2F' : '#4CAF50'; 
     toast.classList.add("show");
-
     setTimeout(() => {
         toast.classList.remove("show");
-    }, 2000);
+    }, 1000);
 }
-
 function updateCartTotals(subtotal) {
     const shipping = 0; 
     const total = subtotal + shipping;
