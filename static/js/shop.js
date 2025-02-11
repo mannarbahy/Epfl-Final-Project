@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showToast('Quantity cannot be less than 1.');
             
         }
-
+        
         fetch('/add_to_cart', {
             method: 'POST',
             headers: {

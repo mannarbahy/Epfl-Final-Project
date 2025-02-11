@@ -206,6 +206,7 @@ async function placeOrder() {
     catch (error) {
         showToast('Error placing order.');
     }
+    placeOrderBtn.addEventListener('click', placeOrder);
 }
 
 function showSuccessDialog() {

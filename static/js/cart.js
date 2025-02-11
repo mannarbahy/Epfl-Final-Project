@@ -28,7 +28,7 @@ async function removeItem(itemId) {
                 'Content-Type': 'application/json'
             },
             credentials: 'include',
-            body: JSON.stringify({ product_id: itemId })
+            body: JSON.stringify({ product_id: itemId , quantity: 1})
         });
 
         if (!response.ok) {

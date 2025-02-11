@@ -85,7 +85,7 @@ def setup_auth_routes(app):
                         session['user'] = user["id"]
                         session['role'] = user.get("role", "User")  
 
-                        print(f"User logged in: {user['email']}, Role: {session['role']}")  
+                        
 
                         return jsonify({
                             "id": user["id"],
@@ -99,7 +99,7 @@ def setup_auth_routes(app):
                 return render_template('login.html', error='Invalid email or password')
 
             except Exception as e:
-                print("Login error:", str(e)) 
+                
                 return render_template('login.html', error="An error occurred while logging in.")
         
         else:

@@ -87,7 +87,7 @@ ul {
 
 .home-text h1
 {
-font-size: 3.5rem;
+font-size: 2.5rem;
 font-weight: 800;
 color: #8B4513;
 }
@@ -529,7 +529,7 @@ padding: 0 1rem 0 2rem;
 {
 font-size: 2rem;
 font-weight: 800;
-color: #fffefe;
+color: #8B4513;
 }
 .home-image{
   width: 100%;
@@ -669,6 +669,7 @@ color: #fffefe;
   }
   
   .home-text h1{
+    color: #8B4513;
     font-size: 2rem;
     column-gap: 5px;
     
@@ -836,9 +837,9 @@ color: #fffefe;
 }
 .home-text h1
 {
-font-size:1rem;
-font-weight: 800;
-color: #fffefe;
+font-size:0.8rem;
+font-weight: 500;
+color: #8B4513;
 }
 .home-image{
   width: 100%;

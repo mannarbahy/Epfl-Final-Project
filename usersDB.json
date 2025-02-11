@@ -828,7 +828,7 @@
         ]
     },
     {
-        "name": "manarrrr",
+        "name": "nahla",
         "email": "manar.bahyy@gmail.com",
         "id": "39183b2c-b8ed-493c-ae50-1276f46ac639",
         "password": "$2b$12$lQArfZvES3GWIy9oIRu/oe6cl9MxE3oYutt/NoSEwqLCFfQ1gR/8a",
@@ -837,11 +837,14 @@
         "security_question": "ninooo",
         "role": "User",
         "wishlist": [
-            1,
             3,
-            2
+            2,
+            1
         ],
-        "cart": {},
+        "cart": {
+            "2": 1,
+            "2": 1
+        },
         "orders": [
             {
                 "customerInfo": {
@@ -939,6 +942,22 @@
                 "total": 20,
                 "order_date": "2025-02-11T11:26:20.910600",
                 "order_id": "ORD-20250211112620"
+            },
+            {
+                "customerInfo": {
+                    "name": "jksadas",
+                    "address": "jdshlfksd",
+                    "city": "lksdhafk",
+                    "country": "sjdfalhk",
+                    "postcode": "2103",
+                    "phone": "89712921123",
+                    "email": "manar@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": {},
+                "total": 225,
+                "order_date": "2025-02-11T14:45:16.224748",
+                "order_id": "ORD-20250211144516"
             }
         ]
     },

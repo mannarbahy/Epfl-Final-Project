@@ -1,6 +1,8 @@
 from flask import render_template, session, redirect
 import json
 
+from models.user import User
+
 def setup_home_routes(app):
 
     @app.route('/')
@@ -20,7 +22,7 @@ def setup_home_routes(app):
                 return render_template('home.html', user=user)  
         
         else:
-            return render_template('home.html', user=user)
+            return render_template('home.html', user=None)
     
     @app.route('/recipes')
     def recipes():

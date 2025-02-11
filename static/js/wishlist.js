@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => {
                 if (response.status === 403) {
                     showToast("You need to be logged in to add items to the cart. Redirecting to login page...");
-                    window.location.href = '/login'; // Redirect to login page
+                    window.location.href = '/login'; 
                     return;
                 }
                 return response.json();
