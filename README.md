@@ -30,19 +30,19 @@ pip install Flask bcrypt
   - **Module name**: `json`
 - ✔️ It contains at least one class written by you that has both properties and methods.
   - **File name for the class definition**: `app.py`
-  - **Line number(s) for the class definition**: 10-25
+  - **Line number(s) for the class definition**: 5-17
   - **Name of two properties**: `username`, `email`
-  - **Name of two methods**: `register_user()`, `login_user()`
-  - **File name and line numbers where the methods are used**: `app.py`, lines 45-60
+  - **Name of two methods**: `hash_password()`, `format_data()`
+  - **File name and line numbers where the methods are used**: `password_routes.py`, Name of two methods: hash_password(), format_data() , update_user_data(),lines 45-60
 - ✔️ It makes use of JavaScript in the front end and uses the localStorage of the web browser.
 - ✔️ It uses modern JavaScript (for example, `let` and `const` rather than `var`).
 - ✔️ It makes use of the reading and writing to the same file feature.
 - ✔️ It contains conditional statements.
-  - **File name**: `app.py`
-  - **Line number(s)**: 70-75
+  - **File name**: `cart_routes.py`
+  - **Line number(s)**: 26-32
 - ✔️ It contains loops.
-  - **File name**: `app.py`
-  - **Line number(s)**: 80-85
+  - **File name**: `cart_routes.py`
+  - **Line number(s)**: 15-17
 - ✔️ It lets the user enter a value in a text box at some point.
 - ✔️ It doesn't generate any error message even if the user enters a wrong input.
 - ✔️ It is styled using your own CSS.
