@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
    
    
     placeOrderBtn.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault(); 
         placeOrder();
     });
 });

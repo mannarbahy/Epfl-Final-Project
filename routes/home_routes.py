@@ -20,7 +20,7 @@ def setup_home_routes(app):
                 return render_template('home.html', user=user)  
         
         else:
-            return render_template('home.html', user=None)
+            return render_template('home.html', user=user)
     
     @app.route('/recipes')
     def recipes():
