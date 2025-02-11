@@ -64,10 +64,34 @@ pip install Flask bcrypt
 
 ## Project Structure
 - `app.py`: The main Flask application file.
+- `models/user.py`: __init__ class for user 
 - `data.json`: JSON file used for storing user and product data.
 - `templates/`: Contains HTML templates for the front end.
 - `static/`: Contains CSS and JavaScript files for styling and front-end functionality.
+```bash
+   my_flask_app/
+├── app.py                 # Main Flask application file
+├── models/
+│   ├── user.py            # User model handling authentication & data storage
+├── routes/                # Contains route handlers
+│   ├── auth_routes.py     # Authentication-related routes
+│   ├── cart_routes.py     # Cart management routes
+│   ├── wishlist_routes.py # Wishlist management routes
+│   ├── order_routes.py    # Order processing routes
+│   ├── admin_routes.py    # Admin-related routes
+│   ├── __init__.py        # Initializes the routes module
+├── data/                  # Folder for storing JSON data
+│   ├── usersDB.json       # Stores user data
+│   ├── products.json      # Stores product data
+├── templates/             # HTML templates for the frontend
+├── static/                # Contains CSS and JavaScript files
+│   ├── css         # Main stylesheet
+│   ├── js          # Frontend JavaScript logic
+│   └── images/            # Images used in the project
+└── utils/
+    └── helpers.py         # Utility functions for various tasks
 
+   ```
 ## Conclusion
 BakeCraft is a comprehensive web application that demonstrates the use of Flask, bcrypt, and JSON for managing a bakery's operations. It includes user and admin functionalities, secure authentication, and data management using a JSON file. The project adheres to all requirements and is fully documented for ease of understanding and further development.
 
