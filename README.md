@@ -27,7 +27,7 @@ pip install Flask bcrypt
 - ✔️ It is available on GitHub.
 - ✔️ It uses the Flask web framework.
 - ✔️ It uses at least one module from the Python Standard Library other than the random module.
-  - **Module name**: `json`
+  - **Module name**: `json`,`uuid`,`datetime`
 - ✔️ It contains at least one class written by you that has both properties and methods.
   - **File name for the class definition**: `app.py`
   - **Line number(s) for the class definition**: 5-17
