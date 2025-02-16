@@ -3,10 +3,18 @@ from flask_mail import Mail, Message
 from datetime import datetime
 import json
 import os
+from flask_caching import Cache
 
 def setup_order_routes(app):
     mail = Mail(app)
-
+    
+    app.config['CACHE_TYPE'] = 'filesystem'
+    app.config['CACHE_DIR'] = 'cache'
+    cache = Cache(app)
+    def load_products():
+            with open('products.json', 'r') as f:
+                return json.load(f)
+            
     @app.route('/shop')
     def shop():
         category = request.args.get('category')
@@ -14,12 +22,13 @@ def setup_order_routes(app):
         return render_template('shop.html', category=category, user=user)
 
     @app.route('/get_products')
+    @cache.cached(timeout=60)
     def get_products():
         category = request.args.get('category')
         try:
             products = load_products()
             if category:
-                products = [product for product in products if product.get('category') == category]
+                products = [product for product in products if product.get('type') == category]
             return jsonify(products)
             
         
@@ -28,9 +37,7 @@ def setup_order_routes(app):
         except json.JSONDecodeError:
             return jsonify({"error": "Invalid JSON in products file"}), 500
 
-    def load_products():
-        with open('products.json', 'r') as f:
-            return json.load(f)
+   
 
     @app.route('/checkout')
     def checkout():
@@ -84,6 +91,20 @@ def setup_order_routes(app):
     def generate_order_id():
         return f"ORD-{datetime.now().strftime('%Y%m%d%H%M%S')}"
 
+
+
+    app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+    app.config['MAIL_PORT'] = 587
+    app.config['MAIL_USE_TLS'] = True
+    app.config['MAIL_USE_SSL'] = False
+    app.config['MAIL_USERNAME'] = 'manar.bahy55@gmail.com'  
+    app.config['MAIL_PASSWORD'] = 'xyfp ogdm xlni lqtk'  
+    app.config['MAIL_DEFAULT_SENDER'] = 'manar.bahy55@gmail.com'
+
+    mail = Mail(app)
+    with open('products.json', 'r') as file:
+        users_list = json.load(file)
+        
     def send_confirmation_email(email, order_data):
         order_items = "\n".join([f"{item['name']} x {item['quantity']} - ${item['price']}" for item in order_data['cart']])
         total_price = order_data['total']
@@ -91,13 +112,13 @@ def setup_order_routes(app):
         subject = "Order Confirmation"
         email_body = f"""
         🎉 Thank you for your order! 🎉
-        
+
+        we are wating to see you agine in BakeCraft   
+          
         Order ID: {order_data['order_id']}
         Order Date: {order_data['order_date']}
         
-        Order Details:
-        {order_items}
-
+      
         🛒 Total: ${total_price}
 
         ✅ Your order has been successfully placed.

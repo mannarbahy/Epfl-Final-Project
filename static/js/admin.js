@@ -1,7 +1,7 @@
 document.getElementById('product-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const id = document.getElementById('product-id').value;
+    const id = parseInt(document.getElementById('product-id').value, 10); 
     const name = document.getElementById('product-name').value;
     const type = document.getElementById('product-type').value;
     const description = document.getElementById('product-description').value;
@@ -10,25 +10,17 @@ document.getElementById('product-form').addEventListener('submit', function(e) {
     const inStock = document.getElementById('product-inStock').checked;
 
     const productData = {
-        id: id || Math.random().toString(36).substring(2, 9), 
-        name,
-        type,
-        description,
-        price,
-        thumbnail,
-        inStock
+        id: id, 
+        name: name,
+        type: type,
+        description: description,
+        price: price,
+        thumbnail: thumbnail,
+        inStock: inStock
     };
 
-    function showToast(message, type = 'success') {
-        const toast = document.getElementById("toast");
-        toast.innerText = message;
-        toast.style.backgroundColor = type === 'error' ? '#D32F2F' : '#4CAF50'; 
-        toast.classList.add("show");
-    
-        setTimeout(() => {
-            toast.classList.remove("show");
-        }, 2000);
-    }
+    document.getElementById('product-form').reset();
+
     fetch('/update_product', {
         method: 'POST',
         headers: {
@@ -39,17 +31,17 @@ document.getElementById('product-form').addEventListener('submit', function(e) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            showToast('Product successfully added/updated!');
-            document.getElementById('product-form').reset(); 
+            alert('Product successfully added/updated!');
+            
             setTimeout(() => {
                 location.reload(); 
-            }, 1000);
+            }, 2000);
         } 
         else {
-            showToast('Error: ' + data.error);
+            alert('Error: ' + data.error);
         }
     })
     .catch(() => {
-        showToast('There was an error processing your request...');
+       alert('There was an error processing your request...');
     });
 });

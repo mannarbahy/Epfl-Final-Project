@@ -16,7 +16,7 @@ def setup_cart_routes(app):
             return jsonify({"error": "User not logged in", "redirect": "/login"}), 401
 
         user_id = session.get('user')
-        product_id = str(request.json.get('product_id'))  # Ensure product_id is a string
+        product_id = str(request.json.get('product_id'))  
         quantity = request.json.get('quantity', 1)
 
         try:

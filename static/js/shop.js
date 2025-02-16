@@ -26,6 +26,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function toggleWishlist(productId, heartIcon) {
+        const isWishlisted = wishlist.includes(productId);
+
+        // Optimistic UI update
+        if (isWishlisted) {
+            wishlist = wishlist.filter(id => id !== productId);
+            heartIcon.classList.remove('active');
+        } else {
+            wishlist.push(productId);
+            heartIcon.classList.add('active');
+        }
+
         fetch('/add_to_wishlist', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -33,18 +44,39 @@ document.addEventListener('DOMContentLoaded', async () => {
         })
         .then(response => response.json())
         .then(data => {
-            if (data.success) {
-                heartIcon.classList.toggle('active');
-            } else {
+            if (!data.success) {
+                
+                if (isWishlisted) {
+                    wishlist.push(productId);
+                    heartIcon.classList.add('active');
+                } else {
+                    wishlist = wishlist.filter(id => id !== productId);
+                    heartIcon.classList.remove('active');
+                }
                 showToast(data.error, 'error');
             }
         })
-        .catch(() => showToast('Error adding to wishlist. Please try again later.', 'error'));
+        .catch(() => {
+           
+            if (isWishlisted) {
+                wishlist.push(productId);
+                heartIcon.classList.add('active');
+            } else {
+                wishlist = wishlist.filter(id => id !== productId);
+                heartIcon.classList.remove('active');
+            }
+            showToast('Error adding to wishlist. Please try again later.', 'error');
+        });
     }
 
     function addToCart(product, quantity) {
         if (quantity < 1) {
             showToast('Quantity cannot be less than 1.', 'error');
+            return;
+        }
+
+        if (!product.inStock) {
+            showToast('This product is out of stock.', 'error');
             return;
         }
 
@@ -72,42 +104,65 @@ document.addEventListener('DOMContentLoaded', async () => {
             const response = await fetch(url);
             const data = await response.json();
             const productList = document.getElementById('products');
-            productList.innerHTML = ''; 
+            let html = ''; 
 
             data?.forEach(product => {
-                const listItem = document.createElement('li');
                 const isWishlisted = wishlist.includes(product.id);
-                listItem.innerHTML = `
-                    <span class="wishlist-heart ${isWishlisted ? 'active' : ''}" data-id="${product.id}">
-                        &#10084;
-                    </span>
-                    <img src="${product.thumbnail}" alt="${product.name}" width="50">
-                    <div class="product-details ${product.inStock ? '' : 'out-of-stock'}">
-                        <strong>${product.name}</strong>
-                        <p>${product.description}</p>
-                        <p class="type">${product.type}</p>
-                        <span class="price">$${product.price} </span>
-                    </div>
-                    <div class="product-actions">
-                        <div class="quantity-control">
-                            <button class="decrease">-</button>
-                            <input type="number" min="1" value="1" class="quantity">
-                            <button class="increase">+</button>
+                html += `
+                    <li>
+                        <span class="wishlist-heart ${isWishlisted ? 'active' : ''}" data-id="${product.id}">
+                            &#10084;
+                        </span>
+                        <img src="${product.thumbnail}" alt="${product.name}" width="50">
+                        <div class="product-details ${product.inStock ? '' : 'out-of-stock'}">
+                            <strong>${product.name}</strong>
+                            <p>${product.description}</p>
+                            <p class="type">${product.type}</p>
+                            <span class="price">$${product.price} </span>
                         </div>
-                        <button class="add-to-cart-btn ${product.inStock ? '' : 'out-of-stock'}" data-id="${product.id}">
-                            Add to Cart
-                        </button>
-                    </div>
+                        <div class="product-actions">
+                            <div class="quantity-control">
+                                <button class="decrease">-</button>
+                                <input type="number" min="1" value="1" class="quantity">
+                                <button class="increase">+</button>
+                            </div>
+                            <button class="add-to-cart-btn ${product.inStock ? '' : 'out-of-stock'}" data-id="${product.id}">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </li>
                 `;
-                productList.appendChild(listItem);
+            });
 
-                const heartIcon = listItem.querySelector('.wishlist-heart');
-                heartIcon.addEventListener('click', () => toggleWishlist(product.id, heartIcon));
+            productList.innerHTML = html; 
 
-                const addToCartBtn = listItem.querySelector('.add-to-cart-btn');
-                const quantityInput = listItem.querySelector('.quantity');
-                const decreaseBtn = listItem.querySelector('.decrease');
-                const increaseBtn = listItem.querySelector('.increase');
+            
+            productList.querySelectorAll('.wishlist-heart').forEach(heartIcon => {
+                heartIcon.addEventListener('click', () => {
+                    const productId = heartIcon.getAttribute('data-id');
+                    toggleWishlist(productId, heartIcon);
+                });
+            });
+
+            productList.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = button.getAttribute('data-id');
+                    const product = data.find(p => p.id == productId);
+                    const quantityInput = button.closest('li').querySelector('.quantity');
+                    const quantity = parseInt(quantityInput.value);
+
+                    if (product.inStock && quantity >= 1) {
+                        addToCart(product, quantity);
+                    } else {
+                        showToast('Please select a valid quantity.', 'error');
+                    }
+                });
+            });
+
+            productList.querySelectorAll('.quantity-control').forEach(control => {
+                const decreaseBtn = control.querySelector('.decrease');
+                const increaseBtn = control.querySelector('.increase');
+                const quantityInput = control.querySelector('.quantity');
 
                 decreaseBtn.addEventListener('click', () => {
                     let currentQuantity = parseInt(quantityInput.value);
@@ -118,15 +173,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     let currentQuantity = parseInt(quantityInput.value);
                     quantityInput.value = currentQuantity + 1;
                 });
-
-                addToCartBtn.addEventListener('click', () => {
-                    const quantity = parseInt(quantityInput.value);
-                    if (product.inStock && quantity >= 1) {
-                        addToCart(product, quantity);
-                    } else {
-                        showToast('Please select a valid quantity.', 'error');
-                    }
-                });
             });
         } catch {
             showToast('Error fetching the products. Please try again later.', 'error');
@@ -135,8 +181,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('category');
-    
 
-    await fetchWishlist(); // Ensure wishlist is fetched first
+    await fetchWishlist();
     await fetchProducts(category);
 });
