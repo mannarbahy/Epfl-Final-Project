@@ -11,6 +11,8 @@ def setup_order_routes(app):
     def shop():
         category = request.args.get('category')
         user = session.get('user')
+        with open('products.json', 'r') as file:
+            products = json.load(file)
         return render_template('shop.html', category=category, user=user)
 
     @app.route('/get_products')

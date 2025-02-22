@@ -39,7 +39,7 @@ def setup_profile_routes(app):
 
             for user in users_list:
                 if str(user['id']) == user_id:
-                    # 🛑 لا تسمح بتغيير ID أو Email مباشرة
+                   
                     user.update({k: v for k, v in new_data.items() if k not in ['id', 'email']})
                     break
 
