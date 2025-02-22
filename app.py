@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, session
 from routes.home_routes import setup_home_routes 
 from routes.auth_routes import setup_auth_routes
 from routes.cart_routes import setup_cart_routes
@@ -18,6 +18,8 @@ setup_wishlist_routes(app)
 setup_order_routes(app)
 setup_profile_routes(app)
 setup_admin_routes(app)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

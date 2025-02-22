@@ -23,9 +23,10 @@
 
  
   
+  
   <header class="header">
     <nav class="navbar">
-        <a href="" class="logo">
+        <a href="/home" class="logo">
             <img src="../static/images/logobrand.png" alt="Logo" width="60px" height="50px" style="margin: 5 30; border-radius: 30px;">
         </a>
 
@@ -39,6 +40,7 @@
             <a href="/home" class="nav-link">HOME</a>
             <a href="/About_us" class="nav-link">ABOUT US</a>
             <a href="/shop" class="nav-link">Menu</a>
+            <a href="/cart" class="nav-link">cart</a>
             <a href="/recipes" class="nav-link">Recipes</a>
             <a href="{{ url_for('signup') }}" class="nav-link">Sign Up</a>
             <a href="{{ url_for('profile') }}" class="nav-link">Profile</a>
@@ -66,7 +68,7 @@
        <ul class="menu">
     <li><a href="/home">Home</a></li>
     <li><a href="/shop">Menu</a></li>
-    <li><a href="/wishlist">Favorite</a></li>
+    
     
     <li class="nav-user-dropdown">
         <a href="#" class="dropbtn">Food & Stories ▼</a>

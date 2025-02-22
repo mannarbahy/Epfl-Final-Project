@@ -11,6 +11,8 @@ def setup_order_routes(app):
     def shop():
         category = request.args.get('category')
         user = session.get('user')
+        with open('products.json', 'r') as file:
+            products = json.load(file)
         return render_template('shop.html', category=category, user=user)
 
     @app.route('/get_products')
@@ -19,8 +21,10 @@ def setup_order_routes(app):
         try:
             products = load_products()
             if category:
-                products = [product for product in products if product.get('type') == category]
+                products = [product for product in products if product.get('category') == category]
             return jsonify(products)
+            
+        
         except FileNotFoundError:
             return jsonify({"error": "Products file not found"}), 404
         except json.JSONDecodeError:

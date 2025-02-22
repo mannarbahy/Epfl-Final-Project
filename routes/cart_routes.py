@@ -8,14 +8,15 @@ def setup_cart_routes(app):
         user = session.get('user')
         return render_template('cart.html', user=user)
 
+ 
+
     @app.route('/add_to_cart', methods=['POST'])
     def add_to_cart():
         if not session.get('user'):
-            return redirect('/login')
-            
+            return jsonify({"error": "User not logged in", "redirect": "/login"}), 401
 
         user_id = session.get('user')
-        product_id = request.json.get('product_id')
+        product_id = str(request.json.get('product_id'))  
         quantity = request.json.get('quantity', 1)
 
         try:
@@ -24,10 +25,10 @@ def setup_cart_routes(app):
 
             for user in users_list:
                 if user['id'] == user_id:
-                    if product_id in user['cart']:
-                        user['cart'][product_id] += quantity  
-                    else:
-                        user['cart'][product_id] = quantity  
+                    if 'cart' not in user:
+                        user['cart'] = {}  # Ensure the cart exists
+
+                    user['cart'][product_id] = user['cart'].get(product_id, 0) + quantity
                     break
 
             with open("usersDB.json", "w") as file:
@@ -36,7 +37,9 @@ def setup_cart_routes(app):
             return jsonify({"success": True, "message": "Product added to cart!"})
 
         except Exception as e:
+          
             return jsonify({"error": str(e)}), 500
+
 
     @app.route('/remove_from_cart', methods=['POST'])
     def remove_from_cart():

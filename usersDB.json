@@ -828,20 +828,21 @@
         ]
     },
     {
-        "name": "manarrrr",
+        "name": "manar",
         "email": "manar.bahyy@gmail.com",
         "id": "39183b2c-b8ed-493c-ae50-1276f46ac639",
-        "password": "$2b$12$lQArfZvES3GWIy9oIRu/oe6cl9MxE3oYutt/NoSEwqLCFfQ1gR/8a",
+        "password": "$2b$12$awr0JZ.hmf.QYLIYAF2AquekludxoIa6Ma/zFfPxw/IXECJf6QMbW",
         "address": "maadi",
         "phone": "01098876543",
         "security_question": "ninooo",
         "role": "User",
         "wishlist": [
             1,
-            3,
             2
         ],
-        "cart": {},
+        "cart": {
+            "1": 2
+        },
         "orders": [
             {
                 "customerInfo": {
@@ -939,6 +940,38 @@
                 "total": 20,
                 "order_date": "2025-02-11T11:26:20.910600",
                 "order_id": "ORD-20250211112620"
+            },
+            {
+                "customerInfo": {
+                    "name": "jksadas",
+                    "address": "jdshlfksd",
+                    "city": "lksdhafk",
+                    "country": "sjdfalhk",
+                    "postcode": "2103",
+                    "phone": "89712921123",
+                    "email": "manar@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": {},
+                "total": 225,
+                "order_date": "2025-02-11T14:45:16.224748",
+                "order_id": "ORD-20250211144516"
+            },
+            {
+                "customerInfo": {
+                    "name": "manarbahy",
+                    "address": "cairo",
+                    "city": "baskldk",
+                    "country": "ljdjshfk",
+                    "postcode": "1234",
+                    "phone": "0189073823",
+                    "email": "manar.bahyy@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": {},
+                "total": 90,
+                "order_date": "2025-02-11T17:26:21.298413",
+                "order_id": "ORD-20250211172621"
             }
         ]
     },
@@ -1095,7 +1128,9 @@
         "phone": "7878788888",
         "security_question": "sddddddddd",
         "role": "user",
-        "wishlist": [],
+        "wishlist": [
+            3
+        ],
         "cart": {},
         "orders": [
             {
@@ -1113,7 +1148,124 @@
                 "total": 40,
                 "order_date": "2025-02-11T11:31:33.982355",
                 "order_id": "ORD-20250211113133"
+            },
+            {
+                "customerInfo": {
+                    "name": "dddddddddddddddd",
+                    "address": "sssssssssssssss",
+                    "city": "sddddddddddddd",
+                    "country": "sdsadsds",
+                    "postcode": "7777",
+                    "phone": "88888888888888",
+                    "email": "shorok@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": {},
+                "total": 40,
+                "order_date": "2025-02-11T11:38:20.622949",
+                "order_id": "ORD-20250211113820"
+            },
+            {
+                "customerInfo": {
+                    "name": "manar",
+                    "address": "mnaaa",
+                    "city": "maass",
+                    "country": "egypt",
+                    "postcode": "12345",
+                    "phone": "010456783762",
+                    "email": "manar@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": {},
+                "total": 15,
+                "order_date": "2025-02-11T12:00:16.594464",
+                "order_id": "ORD-20250211120016"
+            },
+            {
+                "customerInfo": {
+                    "name": "dfghjk",
+                    "address": "fghjk",
+                    "city": "fghjk",
+                    "country": "mnb",
+                    "postcode": "12345",
+                    "phone": "9875478987654",
+                    "email": "mnb@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": {},
+                "total": 30,
+                "order_date": "2025-02-11T12:06:21.120507",
+                "order_id": "ORD-20250211120621"
+            },
+            {
+                "customerInfo": {
+                    "name": "manana",
+                    "address": "jksd",
+                    "city": "jsakd",
+                    "country": "akjsd",
+                    "postcode": "1234",
+                    "phone": "01997634563",
+                    "email": "manar@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": {},
+                "total": 45,
+                "order_date": "2025-02-11T12:09:38.414151",
+                "order_id": "ORD-20250211120938"
+            },
+            {
+                "customerInfo": {
+                    "name": "sdfgh",
+                    "address": "hjfghj",
+                    "city": "fghjk",
+                    "country": "ghjk",
+                    "postcode": "2345",
+                    "phone": "98764367657868",
+                    "email": "manar@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": {},
+                "total": 20,
+                "order_date": "2025-02-11T12:13:31.223650",
+                "order_id": "ORD-20250211121331"
+            },
+            {
+                "customerInfo": {
+                    "name": "maaana",
+                    "address": "maaana",
+                    "city": "maaana",
+                    "country": "maaana",
+                    "postcode": "1234",
+                    "phone": "1234565433",
+                    "email": "maaana@gmail.com",
+                    "order_notes": ""
+                },
+                "cart": {},
+                "total": 35,
+                "order_date": "2025-02-11T12:21:07.858319",
+                "order_id": "ORD-20250211122107"
             }
         ]
+    },
+    {
+        "name": "salma",
+        "email": "salma33@gmail.com",
+        "id": "4c3d40bd-d7ba-448f-8b9d-552440f16f43",
+        "password": "$2b$12$rztMAka1rDtIrxx4JAfIl.nk7SPOCKENZ1GgTQNvH93kJC.0iNMM.",
+        "address": "cairo",
+        "phone": "0109938737",
+        "security_question": "SAloma",
+        "role": "user",
+        "wishlist": [
+            5,
+            6,
+            1,
+            2,
+            3
+        ],
+        "cart": {
+            "5": 4
+        },
+        "orders": []
     }
 ]

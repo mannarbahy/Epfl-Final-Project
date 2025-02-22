@@ -60,7 +60,7 @@ body {
 .input-field:hover, .input-field:focus{
     background: rgba(228, 228, 228, 0.25);
     color: #000000;
-    border: 1px solid #e74c3c;
+    border: 1px solid #0a4d12;
 }
 
 h1, h2 {
